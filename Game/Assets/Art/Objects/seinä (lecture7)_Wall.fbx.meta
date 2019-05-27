@@ -1,0 +1,226 @@
+fileFormatVersion: 2
+guid: f09ce671ac55d3d458a8f8599edc0845
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: _DATA_
+    100002: Breakable
+    100004: Broken
+    100006: ColumnLeft
+    100008: ColumnRight
+    100010: //RootNode
+    100012: Wall
+    100014: WallPiece00
+    100016: WallPiece01
+    100018: WallPiece02
+    100020: WallPiece03
+    100022: WallPiece04
+    100024: WallPiece05
+    100026: WallPiece06
+    100028: WallPiece07
+    100030: WallPiece08
+    100032: WallPiece09
+    100034: WallPiece10
+    100036: WallPiece11
+    100038: WallPiece12
+    100040: WallPiece13
+    100042: WallPiece14
+    100044: WallPiece15
+    100046: WallPiece16
+    100048: WallPiece17
+    100050: WallPiece18
+    100052: WallPiece19
+    100054: WallPieceLeft
+    100056: WallPieceRight
+    400000: _DATA_
+    400002: Breakable
+    400004: Broken
+    400006: ColumnLeft
+    400008: ColumnRight
+    400010: //RootNode
+    400012: Wall
+    400014: WallPiece00
+    400016: WallPiece01
+    400018: WallPiece02
+    400020: WallPiece03
+    400022: WallPiece04
+    400024: WallPiece05
+    400026: WallPiece06
+    400028: WallPiece07
+    400030: WallPiece08
+    400032: WallPiece09
+    400034: WallPiece10
+    400036: WallPiece11
+    400038: WallPiece12
+    400040: WallPiece13
+    400042: WallPiece14
+    400044: WallPiece15
+    400046: WallPiece16
+    400048: WallPiece17
+    400050: WallPiece18
+    400052: WallPiece19
+    400054: WallPieceLeft
+    400056: WallPieceRight
+    2100000: No Name
+    2300000: Breakable
+    2300002: ColumnLeft
+    2300004: ColumnRight
+    2300006: WallPiece00
+    2300008: WallPiece01
+    2300010: WallPiece02
+    2300012: WallPiece03
+    2300014: WallPiece04
+    2300016: WallPiece05
+    2300018: WallPiece06
+    2300020: WallPiece07
+    2300022: WallPiece08
+    2300024: WallPiece09
+    2300026: WallPiece10
+    2300028: WallPiece11
+    2300030: WallPiece12
+    2300032: WallPiece13
+    2300034: WallPiece14
+    2300036: WallPiece15
+    2300038: WallPiece16
+    2300040: WallPiece17
+    2300042: WallPiece18
+    2300044: WallPiece19
+    2300046: WallPieceLeft
+    2300048: WallPieceRight
+    3300000: Breakable
+    3300002: ColumnLeft
+    3300004: ColumnRight
+    3300006: WallPiece00
+    3300008: WallPiece01
+    3300010: WallPiece02
+    3300012: WallPiece03
+    3300014: WallPiece04
+    3300016: WallPiece05
+    3300018: WallPiece06
+    3300020: WallPiece07
+    3300022: WallPiece08
+    3300024: WallPiece09
+    3300026: WallPiece10
+    3300028: WallPiece11
+    3300030: WallPiece12
+    3300032: WallPiece13
+    3300034: WallPiece14
+    3300036: WallPiece15
+    3300038: WallPiece16
+    3300040: WallPiece17
+    3300042: WallPiece18
+    3300044: WallPiece19
+    3300046: WallPieceLeft
+    3300048: WallPieceRight
+    4300000: ColumnLeft
+    4300002: ColumnRight
+    4300004: WallPieceLeft
+    4300006: Breakable
+    4300008: WallPieceRight
+    4300010: WallPiece00
+    4300012: WallPiece01
+    4300014: WallPiece02
+    4300016: WallPiece03
+    4300018: WallPiece04
+    4300020: WallPiece05
+    4300022: WallPiece06
+    4300024: WallPiece07
+    4300026: WallPiece08
+    4300028: WallPiece09
+    4300030: WallPiece10
+    4300032: WallPiece11
+    4300034: WallPiece12
+    4300036: WallPiece13
+    4300038: WallPiece14
+    4300040: WallPiece15
+    4300042: WallPiece16
+    4300044: WallPiece17
+    4300046: WallPiece18
+    4300048: WallPiece19
+    11400000: _DATA_
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,3 @@
+C:/Users/Henri/Documents/koulutehtävät/III vuosi/Pelisovellusten laajennukset/lecture4/BananaGame/Game/Assets/Art/Objects/donut.FBX|C:/Users/Henri/Documents/koulutehtävät/III vuosi/Pelisovellusten laajennukset/lecture4/BananaGame/Game/Assets/Art/Textures/FlowersDried0049_1_S.png
+C:/Users/Henri/Documents/koulutehtävät/III vuosi/Pelisovellusten laajennukset/lecture4/BananaGame/Game/Assets/Art/Objects/levelF.FBX
+C:/Users/Henri/Documents/koulutehtävät/III vuosi/Pelisovellusten laajennukset/lecture4/BananaGame/Game/Assets/Art/Objects/teapot.FBX|C:/Users/Henri/Documents/koulutehtävät/III vuosi/Pelisovellusten laajennukset/lecture4/BananaGame/Game/Assets/Art/Textures/TilesRelief0008_5_seamless_S.png
