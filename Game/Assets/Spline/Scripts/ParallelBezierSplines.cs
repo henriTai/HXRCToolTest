@@ -165,9 +165,12 @@ public class ParallelBezierSplines : MonoBehaviour
         }
     }
 
-    public int GetSegmentCount()
+    public int SegmentCount
     {
-        return segmentLengths.Length;
+        get
+        {
+            return segmentLengths.Length;
+        }
     }
 
     public int ControlPointCount
@@ -1144,6 +1147,7 @@ public class ParallelBezierSplines : MonoBehaviour
     // tähän jäin+++++++++++++++++++++++++++++++++++++++++++++++++++
     public void AddCurve()
     {
+        // First, update the main spline
         Vector3 point = points[points.Length - 1];
         //use the length of the previous segment as a measure for the new one
         float length = segmentLengths[segmentLengths.Length - 1] / 3f;
@@ -1151,6 +1155,7 @@ public class ParallelBezierSplines : MonoBehaviour
         Vector3 dir = GetSegmentedDirection(segmentLengths.Length - 1, 1f);
         Debug.Log(dir);
         // Array requires System-namespace. points is passed as a REFERENCE (not a copy)
+        // 1. Add new points
         Array.Resize(ref points, points.Length + 3);
         point += length * dir;
         points[points.Length - 3] = point;
@@ -1158,45 +1163,84 @@ public class ParallelBezierSplines : MonoBehaviour
         points[points.Length - 2] = point;
         point += length * dir;
         points[points.Length - 1] = point;
+        // 2. Resize segmentLengths
         Array.Resize(ref segmentLengths, segmentLengths.Length + 1);
         segmentLengths[segmentLengths.Length - 1] = 3f;
-
+        // 3. Resize modes
         Array.Resize(ref modes, modes.Length + 1);
         modes[modes.Length - 1] = modes[modes.Length - 2];
         EnforceMode(points.Length - 4);
 
-        int length1, length2;
-        length1 = rightLanePoints.GetLength(0);
-        length2 = rightLanePoints.GetLength(1);
+        // 4. Add new right lane points
+        int size = points.Length;
+        Vector3 rightDir = new Vector3(dir.z, dir.y, -dir.x);
 
-        Vector3[,] newRightPoints = new Vector3[length1, length2 + 3];
-        Vector3[,] newLeftPoints = new Vector3[length1, length2 + 3];
-        for (int i = 0; i < length1; i++)
+        Vector3[,] newRightPoints = new Vector3[RightLaneCount, size];
+        for (int i = 0; i < RightLaneCount; i++)
         {
-            for (int j = 0; j < length2; j++)
+            for (int j = 0; j < size - 3; j++)
             {
                 newRightPoints[i, j] = rightLanePoints[i, j];
-                newLeftPoints[i, j] = leftLanePoints[i, j];
             }
+            Vector3 spacing = rightSpacings[i, rightSpacings.GetLength(1) - 1] * rightDir;
+            newRightPoints[i, size - 3] = points[size - 3] + spacing;
+            newRightPoints[i, size - 2] = points[size - 2] + spacing;
+            newRightPoints[i, size - 1] = points[size - 1] + spacing;
         }
+        rightLanePoints = newRightPoints;
 
-        length2 = rightSegmentLengths.GetLength(1);
+        // 5. Add new left lane points
+        Vector3 leftDir = new Vector3(-dir.z, dir.y, dir.x);
+        Vector3[,] newLeftPoints = new Vector3[LeftLaneCount, size];
 
-        float[,] newLeftSegments = new float[length1, length2 + 1];
-        float[,] newRightSegments = new float[length1, length2 + 1];
-        BezierControlPointMode[,] newRightModes = new BezierControlPointMode[length1, length2 + 1];
-        BezierControlPointMode[,] newLeftModes = new BezierControlPointMode[length1, length2 + 1];
-        for (int i = 0; i < length1; i++)
+        for (int i = 0; i < LeftLaneCount; i++)
         {
-            for (int j = 0; j < length2; j++)
+            Vector3 spacing = leftSpacings[i, 0] * leftDir;
+            newLeftPoints[i, 0] = points[size - 1] + spacing;
+            newLeftPoints[i, 1] = points[size - 2] + spacing;
+            newLeftPoints[i, 2] = points[size - 3] + spacing;
+
+            for (int j = 0; j < size - 3; j++)
             {
-                newRightSegments[i, j] = rightSegmentLengths[i, j];
-                newLeftSegments[i, j] = leftSegmentLengths[i, j];
-                newRightModes[i, j] = rightModes[i, j];
-                newLeftModes[i, j] = leftModes[i, j];
+                newLeftPoints[i, j + 3] = leftLanePoints[i, j];
             }
         }
+        leftLanePoints = newLeftPoints;
 
+        // Add new spacings, copy previous value
+        // 6. Update right spacings
+        size = SegmentCount;
+        float[,] newRightSpacings = new float[RightLaneCount, size];
+        for (int i = 0; i < RightLaneCount; i++)
+        {
+            for (int j = 0; j < size - 1; j++)
+            {
+                newRightSpacings[i, j] = rightSpacings[i, j];
+            }
+            newRightSpacings[i, size - 1] = rightSpacings[i, size - 2];
+        }
+        rightSpacings = newRightSpacings;
+        // 7. Update left spacings
+        float[,] newLeftSpacings = new float[LeftLaneCount, size];
+        for (int i = 0; i < LeftLaneCount; i++)
+        {
+            newLeftSpacings[i, 0] = leftSpacings[i, 0];
+            for (int j = 0; j < size - 1; j++)
+            {
+                newLeftSpacings[i, j + 1] = leftSpacings[i, j];
+            }
+        }
+        leftSpacings = newLeftSpacings;
+        // 8. Resize right segments
+        float[,] newRightSegments = new float[RightLaneCount, size];
+        // 9. Resize left segments
+        float[,] newLeftSegments = new float[LeftLaneCount, size];
+        // 10. Update right modes
+        BezierControlPointMode[,] newRightModes = new BezierControlPointMode[RightLaneCount, size];
+        // 11. Update left modes
+        BezierControlPointMode[,] newLeftModes = new BezierControlPointMode[LeftLaneCount, size];
+
+        //***************Update following
         if (loop)
         {
             points[points.Length - 1] = points[0];
