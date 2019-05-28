@@ -7,7 +7,9 @@ using UnityEditor.SceneManagement;
 [CustomEditor(typeof(BezierSpline))]
 public class BezierSplineInspector : Editor
 {
+    // for displaying bezier direction at set intervals
     private const int stepsPerCurve = 10;
+    // length modifier of direction visualisation lines
     private const float directionScale = 0.5f;
     private const float handleSize = 0.04f;
     private const float pickSize = 0.06f;
