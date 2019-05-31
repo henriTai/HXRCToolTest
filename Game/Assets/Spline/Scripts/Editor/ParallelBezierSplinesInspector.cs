@@ -68,6 +68,8 @@ public class ParallelBezierSplinesInspector : Editor
     public override void OnInspectorGUI()
     {
         parallel = target as ParallelBezierSplines;
+        Undo.RecordObject(parallel, "changed");
+
         if (arraysInitialized == false)
         {
             InitializeArrays();
@@ -165,7 +167,9 @@ public class ParallelBezierSplinesInspector : Editor
 
     private void InitializeParallel()
     {
-        parallel.Reset();
+        //var so = new SerializedObject(parallel);
+        //so
+        //parallel.Reset();
         Vector3 right = new Vector3(directionVector.z, directionVector.y, -directionVector.x);
         Vector3 gp0, gp1, gp2, gp3;
         gp0 = Vector3.zero;
