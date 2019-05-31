@@ -8,6 +8,8 @@ public class ParallelBezierSplines : MonoBehaviour
 
     [SerializeField]
     private bool loop;
+    [SerializeField]
+    private bool initialized;
 
     [SerializeField]
     private Vector3[] points;
@@ -69,8 +71,7 @@ public class ParallelBezierSplines : MonoBehaviour
     [SerializeField]
     private int rightLaneCount;
     
-    [SerializeField]
-    private float lanePositioning = 0f;
+
 
     public int LeftLaneCount
     {
@@ -94,20 +95,20 @@ public class ParallelBezierSplines : MonoBehaviour
             if (rightLaneCount != v)
             {
                 rightLaneCount = v;
+
             }
         }
     }
 
-    public float LanePositioning
+    public bool Initialized
     {
-        get { return lanePositioning; }
+        get
+        {
+            return initialized;
+        }
         set
         {
-            float v = Mathf.Clamp(value, 0, float.MaxValue);
-            if (lanePositioning != v)
-            {
-                lanePositioning = v;
-            }
+            initialized = value;
         }
     }
 
@@ -116,7 +117,7 @@ public class ParallelBezierSplines : MonoBehaviour
     {
         LeftLaneCount = leftLaneCount;
         RightLaneCount = rightLaneCount;
-        LanePositioning = lanePositioning;
+        //LanePositioning = lanePositioning;
     }
 
 #endif
@@ -228,12 +229,12 @@ public class ParallelBezierSplines : MonoBehaviour
                 SetControlPoint(0, points[0]);
                 for (int i=0; i < rightLaneCount; i++)
                 {
-                    SetControlPointRight(0, i, rightLanePoints[i, 0]);
+                    SetControlPointRight(i, 0, rightLanePoints[i, 0]);
                 }
                 for (int i=0; i < leftLaneCount; i++)
                 {
                     int ind = leftLanePoints.GetLength(1) - 1;
-                    SetControlPointLeft(ind, i, leftLanePoints[i, ind]);
+                    SetControlPointLeft(i, ind, leftLanePoints[i, ind]);
                 }
 
             }
@@ -344,6 +345,26 @@ public class ParallelBezierSplines : MonoBehaviour
         }
     }
 
+    public float GetRightSpacing(int lane, int node)
+    {
+        return rightSpacings[lane, node/3];
+    }
+
+    public void SetRightSpacing(int lane, int node, float spacing)
+    {
+        rightSpacings[lane, node/3] = spacing;
+    }
+
+    public float GetLeftSpacing(int lane, int node)
+    {
+        return leftSpacings[lane, node/3];
+    }
+
+    public void SetLeftSpacing(int lane, int node, float spacing)
+    {
+        leftSpacings[lane, node/3] = spacing;
+    }
+
     public void SetControlPoint(int index, Vector3 point)
     {
         //******** this adjustment is made so that when a middle point is moved, it
@@ -388,7 +409,7 @@ public class ParallelBezierSplines : MonoBehaviour
         EnforceMode(index);
     }
 
-    public void SetControlPointLeft(int index, int lane,  Vector3 point)
+    public void SetControlPointLeft(int lane, int index,  Vector3 point)
     {
         //******** this adjustment is made so that when a middle point is moved, it
         // affects points on both sides of it
@@ -433,7 +454,7 @@ public class ParallelBezierSplines : MonoBehaviour
         EnforceModeLeft(lane, index);
     }
 
-    public void SetControlPointRight(int index, int lane, Vector3 point)
+    public void SetControlPointRight(int lane, int index, Vector3 point)
     {
         //******** this adjustment is made so that when a middle point is moved, it
         // affects points on both sides of it
@@ -977,7 +998,7 @@ public class ParallelBezierSplines : MonoBehaviour
         Vector3 prev = GetSegmentedPoint(segment, 0f);
         for (int i = 1; i <= 1000; i++)
         {
-            Vector3 next = GetSegmentedPoint(segment, i / 1000f);
+            Vector3 next = GetSegmentedPoint(segment, (float)i / 1000f);
             dist += Vector3.Distance(prev, next);
             prev = next;
         }
@@ -992,6 +1013,7 @@ public class ParallelBezierSplines : MonoBehaviour
             if (segment == 0)
             {
                 segment = segmentLengths.Length - 1;
+                Debug.Log("segment: " + segment);
             }
             else
             {
@@ -1152,7 +1174,6 @@ public class ParallelBezierSplines : MonoBehaviour
         float length = segmentLengths[segmentLengths.Length - 1] / 3f;
         //continue to the direction of the previous segment
         Vector3 dir = GetSegmentedDirection(segmentLengths.Length - 1, 1f);
-        Debug.Log(dir);
         // Array requires System-namespace. points is passed as a REFERENCE (not a copy)
         // 1. Add new points
         Array.Resize(ref points, points.Length + 3);
@@ -1256,6 +1277,7 @@ public class ParallelBezierSplines : MonoBehaviour
             }
         }
         leftSegmentLengths = newLeftSegments;
+        size++;
         // 10. Update right modes
         BezierControlPointMode[,] newRightModes = new BezierControlPointMode[RightLaneCount, size];
         for (int i = 0; i < RightLaneCount; i++)
@@ -1264,7 +1286,7 @@ public class ParallelBezierSplines : MonoBehaviour
             {
                 newRightModes[i, j] = rightModes[i, j];
             }
-            newRightModes[i, size - 1] = rightModes[i, size - 1];
+            newRightModes[i, size - 1] = rightModes[i, size - 2];
         }
         rightModes = newRightModes;
         // 11. Update left modes
@@ -1307,12 +1329,12 @@ public class ParallelBezierSplines : MonoBehaviour
 
     public BezierControlPointMode GetControlPointModeRight(int lane, int index)
     {
-        return rightModes[lane, index];
+        return rightModes[lane, (index + 1) / 3];
     }
 
     public BezierControlPointMode GetControlPointModeLeft(int lane, int index)
     {
-        return leftModes[lane, index];
+        return leftModes[lane, (index + 1) / 3];
     }
 
     public void SetControlPointMode(int index, BezierControlPointMode mode)
@@ -1372,6 +1394,7 @@ public class ParallelBezierSplines : MonoBehaviour
     public void Reset()
     {
         loop = false;
+        initialized = false;
         points = new Vector3[]
         {
             new Vector3(0f, 0f, 0f),
@@ -1388,7 +1411,6 @@ public class ParallelBezierSplines : MonoBehaviour
         splineLength = Vector3.Distance(points[0], points[3]);
         segmentLengths = new float[] { splineLength }; //jos ei alusteta suoralla pitää muuttaa
 
-        LanePositioning = 0f;
         LeftLaneCount = 0;
         RightLaneCount = 0;
 
@@ -1399,20 +1421,49 @@ public class ParallelBezierSplines : MonoBehaviour
         wayPointsRight2 = new List<GameObject>();
         wayPointsRight3 = new List<GameObject>();
 
-        leftLanePoints = new Vector3[,] { };
-        rightLanePoints = new Vector3[,] { };
+        leftLanePoints = new Vector3[,]
+        {
+            {Vector3.zero, Vector3.zero, Vector3.zero, Vector3.zero },
+            {Vector3.zero, Vector3.zero, Vector3.zero, Vector3.zero },
+            {Vector3.zero, Vector3.zero, Vector3.zero, Vector3.zero }
+        };
+        rightLanePoints = new Vector3[,]
+        {
+            {Vector3.zero, Vector3.zero, Vector3.zero, Vector3.zero },
+            {Vector3.zero, Vector3.zero, Vector3.zero, Vector3.zero },
+            {Vector3.zero, Vector3.zero, Vector3.zero, Vector3.zero }
+        };
+        leftSegmentLengths = new float[,] { { 0 },{ 0 },{ 0 } };
+        rightSegmentLengths = new float[,] { { 0 },{ 0 }, { 0 } };
 
-        leftSegmentLengths = new float[,] { };
-        rightSegmentLengths = new float[,] { };
+        leftSplineLengths = new float[] {0f ,0f ,0f };
+        rightSplineLengths = new float[] {0f ,0f ,0f };
 
-        leftSplineLengths = new float[] { };
-        rightSplineLengths = new float[] { };
+        leftSpacings = new float[,]
+        {
+            {0f ,0f },
+            {0f ,0f },
+            {0f ,0f }
+        };
+        rightSpacings = new float[,]
+        {
+            {0f ,0f },
+            {0f ,0f },
+            {0f ,0f }
+        };
 
-        leftSpacings = new float[,] { };
-        rightSpacings = new float[,] { };
-
-        leftModes = new BezierControlPointMode[,] { };
-        rightModes = new BezierControlPointMode[,] { };
+        leftModes = new BezierControlPointMode[,]
+        {
+            {BezierControlPointMode.Aligned, BezierControlPointMode.Aligned},
+            {BezierControlPointMode.Aligned, BezierControlPointMode.Aligned},
+            {BezierControlPointMode.Aligned, BezierControlPointMode.Aligned}
+        };
+        rightModes = new BezierControlPointMode[,]
+        {
+            {BezierControlPointMode.Aligned, BezierControlPointMode.Aligned},
+            {BezierControlPointMode.Aligned, BezierControlPointMode.Aligned},
+            {BezierControlPointMode.Aligned, BezierControlPointMode.Aligned}
+        };
 
     }
 }

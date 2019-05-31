@@ -226,7 +226,7 @@ public class RoadEditor : EditorWindow
         sceneView.LookAtDirect(parentObject.transform.position, Quaternion.Euler(90, 0, 0), cameraZoom);
         sceneView.orthographic = true;
 
-        DrawMarkerLine(Vector3.zero, GeneralDirectionVector(Directions.SouthWest), 100f);
+        DrawMarkerLine(Vector3.zero, GeneralDirection.DirectionVector(Directions.SouthWest), 100f);
 
         GUILayout.BeginHorizontal();
         if (GUILayout.Button("Back"))
@@ -251,39 +251,6 @@ public class RoadEditor : EditorWindow
         Vector3 half = dir * 0.5f * length;
         Vector3 startPos = pos - half;
         Vector3 endPos = pos + half;
-    }
-
-    private static Vector3 GeneralDirectionVector (Directions direction)
-    {
-        Vector3 dir = Vector3.zero;
-        switch(direction)
-        {
-            case Directions.North:
-                dir = new Vector3(1f, 0f, 0f);
-                break;
-            case Directions.West:
-                dir = new Vector3(0f, 0f, -1f);
-                break;
-            case Directions.South:
-                dir = new Vector3(-1f, 0f, 0f);
-                break;
-            case Directions.East:
-                dir = new Vector3(0f, 0f, 1f);
-                break;
-            case Directions.NorthWest:
-                dir = new Vector3(1f, 0f, -1f).normalized;
-                break;
-            case Directions.SouthWest:
-                dir = new Vector3(-1f, 0f, -1f).normalized;
-                break;
-            case Directions.SouthEast:
-                dir = new Vector3(-1f, 0f, 1f).normalized;
-                break;
-            case Directions.NorthEast:
-                dir = new Vector3(1f, 0f, 1f).normalized;
-                break;
-        }
-        return dir;
     }
 
     private void OnDestroy()

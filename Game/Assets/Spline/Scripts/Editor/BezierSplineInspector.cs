@@ -137,7 +137,7 @@ public class BezierSplineInspector : Editor
                 }
                 for (int i = spline.wayPoints.Count - 1; i > 0; i--)
                 {
-                    spline.wayPoints[i - 1].GetComponent<Nodes>().AddNode(spline.wayPoints[i].GetComponent<Nodes>());
+                    spline.wayPoints[i - 1].GetComponent<Nodes>().AddNextNode(spline.wayPoints[i].GetComponent<Nodes>());
                 }
             }
         }
