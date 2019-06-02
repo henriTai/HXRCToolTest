@@ -338,7 +338,7 @@ public class ParallelBezierSplines : MonoBehaviour
                 v = leftLanePoints2[index];
                 break;
             case 2:
-                v = leftLanePoints2[index];
+                v = leftLanePoints3[index];
                 break;
         }
         return v;
@@ -356,7 +356,7 @@ public class ParallelBezierSplines : MonoBehaviour
                 v = rightLanePoints2[index];
                 break;
             case 2:
-                v = rightLanePoints2[index];
+                v = rightLanePoints3[index];
                 break;
         }
         return v;
@@ -822,6 +822,7 @@ public class ParallelBezierSplines : MonoBehaviour
                 rightLanePoints3[index] = point;
                 break;
         }
+
         EnforceModeRight(lane, index);
     }
 
@@ -953,7 +954,7 @@ public class ParallelBezierSplines : MonoBehaviour
                     enforcedTangent = enforcedTangent.normalized *
                         Vector3.Distance(middle, leftLanePoints3[enforcedIndex]);
                 }
-                leftLanePoints1[enforcedIndex] = middle + enforcedTangent;
+                leftLanePoints3[enforcedIndex] = middle + enforcedTangent;
                 break;
         }
     }
@@ -2056,7 +2057,7 @@ public class ParallelBezierSplines : MonoBehaviour
         rightModes2[rightModes2.Length - 1] = rightModes2[rightModes2.Length - 2];
         //rightModes3
         Array.Resize(ref rightModes3, rightModes3.Length + 1);
-        rightModes1[rightModes3.Length - 1] = rightModes3[rightModes3.Length - 2];
+        rightModes3[rightModes3.Length - 1] = rightModes3[rightModes3.Length - 2];
 
         // 11. Update left modes
         //leftModes1

@@ -196,7 +196,7 @@ public class ParallelBezierSplinesInspector : Editor
             parallel.SetControlPointRight(i, 1, gp1 + right * space);
             parallel.SetControlPointRight(i, 2, gp2 + right * space);
             parallel.SetRightSpacing(i, 0, rSpacing[i]);
-            parallel.SetRightSpacing(i, 1, rSpacing[i]);
+            parallel.SetRightSpacing(i, 3, rSpacing[i]);
             parallel.RecalculateLengthRight(i, 0);
         }
         space = 0f;
@@ -209,7 +209,7 @@ public class ParallelBezierSplinesInspector : Editor
             parallel.SetControlPointLeft(i, 2, gp1 - right * space);
             parallel.SetControlPointLeft(i, 1, gp2 - right * space);
             parallel.SetLeftSpacing(i, 0, lSpacing[i]);
-            parallel.SetLeftSpacing(i, 1, lSpacing[i]);
+            parallel.SetLeftSpacing(i, 3, lSpacing[i]);
             parallel.RecalculateLengthLeft(i, 0);
         }
         adjustment = 0f;
@@ -504,7 +504,6 @@ public class ParallelBezierSplinesInspector : Editor
                 p1 = ShowPointRight(lanes, i);
                 p2 = ShowPointRight(lanes, i + 1);
                 p3 = ShowPointRight(lanes, i + 2);
-
                 Handles.color = Color.magenta;
                 Handles.DrawLine(p0, p1);
                 Handles.DrawLine(p2, p3);
@@ -567,7 +566,8 @@ public class ParallelBezierSplinesInspector : Editor
                 for (int i = 0; i < parallel.RightLaneCount; i++)
                 {
                     space += parallel.GetRightSpacing(i, (index+1)/3);
-                    parallel.SetControlPointRight(i, index, p + dRight * space);
+                    Vector3 v = p + dRight * space;
+                    parallel.SetControlPointRight(i, index, handleTransform.InverseTransformPoint(p + dRight * space));
                     parallel.RecalculateLengthRight(i, selectedIndex);
                 }
                 space = 0f;
@@ -575,7 +575,7 @@ public class ParallelBezierSplinesInspector : Editor
                 {
                     int ind = parallel.ControlPointCount - 1 - index;
                     space += parallel.GetLeftSpacing(i, (ind + 1) / 3);
-                    parallel.SetControlPointLeft(i, ind, p - dRight * space);
+                    parallel.SetControlPointLeft(i, ind, handleTransform.InverseTransformPoint(p - dRight * space));
                     parallel.RecalculateLengthLeft(i, ind);
                     
                 }

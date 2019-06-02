@@ -72,7 +72,6 @@ public static class ObjectTagger
     {
         int div = iconCount[(int) i];
         int ind = index % div;
-        ParallelBezierSplines b = new ParallelBezierSplines();
         switch(i)
         {
             case IconType.Label:
