@@ -159,10 +159,130 @@ public class ParallelBezierSplinesInspector : Editor
 
     private void EditMenu()
     {
+        ShowEditInstructions();
         if (GUILayout.Button("Add segment"))
         {
             parallel.AddCurve();
         }
+        ShowSelectedNodeInfo();
+    }
+
+    private void ShowSelectedNodeInfo()
+    {
+        int pointNumber = -1;
+        int leftPoint = -1;
+        string nodeString, leftString;
+        leftString = "";
+        if (selectedIndex == -1)
+        {
+            nodeString = "not selected";
+            leftString = "";
+        }
+        else
+        {
+            if (selectedIndex % 3 == 0)
+            {
+                pointNumber = selectedIndex / 3;
+                nodeString = "point " + pointNumber;
+                leftPoint = (parallel.ControlPointCount - 1 - selectedIndex) / 3;
+                leftString = " (point " + leftPoint + ")";
+            }
+            else if (selectedIndex == 1)
+            {
+                pointNumber = 0;
+                nodeString = "curve control (point 0)";
+                leftPoint = (parallel.ControlPointCount - 1) / 3;
+                leftString = "curve control (point " + leftPoint + ")";
+            }
+            else if (selectedIndex == parallel.ControlPointCount - 2)
+            {
+                pointNumber = (selectedIndex + 1) / 3;
+                nodeString = "curve control (point " + pointNumber + ")";
+                leftPoint = 0;
+                leftString = "curve control (point 0)";
+            }
+            else if ((selectedIndex + 1) % 3 == 0)
+            {
+                pointNumber = (selectedIndex + 1) / 3;
+                nodeString = "curve control 1 (point " + pointNumber + ")";
+                leftPoint = (parallel.ControlPointCount - 1) / 3 - pointNumber;
+                leftString = "curve control 2 (point " + leftPoint + ")";
+            }
+            else
+            {
+                pointNumber = (selectedIndex - 1) / 3;
+                nodeString = "curve control 2 (point " + pointNumber + ")";
+                leftPoint = (parallel.ControlPointCount - 1) / 3 - pointNumber;
+                leftString = "curve control 1 (point " + leftPoint + ")";
+            }
+        }
+        EditorGUILayout.LabelField("Selected node: " + nodeString);
+        EditorGUILayout.LabelField("Left side: " + leftString);
+        if (pointNumber != -1)
+        {
+            EditorGUILayout.LabelField("Point " + pointNumber, EditorStyles.boldLabel);
+            if (pointNumber != 0)
+            {
+                EditorGUILayout.LabelField("Spacing options", EditorStyles.boldLabel);
+                //right lane spacings
+                for (int i = 0; i < parallel.RightLaneCount; i++)
+                {
+                    EditorGUILayout.BeginHorizontal();
+                    rSpacing[i] = EditorGUILayout.FloatField("R. lane " + (i+1) 
+                        + "current: " + parallel.GetRightSpacing(i, selectedIndex), rSpacing[i]);
+                    if (GUILayout.Button("Change"))
+                    {
+                        if (rSpacing[i] != parallel.GetRightSpacing(i, selectedIndex))
+                        {
+                            float changeAmount = rSpacing[i] - parallel.GetRightSpacing(i, selectedIndex);
+                            parallel.SetRightSpacing(i, selectedIndex, rSpacing[i]);
+                            int index = pointNumber * 3;
+                            Vector3 right = GeneralDirection.DirectionRight(parallel.GetDirection((float)index / parallel.CurveCount));
+                            Vector3 moved = changeAmount * right;
+                            for (int j = i; j < 3; j++)
+                            {
+                                Vector3 newPoint = moved + parallel.GetControlPointRight(j, index);
+                                parallel.SetControlPointRight(j, index, newPoint);
+                            }
+
+                            SceneView.RepaintAll();
+                        }
+                    }
+                    EditorGUILayout.EndHorizontal();
+                }
+                //left lane spacings
+                for (int i = 0; i < parallel.LeftLaneCount; i++)
+                {
+                    int index = leftPoint * 3;
+                    EditorGUILayout.BeginHorizontal();
+                    lSpacing[i] = EditorGUILayout.FloatField("L. lane " + (i + 1)
+                        + "current: " + parallel.GetLeftSpacing(i, index), lSpacing[i]);
+                    if (GUILayout.Button("Change"))
+                    {
+                        if (lSpacing[i] != parallel.GetLeftSpacing(i, index))
+                        {
+                            float changeAmount = lSpacing[i] - parallel.GetLeftSpacing(i, index);
+                            parallel.SetLeftSpacing(i, index, lSpacing[i]);
+                            Vector3 right = GeneralDirection.DirectionRight(parallel.GetDirection((float)pointNumber*3 / parallel.CurveCount));
+                            Vector3 moved = - changeAmount * right;
+                            for (int j = i; j < 3; j++)
+                            {
+                                Vector3 newPoint = moved + parallel.GetControlPointLeft(j, index);
+                                parallel.SetControlPointLeft(j, index, newPoint);
+                            }
+
+                            SceneView.RepaintAll();
+                        }
+                    }
+                    EditorGUILayout.EndHorizontal();
+                }
+            }
+            if (pointNumber == 0 || pointNumber == parallel.ControlPointCount / 3)
+            {
+                // linking options
+            }
+        }
+
     }
 
     private void InitializeParallel()
@@ -236,6 +356,11 @@ public class ParallelBezierSplinesInspector : Editor
             "each lane.", EditorStyles.wordWrappedLabel);
         EditorGUILayout.LabelField("5. When you are happy with the settings, press 'Setup done'-button and these " +
             "initial settings are used for creating a set of parallel splines.", EditorStyles.wordWrappedLabel);
+    }
+
+    private void ShowEditInstructions()
+    {
+        EditorGUILayout.LabelField("Edit mode instructions:", EditorStyles.boldLabel);
     }
 
     private void ShowLaneCountSelection()
@@ -476,6 +601,7 @@ public class ParallelBezierSplinesInspector : Editor
         {
             
             DrawParallelBezier();
+            DrawSegmentLines();
         }
     }
 
@@ -530,6 +656,52 @@ public class ParallelBezierSplinesInspector : Editor
         }
     }
 
+    private void DrawSegmentLines()
+    {
+        Vector3 leftPoint, rightPoint, labelPoint;
+        for (int i = 0; i < parallel.ControlPointCount; i += 3)
+        {
+            int leftI = parallel.ControlPointCount -  1 - i;
+            leftPoint = parallel.GetControlPoint(i);
+            rightPoint = parallel.GetControlPoint(i);
+            labelPoint = parallel.GetControlPoint(i);
+            switch (parallel.LeftLaneCount)
+            {
+                case 1:
+                    leftPoint = parallel.GetControlPointLeft(0, leftI);
+                    labelPoint = leftPoint;
+                    break;
+                case 2:
+                    leftPoint = parallel.GetControlPointLeft(1, leftI);
+                    labelPoint = leftPoint;
+                    break;
+                case 3:
+                    leftPoint = parallel.GetControlPointLeft(2, leftI);
+                    labelPoint = leftPoint;
+                    break;
+            }
+            switch (parallel.RightLaneCount)
+            {
+                case 1:
+                    rightPoint = parallel.GetControlPointRight(0, i);
+                    break;
+                case 2:
+                    rightPoint = parallel.GetControlPointRight(1, i);
+                    break;
+                case 3:
+                    rightPoint = parallel.GetControlPointRight(2, i);
+                    break;
+            }
+            labelPoint.x -= 6f;
+            labelPoint.z += 1f;
+            Handles.color = Color.white;
+            Handles.DrawLine(leftPoint, rightPoint);
+            GUIStyle style = new GUIStyle();
+            style.normal.textColor = Color.white;
+            Handles.Label(labelPoint, "Pt. " + i/3, style);
+        }
+    }
+
     private Vector3 ShowPoint(int index)
     {
         Vector3 point = handleTransform.TransformPoint(parallel.GetControlPoint(index));
@@ -554,30 +726,50 @@ public class ParallelBezierSplinesInspector : Editor
             point = Handles.DoPositionHandle(point, handleRotation);
             Vector3 dRight = GeneralDirection.DirectionRight(parallel.GetDirection((float)index / parallel.CurveCount));
             Vector3 p = handleTransform.InverseTransformPoint(point);
-            float space = 0f;
 
             if (EditorGUI.EndChangeCheck())
             {
                 Undo.RecordObject(parallel, "MovePoint");
                 EditorUtility.SetDirty(parallel);
                 EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+                Vector3[] leftMoves = new Vector3[3];
+                Vector3[] rightMoves = new Vector3[3];
+
+                int leftIndex = parallel.ControlPointCount - 1 - index;
+                leftMoves[0] = parallel.GetControlPointLeft(0, leftIndex) - parallel.GetControlPoint(index);
+                leftMoves[1] = parallel.GetControlPointLeft(1, leftIndex) - parallel.GetControlPoint(index);
+                leftMoves[2] = parallel.GetControlPointLeft(2, leftIndex) - parallel.GetControlPoint(index);
+                rightMoves[0] = parallel.GetControlPointRight(0, index) - parallel.GetControlPoint(index);
+                rightMoves[1] = parallel.GetControlPointRight(1, index) - parallel.GetControlPoint(index);
+                rightMoves[2] = parallel.GetControlPointRight(2, index) - parallel.GetControlPoint(index);
+
                 parallel.SetControlPoint(index, handleTransform.InverseTransformPoint(point));
                 parallel.RecalculateLength(selectedIndex);
+
+                if (index % 3 != 0)
+                {
+                    leftMoves[0] -= parallel.GetControlPointLeft(0, leftIndex);
+                    leftMoves[0] += parallel.GetControlPoint(index);
+                    leftMoves[1] -= parallel.GetControlPointLeft(1, leftIndex);
+                    leftMoves[1] += parallel.GetControlPoint(index);
+                    leftMoves[2] -= parallel.GetControlPointLeft(2, leftIndex);
+                    leftMoves[2] += parallel.GetControlPoint(index);
+                    rightMoves[0] -= parallel.GetControlPointRight(0, index);
+                    rightMoves[0] += parallel.GetControlPoint(index);
+                    rightMoves[1] -= parallel.GetControlPointRight(1, index);
+                    rightMoves[1] += parallel.GetControlPoint(index);
+                    rightMoves[2] -= parallel.GetControlPointRight(2, index);
+                    rightMoves[2] += parallel.GetControlPoint(index);
+                }
+
                 for (int i = 0; i < parallel.RightLaneCount; i++)
                 {
-                    space += parallel.GetRightSpacing(i, (index+1)/3);
-                    Vector3 v = p + dRight * space;
-                    parallel.SetControlPointRight(i, index, handleTransform.InverseTransformPoint(p + dRight * space));
-                    parallel.RecalculateLengthRight(i, selectedIndex);
+                    parallel.AdjustControlPointRight(i, index, rightMoves[i]);
                 }
-                space = 0f;
+
                 for (int i = 0; i < parallel.LeftLaneCount; i++)
                 {
-                    int ind = parallel.ControlPointCount - 1 - index;
-                    space += parallel.GetLeftSpacing(i, (ind + 1) / 3);
-                    parallel.SetControlPointLeft(i, ind, handleTransform.InverseTransformPoint(p - dRight * space));
-                    parallel.RecalculateLengthLeft(i, ind);
-                    
+                    parallel.AdjustControlPointLeft(i, index, leftMoves[i]);
                 }
             }
         }
@@ -587,36 +779,12 @@ public class ParallelBezierSplinesInspector : Editor
     private Vector3 ShowPointRight(int lane, int index)
     {
         Vector3 point = handleTransform.TransformPoint(parallel.GetControlPointRight(lane, index));
-        /*
-        float size = HandleUtility.GetHandleSize(point);
-        if (index == 0)
-        {
-            size *= 2f; // 1st node bigger
-        }
-        Handles.color = modeColors[(int)parallel.GetControlPointModeRight(lane, index)];
-        if (Handles.Button(point, handleRotation, size * handleSize, size * pickSize, Handles.DotHandleCap))
-        {
-            selectedIndex = index;
-            Repaint(); // refresh inspector
-        }*/
         return point;
     }
 
     private Vector3 ShowPointLeft(int lane, int index)
     {
         Vector3 point = handleTransform.TransformPoint(parallel.GetControlPointLeft(lane, index));
-        /*
-        float size = HandleUtility.GetHandleSize(point);
-        if (index == 0)
-        {
-            size *= 2f; // 1st node bigger
-        }
-        Handles.color = modeColors[(int)parallel.GetControlPointModeLeft(lane, index)];
-        if (Handles.Button(point, handleRotation, size * handleSize, size * pickSize, Handles.DotHandleCap))
-        {
-            selectedIndex = index;
-            Repaint(); // refresh inspector
-        }*/
         return point;
     }
 
@@ -758,11 +926,25 @@ public class ParallelBezierSplinesInspector : Editor
 
     private void OnEnable()
     {
+        Tools.current = Tool.View;
         Tools.hidden = true;
+        SetCameraAngle();
     }
 
     private void OnDisable()
     {
         Tools.hidden = false;
+    }
+
+    private void SetCameraAngle()
+    {
+        var sceneView = SceneView.lastActiveSceneView;
+        if (parallel == null)
+        {
+            parallel = target as ParallelBezierSplines;
+        }
+        sceneView.AlignViewToObject(parallel.transform);
+        sceneView.LookAtDirect(parallel.transform.position, Quaternion.Euler(90, 0, 0), 30f);
+        sceneView.orthographic = true;
     }
 }

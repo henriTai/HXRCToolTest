@@ -366,9 +366,7 @@ public class BezierSpline : MonoBehaviour
     {
         Vector3 point = points[points.Length - 1];
         float length = segmentLengths[segmentLengths.Length - 1] / 3f;
-        Debug.Log("s-length " + segmentLengths.Length);
         Vector3 dir = GetSegmentedDirection(segmentLengths.Length -1, 1f);
-        Debug.Log(dir);
         // Array requires System-namespace. points is passed as a REFERENCE (not a copy)
         Array.Resize(ref points, points.Length + 3);
         point += length * dir;

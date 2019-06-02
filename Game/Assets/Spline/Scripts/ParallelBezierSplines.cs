@@ -692,6 +692,159 @@ public class ParallelBezierSplines : MonoBehaviour
         EnforceModeLeft(lane, index);
     }
 
+    public void AdjustControlPointRight(int lane, int index, Vector3 moved)
+    {
+        switch (lane)
+        {
+            case 0:
+                if (index % 3 == 0)
+                {
+                    rightLanePoints1[index] = GetControlPoint(index) + moved;
+                    if (loop && index == 0)
+                    {
+                        rightLanePoints1[rightLanePoints1.Length - 2] = GetControlPoint(ControlPointCount - 2) + moved;
+                    }
+                    if (index > 0)
+                    {
+                        rightLanePoints1[index - 1] = GetControlPoint(index - 1) + moved;
+                    }
+                    if (index < rightLanePoints1.Length - 1)
+                    {
+                        rightLanePoints1[index + 1] = GetControlPoint(index + 1) + moved;
+                    }
+                }
+                else
+                {
+                    rightLanePoints1[index] += moved;
+                    EnforceModeRight(0, index);
+                }
+                break;
+            case 1:
+                if (index % 3 == 0)
+                {
+                    rightLanePoints2[index] = GetControlPoint(index) + moved;
+                    if (loop && index == 0)
+                    {
+                        rightLanePoints2[rightLanePoints2.Length - 2] = GetControlPoint(ControlPointCount - 2) + moved;
+                    }
+                    if (index > 0)
+                    {
+                        rightLanePoints2[index - 1] = GetControlPoint(index - 1) + moved;
+                    }
+                    if (index < rightLanePoints2.Length - 1)
+                    {
+                        rightLanePoints2[index + 1] = GetControlPoint(index + 1) + moved;
+                    }
+                }
+                else
+                {
+                    rightLanePoints2[index] += moved;
+                    EnforceModeRight(1, index);
+                }
+                break;
+            case 2:
+                if (index % 3 == 0)
+                {
+                    rightLanePoints3[index] = GetControlPoint(index) + moved;
+                    if (loop && index == 0)
+                    {
+                        rightLanePoints3[rightLanePoints3.Length - 2] = GetControlPoint(ControlPointCount - 2) + moved;
+                    }
+                    if (index > 0)
+                    {
+                        rightLanePoints3[index - 1] = GetControlPoint(index - 1) + moved;
+                    }
+                    if (index < rightLanePoints3.Length - 1)
+                    {
+                        rightLanePoints3[index + 1] = GetControlPoint(index + 1) + moved;
+                    }
+                }
+                else
+                {
+                    rightLanePoints3[index] += moved;
+                    EnforceModeRight(2, index);
+                }
+                break;
+        }
+    }
+
+    public void AdjustControlPointLeft(int lane, int index, Vector3 moved)
+    {
+        int ind = ControlPointCount - 1 - index;
+        switch (lane)
+        {
+            case 0:
+                if (ind % 3 == 0)
+                {
+                    leftLanePoints1[ind] = GetControlPoint(index) + moved;
+                    if (loop && ind == 0)
+                    {
+                        leftLanePoints1[leftLanePoints1.Length - 2] = GetControlPoint(1) + moved;
+                    }
+                    if (ind > 0)
+                    {
+                        leftLanePoints1[ind - 1] = GetControlPoint(index + 1) + moved;
+                    }
+                    if (ind < leftLanePoints1.Length - 1)
+                    {
+                        leftLanePoints1[ind + 1] = GetControlPoint(index - 1) + moved;
+                    }
+                }
+                else
+                {
+                    leftLanePoints1[ind] += moved;
+                    EnforceModeLeft(0, ind);
+                }
+                break;
+            case 1:
+                if (ind % 3 == 0)
+                {
+                    leftLanePoints2[ind] = GetControlPoint(index) + moved;
+                    if (loop && ind == 0)
+                    {
+                        leftLanePoints2[leftLanePoints2.Length - 2] = GetControlPoint(1) + moved;
+                    }
+                    if (ind > 0)
+                    {
+                        leftLanePoints2[ind - 1] = GetControlPoint(index + 1) + moved;
+                    }
+                    if (ind < leftLanePoints2.Length - 1)
+                    {
+                        leftLanePoints2[ind + 1] = GetControlPoint(index - 1) + moved;
+                    }
+                }
+                else
+                {
+                    leftLanePoints2[ind] += moved;
+                    EnforceModeLeft(1, ind);
+                }
+                break;
+            case 2:
+                if (ind % 3 == 0)
+                {
+                    leftLanePoints3[ind] = GetControlPoint(index) + moved;
+                    if (loop && ind == 0)
+                    {
+                        leftLanePoints3[leftLanePoints3.Length - 2] = GetControlPoint(1) + moved;
+                    }
+                    if (ind > 0)
+                    {
+                        leftLanePoints3[ind - 1] = GetControlPoint(index + 1) + moved;
+                    }
+                    if (ind < leftLanePoints3.Length - 1)
+                    {
+                        leftLanePoints3[ind + 1] = GetControlPoint(index - 1) + moved;
+                    }
+                }
+                else
+                {
+                    leftLanePoints3[ind] += moved;
+                    EnforceModeLeft(2, ind);
+                }
+                break;
+        }
+    }
+
     public void SetControlPointRight(int lane, int index, Vector3 point)
     {
         //******** this adjustment is made so that when a middle point is moved, it
@@ -1647,7 +1800,6 @@ public class ParallelBezierSplines : MonoBehaviour
             if (segment == 0)
             {
                 segment = segmentLengths.Length - 1;
-                Debug.Log("segment: " + segment);
             }
             else
             {
