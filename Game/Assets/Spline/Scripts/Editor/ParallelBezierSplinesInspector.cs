@@ -25,6 +25,7 @@ public class ParallelBezierSplinesInspector : Editor
     [Range(0, 200)]
     public int wayPoints = 0;
     private int selectedIndex = -1;
+    private float angle = 0f;
     private bool arraysInitialized = false;
 
     [SerializeField]
@@ -32,6 +33,8 @@ public class ParallelBezierSplinesInspector : Editor
     private Transform handleTransform;
     private Quaternion handleRotation;
     private bool perSpline;
+    private bool advancedOptionsOn = false;
+    private bool[] selected;
 
     //for basic settings
     private bool laneCountSet = false;
@@ -108,6 +111,11 @@ public class ParallelBezierSplinesInspector : Editor
             Vector3 pos = parallel.transform.position;
             guidePoints = new Vector3[] { pos, pos, pos, pos };
         }
+        if (selected == null || selected.Length != 6)
+        {
+            //right lanes 1, 2, 3, left lanes 1, 2, 3
+            selected = new bool[] { false, false, false, false, false, false };
+        }
         generalDirection = Directions.North;
         directionVector = GeneralDirection.DirectionVector(generalDirection);
 
@@ -165,10 +173,95 @@ public class ParallelBezierSplinesInspector : Editor
             parallel.AddCurve();
         }
         ShowSelectedNodeInfo();
+        ShowAngleChangeOption();
+        ShowAdvancedOptions();
+    }
+
+    private void ShowAdvancedOptions()
+    {
+        if (!advancedOptionsOn)
+        {
+            if (GUILayout.Button("Show advanced options"))
+            {
+                advancedOptionsOn = true;
+                SceneView.RepaintAll();
+            }
+            return;
+        }
+        if (GUILayout.Button("Hide advanced options"))
+        {
+            advancedOptionsOn = false;
+            SceneView.RepaintAll();
+        }
+        EditorGUILayout.LabelField("Advanced options", EditorStyles.boldLabel);
+        EditorGUILayout.LabelField("Edit selected lanes:", EditorStyles.boldLabel);
+        bool s = selected[0];
+        selected[0] = EditorGUILayout.Toggle("R. lane 1", selected[0]);
+        if (s != selected[0])
+        {
+            SceneView.RepaintAll();
+        }
+        s = selected[1];
+        selected[1] = EditorGUILayout.Toggle("R. lane 2", selected[1]);
+        if (s != selected[1])
+        {
+            SceneView.RepaintAll();
+        }
+        s = selected[2];
+        selected[2] = EditorGUILayout.Toggle("R. lane 3", selected[2]);
+        if (s != selected[2])
+        {
+            SceneView.RepaintAll();
+        }
+        s = selected[3];
+        selected[3] = EditorGUILayout.Toggle("L. lane 1", selected[3]);
+        if (s != selected[3])
+        {
+            SceneView.RepaintAll();
+        }
+        s = selected[4];
+        selected[4] = EditorGUILayout.Toggle("L. lane 2", selected[4]);
+        if (s != selected[4])
+        {
+            SceneView.RepaintAll();
+        }
+        s = selected[5];
+        selected[5] = EditorGUILayout.Toggle("L. lane 3", selected[5]);
+        if (s != selected[5])
+        {
+            SceneView.RepaintAll();
+        }
     }
 
     private void ShowSelectedNodeInfo()
     {
+        EditorGUILayout.BeginHorizontal();
+        if (GUILayout.Button("Previous"))
+        {
+            if (selectedIndex < 1)
+            {
+                selectedIndex = parallel.ControlPointCount - 1;
+            }
+            else
+            {
+                selectedIndex--;
+            }
+            SceneView.RepaintAll();
+        }
+        EditorGUILayout.LabelField("Bezier point " + selectedIndex);
+        if (GUILayout.Button("Next"))
+        {
+            if (selectedIndex == parallel.ControlPointCount - 1)
+            {
+                selectedIndex = 0;
+            }
+            else
+            {
+                selectedIndex++;
+            }
+            SceneView.RepaintAll();
+        }
+        EditorGUILayout.EndHorizontal();
         int pointNumber = -1;
         int leftPoint = -1;
         string nodeString, leftString;
@@ -229,7 +322,7 @@ public class ParallelBezierSplinesInspector : Editor
                 {
                     EditorGUILayout.BeginHorizontal();
                     rSpacing[i] = EditorGUILayout.FloatField("R. lane " + (i+1) 
-                        + "current: " + parallel.GetRightSpacing(i, selectedIndex), rSpacing[i]);
+                        + " current: " + parallel.GetRightSpacing(i, selectedIndex), rSpacing[i]);
                     if (GUILayout.Button("Change"))
                     {
                         if (rSpacing[i] != parallel.GetRightSpacing(i, selectedIndex))
@@ -243,6 +336,7 @@ public class ParallelBezierSplinesInspector : Editor
                             {
                                 Vector3 newPoint = moved + parallel.GetControlPointRight(j, index);
                                 parallel.SetControlPointRight(j, index, newPoint);
+                                parallel.RecalculateLengthRight(j, index);
                             }
 
                             SceneView.RepaintAll();
@@ -269,6 +363,7 @@ public class ParallelBezierSplinesInspector : Editor
                             {
                                 Vector3 newPoint = moved + parallel.GetControlPointLeft(j, index);
                                 parallel.SetControlPointLeft(j, index, newPoint);
+                                parallel.RecalculateLengthLeft(j, index);
                             }
 
                             SceneView.RepaintAll();
@@ -285,10 +380,51 @@ public class ParallelBezierSplinesInspector : Editor
 
     }
 
+    private void ShowAngleChangeOption()
+    {
+        if (selectedIndex > 1)
+        {
+            EditorGUILayout.LabelField("Change angle (Point " + (selectedIndex + 1)/3 + ")", EditorStyles.boldLabel);
+            angle = EditorGUILayout.FloatField("Angle", angle);
+            if (GUILayout.Button("Add angle"))
+            {
+                if (angle != 0f)
+                {
+                    Vector3 deg = new Vector3(0f, angle, 0f);
+                    int pivotIndex = ((selectedIndex + 1) / 3) * 3;
+                    Vector3 pivot = parallel.GetControlPoint(pivotIndex);
+                    //move guide spline's control points
+                    Vector3 dir = parallel.GetControlPoint(pivotIndex - 1) - pivot;
+                    dir = Quaternion.Euler(deg) * dir;
+                    parallel.SetControlPoint(pivotIndex - 1, dir + pivot);
+
+                    for (int i = 0; i < 3; i++)
+                    {
+                        //right lanes
+                        dir = parallel.GetControlPointRight(i, pivotIndex) - pivot;
+                        dir = Quaternion.Euler(deg) * dir;
+                        parallel.SetControlPointRight(i, pivotIndex, dir + pivot);
+                        dir = parallel.GetControlPointRight(i, pivotIndex - 1) - pivot;
+                        dir = Quaternion.Euler(deg) * dir;
+                        parallel.SetControlPointRight(i, pivotIndex - 1, dir + pivot);
+                        //left lanes
+                        int leftIndex = parallel.ControlPointCount - 1 - pivotIndex;
+                        dir = parallel.GetControlPointLeft(i, leftIndex) - pivot;
+                        dir = Quaternion.Euler(deg) * dir;
+                        parallel.SetControlPointLeft(i, leftIndex, dir + pivot);
+                        dir = parallel.GetControlPointLeft(i, leftIndex + 1) - pivot;
+                        dir = Quaternion.Euler(deg) * dir;
+                        parallel.SetControlPointLeft(i, leftIndex + 1, dir + pivot);
+
+                    }
+                }
+                SceneView.RepaintAll();
+            }
+        }
+    }
+
     private void InitializeParallel()
     {
-        //var so = new SerializedObject(parallel);
-        //so
         //parallel.Reset();
         Vector3 right = new Vector3(directionVector.z, directionVector.y, -directionVector.x);
         Vector3 gp0, gp1, gp2, gp3;
@@ -705,6 +841,11 @@ public class ParallelBezierSplinesInspector : Editor
     private Vector3 ShowPoint(int index)
     {
         Vector3 point = handleTransform.TransformPoint(parallel.GetControlPoint(index));
+
+        if (advancedOptionsOn)
+        {
+            return point;
+        }
         float size = HandleUtility.GetHandleSize(point);
         if (index == 0)
         {
@@ -764,6 +905,7 @@ public class ParallelBezierSplinesInspector : Editor
 
                 for (int i = 0; i < parallel.RightLaneCount; i++)
                 {
+                    
                     parallel.AdjustControlPointRight(i, index, rightMoves[i]);
                 }
 
@@ -779,12 +921,177 @@ public class ParallelBezierSplinesInspector : Editor
     private Vector3 ShowPointRight(int lane, int index)
     {
         Vector3 point = handleTransform.TransformPoint(parallel.GetControlPointRight(lane, index));
+        if (!advancedOptionsOn)
+        {
+            return point;
+        }
+        if (selected[lane])
+        {
+            float size = HandleUtility.GetHandleSize(point);
+            if (index == 0)
+            {
+                size *= 2f; // 1st node bigger
+            }
+            Handles.color = modeColors[(int)parallel.GetControlPointModeRight(lane, index)];
+            if (Handles.Button(point, handleRotation, size * handleSize, size * pickSize, Handles.DotHandleCap))
+            {
+                selectedIndex = index;
+                Repaint(); // refresh inspector
+            }
+            if (selectedIndex == index && index != 0 && selectedIndex % 3 != 0)
+            {
+                Event e = Event.current;
+                var controlID = GUIUtility.GetControlID(FocusType.Passive);
+                var eventType = e.GetTypeForControl(controlID);
+
+                EditorGUI.BeginChangeCheck();
+                point = Handles.DoPositionHandle(point, handleRotation);
+                Vector3 dRight = GeneralDirection.DirectionRight(parallel.GetDirectionRight(lane, (float)index / parallel.CurveCount));
+                Vector3 p = handleTransform.InverseTransformPoint(point);
+
+                if (EditorGUI.EndChangeCheck())
+                {
+                    Undo.RecordObject(parallel, "MovePoint");
+                    EditorUtility.SetDirty(parallel);
+                    EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+                    Vector3[] leftMoves = new Vector3[3];
+                    Vector3[] rightMoves = new Vector3[3];
+
+                    int leftIndex = parallel.ControlPointCount - 1 - index;
+                    leftMoves[0] = parallel.GetControlPointLeft(0, leftIndex) - parallel.GetControlPointRight(lane, index);
+                    leftMoves[1] = parallel.GetControlPointLeft(1, leftIndex) - parallel.GetControlPointRight(lane, index);
+                    leftMoves[2] = parallel.GetControlPointLeft(2, leftIndex) - parallel.GetControlPointRight(lane, index);
+                    rightMoves[0] = parallel.GetControlPointRight(0, index) - parallel.GetControlPointRight(lane, index);
+                    rightMoves[1] = parallel.GetControlPointRight(1, index) - parallel.GetControlPointRight(lane, index);
+                    rightMoves[2] = parallel.GetControlPointRight(2, index) - parallel.GetControlPointRight(lane, index);
+
+                    parallel.SetControlPointRight(lane, index, handleTransform.InverseTransformPoint(point));
+                    parallel.RecalculateLengthRight(lane, selectedIndex);
+                    if (index % 3 != 0)
+                    {
+                        leftMoves[0] -= parallel.GetControlPointLeft(0, leftIndex);
+                        leftMoves[0] += parallel.GetControlPointRight(lane, index);
+                        leftMoves[1] -= parallel.GetControlPointLeft(1, leftIndex);
+                        leftMoves[1] += parallel.GetControlPointRight(lane, index);
+                        leftMoves[2] -= parallel.GetControlPointLeft(2, leftIndex);
+                        leftMoves[2] += parallel.GetControlPointRight(lane, index);
+                        rightMoves[0] -= parallel.GetControlPointRight(0, index);
+                        rightMoves[0] += parallel.GetControlPointRight(lane, index);
+                        rightMoves[1] -= parallel.GetControlPointRight(1, index);
+                        rightMoves[1] += parallel.GetControlPointRight(lane, index);
+                        rightMoves[2] -= parallel.GetControlPointRight(2, index);
+                        rightMoves[2] += parallel.GetControlPointRight(lane, index);
+                    }
+
+                    for (int i = 0; i < parallel.RightLaneCount; i++)
+                    {
+                        if (lane != i && selected[i]==true)
+                        {
+                            parallel.AdjustControlPointRight(i, index, rightMoves[i]);
+                        }
+                    }
+
+                    for (int i = 0; i < parallel.LeftLaneCount; i++)
+                    {
+                        if (selected[i + 3])
+                        {
+                            parallel.AdjustControlPointLeft(i, index, leftMoves[i]);
+                        }
+                    }
+                }
+            }
+        }
+
         return point;
     }
 
     private Vector3 ShowPointLeft(int lane, int index)
     {
-        Vector3 point = handleTransform.TransformPoint(parallel.GetControlPointLeft(lane, index));
+        int leftIndex = parallel.ControlPointCount - 1 - index;
+        Vector3 point = handleTransform.TransformPoint(parallel.GetControlPointLeft(lane, leftIndex));
+        if (!advancedOptionsOn)
+        {
+            return point;
+        }
+        //*****************
+        if (selected[lane + 3])
+        {
+            float size = HandleUtility.GetHandleSize(point);
+            if (index == 0)
+            {
+                size *= 2f; // 1st node bigger
+            }
+            Handles.color = modeColors[(int)parallel.GetControlPointModeRight(lane, index)];
+            if (Handles.Button(point, handleRotation, size * handleSize, size * pickSize, Handles.DotHandleCap))
+            {
+                selectedIndex = leftIndex;
+                Repaint(); // refresh inspector
+            }
+            
+            if (selectedIndex == leftIndex && selectedIndex % 3 != 0)
+            {
+                Event e = Event.current;
+                var controlID = GUIUtility.GetControlID(FocusType.Passive);
+                var eventType = e.GetTypeForControl(controlID);
+
+                EditorGUI.BeginChangeCheck();
+                point = Handles.DoPositionHandle(point, handleRotation);
+                Vector3 dRight = GeneralDirection.DirectionRight(parallel.GetDirectionLeft(lane, (float)selectedIndex / parallel.CurveCount));
+                Vector3 p = handleTransform.InverseTransformPoint(point);
+
+                if (EditorGUI.EndChangeCheck())
+                {
+                    Undo.RecordObject(parallel, "MovePoint");
+                    EditorUtility.SetDirty(parallel);
+                    EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+                    Vector3[] leftMoves = new Vector3[3];
+                    Vector3[] rightMoves = new Vector3[3];
+
+                    leftMoves[0] = parallel.GetControlPointLeft(0, leftIndex) - parallel.GetControlPointLeft(lane, selectedIndex);
+                    leftMoves[1] = parallel.GetControlPointLeft(1, leftIndex) - parallel.GetControlPointLeft(lane, selectedIndex);
+                    leftMoves[2] = parallel.GetControlPointLeft(2, leftIndex) - parallel.GetControlPointLeft(lane, selectedIndex);
+                    rightMoves[0] = parallel.GetControlPointRight(0, index) - parallel.GetControlPointLeft(lane, selectedIndex);
+                    rightMoves[1] = parallel.GetControlPointRight(1, index) - parallel.GetControlPointLeft(lane, selectedIndex);
+                    rightMoves[2] = parallel.GetControlPointRight(2, index) - parallel.GetControlPointLeft(lane, selectedIndex);
+
+                    parallel.SetControlPointLeft(lane, selectedIndex, handleTransform.InverseTransformPoint(point));
+                    parallel.RecalculateLengthLeft(lane, selectedIndex);
+                    if (index % 3 != 0)
+                    {
+                        leftMoves[0] -= parallel.GetControlPointLeft(0, leftIndex);
+                        leftMoves[0] += parallel.GetControlPointLeft(lane, leftIndex);
+                        leftMoves[1] -= parallel.GetControlPointLeft(1, leftIndex);
+                        leftMoves[1] += parallel.GetControlPointLeft(lane, leftIndex);
+                        leftMoves[2] -= parallel.GetControlPointLeft(2, leftIndex);
+                        leftMoves[2] += parallel.GetControlPointLeft(lane, leftIndex);
+                        rightMoves[0] -= parallel.GetControlPointRight(0, index);
+                        rightMoves[0] += parallel.GetControlPointLeft(lane, leftIndex);
+                        rightMoves[1] -= parallel.GetControlPointRight(1, index);
+                        rightMoves[1] += parallel.GetControlPointLeft(lane, leftIndex);
+                        rightMoves[2] -= parallel.GetControlPointRight(2, index);
+                        rightMoves[2] += parallel.GetControlPointLeft(lane, leftIndex);
+                    }
+
+                    for (int i = 0; i < parallel.RightLaneCount; i++)
+                    {
+                        if (selected[i])
+                        {
+                            parallel.AdjustControlPointRight(i, index, rightMoves[i]);
+                        }
+                    }
+
+                    for (int i = 0; i < parallel.LeftLaneCount; i++)
+                    {
+                        if (lane != i && selected[i + 3])
+                        {
+                            parallel.AdjustControlPointLeft(i, index, leftMoves[i]);
+                        }
+                    }
+                }
+            }
+        }
+        //*******************
+        
         return point;
     }
 
@@ -801,6 +1108,7 @@ public class ParallelBezierSplinesInspector : Editor
             {
                 Handles.Label(n.transform.position, n.gameObject.name);
             }
+            SceneView.RepaintAll();
         }
         if (!directionSet)
         {
