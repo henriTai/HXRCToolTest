@@ -32,6 +32,8 @@ public class ParallelBezierSplines : MonoBehaviour
 
     [SerializeField]
     private float[] segmentLengths;
+    [SerializeField]
+    private int[] nodesOnSegment;
     
     [SerializeField]
     private float[] leftSegmentLengths1;
@@ -213,6 +215,24 @@ public class ParallelBezierSplines : MonoBehaviour
                 break;
         }
         return v;
+    }
+
+    public int GetNodesOnSegment(int segment)
+    {
+        if (segment > nodesOnSegment.Length - 1)
+        {
+            return -1;
+        }
+        return nodesOnSegment[segment];
+    }
+
+    public void SetNodesOnSegment(int segment, int amount)
+    {
+        if (segment > nodesOnSegment.Length - 1)
+        {
+            return;
+        }
+        nodesOnSegment[segment] = amount;
     }
 
     public Vector3 GetEndPoint()
@@ -2061,12 +2081,14 @@ public class ParallelBezierSplines : MonoBehaviour
         Array.Resize(ref segmentLengths, segmentLengths.Length + 1);
         float lastSegmentLegth = Vector3.Distance(points[points.Length - 4], points[points.Length - 1]);
         segmentLengths[segmentLengths.Length - 1] = lastSegmentLegth;
-        // 3. Resize modes
+        // 3. Resize nodesOnSegment
+        Array.Resize(ref nodesOnSegment, nodesOnSegment.Length + 1);
+        // 4. Resize modes
         Array.Resize(ref modes, modes.Length + 1);
         modes[modes.Length - 1] = modes[modes.Length - 2];
         EnforceMode(points.Length - 4);
 
-        // 4. Add new right lane points
+        // 5. Add new right lane points
         //int size = points.Length;
         Vector3 rightDir = new Vector3(dir.z, dir.y, -dir.x);
         //***********
@@ -2094,7 +2116,7 @@ public class ParallelBezierSplines : MonoBehaviour
         rightLanePoints3[rightLanePoints3.Length - 2] = points[points.Length - 2] + spacing;
         rightLanePoints3[rightLanePoints3.Length - 1] = points[points.Length - 1] + spacing;
 
-        // 5. Add new left lane points
+        // 6. Add new left lane points
         space = 0f;
         //leftLanePoints1
         Array.Resize(ref leftLanePoints1, leftLanePoints1.Length + 3);
@@ -2102,7 +2124,7 @@ public class ParallelBezierSplines : MonoBehaviour
         {
             leftLanePoints1[i + 3] = leftLanePoints1[i];
         }
-        space += leftSpacings1[leftSpacings1.Length - 1];
+        space += leftSpacings1[0];
         spacing = rightDir * space;
         leftLanePoints1[0] = points[points.Length - 1] - spacing;
         leftLanePoints1[1] = points[points.Length - 2] - spacing;
@@ -2113,7 +2135,7 @@ public class ParallelBezierSplines : MonoBehaviour
         {
             leftLanePoints2[i + 3] = leftLanePoints2[i];
         }
-        space += leftSpacings2[leftSpacings2.Length - 1];
+        space += leftSpacings2[0];
         spacing = rightDir * space;
         leftLanePoints2[0] = points[points.Length - 1] - spacing;
         leftLanePoints2[1] = points[points.Length - 2] - spacing;
@@ -2124,14 +2146,14 @@ public class ParallelBezierSplines : MonoBehaviour
         {
             leftLanePoints3[i + 3] = leftLanePoints3[i];
         }
-        space += leftSpacings3[leftSpacings3.Length - 1];
+        space += leftSpacings3[0];
         spacing = rightDir * space;
         leftLanePoints3[0] = points[points.Length - 1] - spacing;
         leftLanePoints3[1] = points[points.Length - 2] - spacing;
         leftLanePoints3[2] = points[points.Length - 3] - spacing;
 
         // Add new spacings, copy previous value
-        // 6. Update right spacings
+        // 7. Update right spacings
         //rightSpacings1
         Array.Resize(ref rightSpacings1, rightSpacings1.Length + 1);
         rightSpacings1[rightSpacings1.Length - 1] = rightSpacings1[rightSpacings1.Length - 2];
@@ -2142,7 +2164,7 @@ public class ParallelBezierSplines : MonoBehaviour
         Array.Resize(ref rightSpacings3, rightSpacings3.Length + 1);
         rightSpacings3[rightSpacings3.Length - 1] = rightSpacings3[rightSpacings3.Length - 2];
 
-        // 7. Update left spacings
+        // 8. Update left spacings
         //leftSpacings1
         Array.Resize(ref leftSpacings1, leftSpacings1.Length + 1);
         for (int i = leftSpacings1.Length - 2; i >= 0; i--)
@@ -2165,7 +2187,7 @@ public class ParallelBezierSplines : MonoBehaviour
         }
         leftSpacings3[0] = leftSpacings3[1];
 
-        // 8. Resize right segments
+        // 9. Resize right segments
         //rightSegmentLengths1
         Array.Resize(ref rightSegmentLengths1, rightSegmentLengths1.Length + 1);
         lastSegmentLegth = Vector3.Distance(rightLanePoints1[rightLanePoints1.Length - 4],
@@ -2182,7 +2204,7 @@ public class ParallelBezierSplines : MonoBehaviour
             rightLanePoints3[rightLanePoints3.Length - 1]);
         rightSegmentLengths3[rightSegmentLengths3.Length - 1] = lastSegmentLegth;
 
-        // 9. Resize left segments
+        // 10. Resize left segments
         //leftSegmentLengths1
         Array.Resize(ref leftSegmentLengths1, leftSegmentLengths1.Length + 1);
         for (int i = leftSegmentLengths1.Length -1; i > 0; i--)
@@ -2208,7 +2230,7 @@ public class ParallelBezierSplines : MonoBehaviour
         lastSegmentLegth = Vector3.Distance(leftLanePoints3[0], leftLanePoints3[3]);
         leftSegmentLengths3[0] = lastSegmentLegth;
 
-        // 10. Update right modes
+        // 11. Update right modes
         //rightModes1
         Array.Resize(ref rightModes1, rightModes1.Length + 1);
         rightModes1[rightModes1.Length - 1] = rightModes1[rightModes1.Length - 2];
@@ -2219,7 +2241,7 @@ public class ParallelBezierSplines : MonoBehaviour
         Array.Resize(ref rightModes3, rightModes3.Length + 1);
         rightModes3[rightModes3.Length - 1] = rightModes3[rightModes3.Length - 2];
 
-        // 11. Update left modes
+        // 12. Update left modes
         //leftModes1
         Array.Resize(ref leftModes1, leftModes1.Length + 1);
         for (int i = leftModes1.Length - 1; i > 0; i--)
@@ -2465,6 +2487,7 @@ public class ParallelBezierSplines : MonoBehaviour
 
         splineLength = Vector3.Distance(points[0], points[3]);
         segmentLengths = new float[] { splineLength }; //jos ei alusteta suoralla pitää muuttaa
+        nodesOnSegment = new int[] { 0 };
 
         LeftLaneCount = 0;
         RightLaneCount = 0;

@@ -46,6 +46,7 @@ public class ParallelBezierSplinesInspector : Editor
     bool linkedToNode = false;
     // if this is false, current selected general direction is used
     bool directionSet = false;
+    private bool previewNodes = true;
     bool verifying = false;
 
     private int leftLaneCount;
@@ -238,6 +239,7 @@ public class ParallelBezierSplinesInspector : Editor
 
             EditorGUILayout.Separator();
         }
+        DrawEditorLine();
     }
 
     private void WarningLabel(string message)
@@ -269,6 +271,18 @@ public class ParallelBezierSplinesInspector : Editor
         {
             return false;
         }
+    }
+
+    private void DrawEditorLine()
+    {
+        int thickness = 2;
+        int padding = 10;
+        Rect r = EditorGUILayout.GetControlRect(GUILayout.Height(padding + thickness));
+        r.height = thickness;
+        r.y += padding / 2;
+        r.x -= 2;
+        r.width += 6;
+        EditorGUI.DrawRect(r, Color.black);
     }
 
     private void BasicSettingsMenu()
@@ -338,6 +352,29 @@ public class ParallelBezierSplinesInspector : Editor
         {
             parallel.LanesSet = false;
         }
+
+        EditorGUILayout.Separator();
+        EditorGUILayout.LabelField("Node placement", EditorStyles.boldLabel);
+
+        bool prev = previewNodes;
+        prev = EditorGUILayout.Toggle("Preview nodes", prev);
+        if (prev != previewNodes)
+        {
+            previewNodes = prev;
+            SceneView.RepaintAll();
+        }
+
+        for (int i = 0; i < parallel.SegmentCount; i++)
+        {
+            int pts = parallel.GetNodesOnSegment(i);
+            pts = EditorGUILayout.IntField("Seg. " + (i + 1) + " nodes", pts);
+            if (pts > 0 && pts != parallel.GetNodesOnSegment(i))
+            {
+                parallel.SetNodesOnSegment(i, pts);
+            }
+        }
+
+        DrawEditorLine();
     }
 
     private void ShowAdvancedOptions()
@@ -398,6 +435,10 @@ public class ParallelBezierSplinesInspector : Editor
 
     private void ShowSelectedNodeInfo()
     {
+        if (selectedIndex > parallel.ControlPointCount - 1)
+        {
+            selectedIndex = parallel.ControlPointCount - 1;
+        }
         EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("Previous"))
         {
@@ -477,7 +518,7 @@ public class ParallelBezierSplinesInspector : Editor
         if (pointNumber != -1)
         {
             EditorGUILayout.LabelField("Point " + pointNumber, EditorStyles.boldLabel);
-            if (pointNumber != 0)
+            if (pointNumber != -1) // this value was 0, it prevented editing first nodes on right lane (on purpose) but also left lane end nodes
             {
                 EditorGUILayout.LabelField("Spacing options", EditorStyles.boldLabel);
                 //right lane spacings
@@ -520,7 +561,7 @@ public class ParallelBezierSplinesInspector : Editor
                         {
                             float changeAmount = lSpacing[i] - parallel.GetLeftSpacing(i, index);
                             parallel.SetLeftSpacing(i, index, lSpacing[i]);
-                            Vector3 right = GeneralDirection.DirectionRight(parallel.GetDirection((float)pointNumber*3 / parallel.CurveCount));
+                            Vector3 right = GeneralDirection.DirectionRight(parallel.GetDirection((float)pointNumber * 3 / parallel.CurveCount));
                             Vector3 moved = - changeAmount * right;
                             for (int j = i; j < 3; j++)
                             {
@@ -655,18 +696,21 @@ public class ParallelBezierSplinesInspector : Editor
             "each lane.", EditorStyles.wordWrappedLabel);
         EditorGUILayout.LabelField("5. When you are happy with the settings, press 'Setup done'-button and these " +
             "initial settings are used for creating a set of parallel splines.", EditorStyles.wordWrappedLabel);
+        DrawEditorLine();
     }
 
     private void ShowEditInstructions()
     {
         EditorGUILayout.LabelField("Edit mode instructions:", EditorStyles.boldLabel);
         EditorGUILayout.Separator();
+        DrawEditorLine();
     }
 
     private void ShowNodeSetupInstructions()
     {
         EditorGUILayout.LabelField("Node set-up instructions:", EditorStyles.boldLabel);
         EditorGUILayout.Separator();
+        DrawEditorLine();
     }
 
     private void ShowLaneCountSelection()
@@ -683,6 +727,7 @@ public class ParallelBezierSplinesInspector : Editor
                 laneCountSet = true;
             }
         }
+        DrawEditorLine();
     }
 
     private void ShowLaneSetupSelection()
@@ -745,6 +790,7 @@ public class ParallelBezierSplinesInspector : Editor
                 }
             }
         }
+        DrawEditorLine();
     }
 
     private void ShowLeftLaneSelection()
@@ -800,6 +846,7 @@ public class ParallelBezierSplinesInspector : Editor
                 }
             }
         }
+        DrawEditorLine();
     }
 
     private void ShowSpacingSelection()
@@ -847,6 +894,7 @@ public class ParallelBezierSplinesInspector : Editor
                 SceneView.RepaintAll();
             }
         }
+        DrawEditorLine();
     }
 
     private void ResetValues()
@@ -895,6 +943,10 @@ public class ParallelBezierSplinesInspector : Editor
             
             DrawParallelBezier();
             DrawSegmentLines();
+            if (parallel.LanesSet && previewNodes)
+            {
+                DrawNodeVisualization();
+            }
         }
     }
 
@@ -995,11 +1047,53 @@ public class ParallelBezierSplinesInspector : Editor
         }
     }
 
+    private void DrawNodeVisualization()
+    {
+        Handles.color = Color.yellow;
+        float handleSize = 0.3f;
+        Vector3 pos;
+        //Start poits for each lane
+        for (int i = 0; i < parallel.RightLaneCount; i++)
+        {
+            pos = parallel.GetRightLaneStartPoint(i);
+            Handles.RadiusHandle(Quaternion.identity, pos, handleSize);
+        }
+        for (int i = 0; i < parallel.LeftLaneCount; i++)
+        {
+            // points on left lane are inversed for easier handling
+            pos = parallel.GetLeftEndPoint(i);
+            Handles.RadiusHandle(Quaternion.identity, pos, handleSize);
+        }
+        for (int seg = 0; seg < parallel.SegmentCount; seg++)
+        {
+            int lSeg = parallel.SegmentCount - seg - 1;
+            int nodesOnSeg = parallel.GetNodesOnSegment(seg);
+            //right lanes
+            for (int lane = 0; lane < parallel.RightLaneCount; lane++)
+            {
+                for (int pnt = 1; pnt <= nodesOnSeg; pnt++)
+                {
+                    pos = parallel.GetSegmentedPointRight(lane, seg, (float)pnt / nodesOnSeg);
+                    Handles.RadiusHandle(Quaternion.identity, pos, handleSize);
+                }
+            }
+            //left lanes
+            for (int lane = 0; lane < parallel.LeftLaneCount; lane++)
+            {
+                for (int pnt = 0; pnt < nodesOnSeg; pnt++)
+                {
+                    pos = parallel.GetSegmentedPointLeft(lane, lSeg, (float)pnt / nodesOnSeg);
+                    Handles.RadiusHandle(Quaternion.identity, pos, handleSize);
+                }
+            }
+        }
+    }
+
     private Vector3 ShowPoint(int index)
     {
         Vector3 point = handleTransform.TransformPoint(parallel.GetControlPoint(index));
 
-        if (advancedOptionsOn)
+        if (advancedOptionsOn || parallel.LanesSet)
         {
             return point;
         }
