@@ -11,6 +11,8 @@ public class ParallelBezierSplines : MonoBehaviour
     private bool loop;
     [SerializeField]
     private bool initialized;
+    [SerializeField]
+    private bool lanesSet;
 
     [SerializeField]
     private Vector3[] points;
@@ -95,19 +97,13 @@ public class ParallelBezierSplines : MonoBehaviour
     public List<GameObject> wayPointsRight2;
     [SerializeField]
     public List<GameObject> wayPointsRight3;
-    [SerializeField]
-    public GameObject waypointParent;
-    [SerializeField]
+    public GameObject roadNetwork;
+    public GameObject roadParent;
     public GameObject leftParent1;
-    [SerializeField]
     public GameObject leftParent2;
-    [SerializeField]
     public GameObject leftParent3;
-    [SerializeField]
     public GameObject rightParent1;
-    [SerializeField]
     public GameObject rightParent2;
-    [SerializeField]
     public GameObject rightParent3;
 
     [SerializeField]
@@ -153,6 +149,18 @@ public class ParallelBezierSplines : MonoBehaviour
         set
         {
             initialized = value;
+        }
+    }
+
+    public bool LanesSet
+    {
+        get
+        {
+            return lanesSet;
+        }
+        set
+        {
+            lanesSet = value;
         }
     }
 
@@ -2431,6 +2439,17 @@ public class ParallelBezierSplines : MonoBehaviour
     {
         loop = false;
         initialized = false;
+        lanesSet = false;
+
+        roadNetwork = null;
+        roadParent = null;
+        leftParent1 = null;
+        leftParent2 = null;
+        leftParent3 = null;
+        rightParent1 = null;
+        rightParent2 = null;
+        rightParent3 = null;
+
         points = new Vector3[]
         {
             new Vector3(0f, 0f, 0f),

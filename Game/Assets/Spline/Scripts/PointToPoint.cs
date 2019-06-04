@@ -20,7 +20,7 @@ public class PointToPoint : MonoBehaviour
 
     private void Awake()
     {
-        next = current.NextNodes[0];
+        next = current.OutNodes[0];
         startTime = Time.time;
         startPos = current.transform.position;
         endPos = next.transform.position;
@@ -45,7 +45,7 @@ public class PointToPoint : MonoBehaviour
         if (Vector3.Distance(transform.position, next.transform.position) <= 0f)
         {
             current = next;
-            next = next.NextNodes[0];
+            next = next.OutNodes[0];
             endPos = next.transform.position;
             startPos = transform.position;
             distance = Vector3.Distance(startPos, endPos);

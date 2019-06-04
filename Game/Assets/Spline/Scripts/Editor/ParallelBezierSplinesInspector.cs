@@ -7,7 +7,6 @@ using UnityEditor.SceneManagement;
 [CustomEditor(typeof(ParallelBezierSplines))]
 public class ParallelBezierSplinesInspector : Editor
 {
-    bool testing = true;
 
     private static Color[] modeColors =
     {
@@ -28,11 +27,17 @@ public class ParallelBezierSplinesInspector : Editor
     private float angle = 0f;
     private bool arraysInitialized = false;
 
-    [SerializeField]
+    private bool nameIsValid = false;
+    private bool nameAutoChecked = true;
+    private string roadName = "";
+    private string renameInfo = "";
+
     private ParallelBezierSplines parallel;
+    private GameObject roadNetwork;
     private Transform handleTransform;
     private Quaternion handleRotation;
     private bool perSpline;
+    private bool spacingOptionsOn = false;
     private bool advancedOptionsOn = false;
     private bool[] selected;
 
@@ -73,6 +78,8 @@ public class ParallelBezierSplinesInspector : Editor
         parallel = target as ParallelBezierSplines;
         Undo.RecordObject(parallel, "changed");
 
+        NameMenu();
+
         if (arraysInitialized == false)
         {
             InitializeArrays();
@@ -83,7 +90,14 @@ public class ParallelBezierSplinesInspector : Editor
         }
         else
         {
-            EditMenu();
+            if (!parallel.LanesSet)
+            {
+                EditMenu();
+            }
+            else
+            {
+                WaypointEditMenu();
+            }
         }
         base.OnInspectorGUI();
     }
@@ -120,6 +134,141 @@ public class ParallelBezierSplinesInspector : Editor
         directionVector = GeneralDirection.DirectionVector(generalDirection);
 
         arraysInitialized = true;
+    }
+
+    private void NameMenu()
+    {
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.LabelField("Road network:", EditorStyles.boldLabel);
+        if (roadNetwork == null)
+        {
+            EditorGUILayout.LabelField("Not selected");
+        }
+        else
+        {
+            EditorGUILayout.LabelField(roadNetwork.name);
+        }
+        EditorGUILayout.EndHorizontal();
+        if (roadNetwork == null)
+        {
+            if (parallel.roadNetwork != null)
+            {
+                roadNetwork = parallel.roadNetwork;
+                nameAutoChecked = false;
+            }
+            else
+            {
+                RoadNetwork[] networks = GameObject.FindObjectsOfType<RoadNetwork>();
+                if (networks == null || networks.Length == 0)
+                {
+                    GameObject g = new GameObject();
+                    g.AddComponent<RoadNetwork>();
+                    g.name = "NodeNetwork";
+                    roadNetwork = g;
+                    parallel.roadNetwork = g;
+                }
+                else if (networks.Length == 1)
+                {
+                    roadNetwork = networks[0].gameObject;
+                    nameAutoChecked = false;
+                }
+                else
+                {
+                    EditorGUILayout.LabelField("Select parent network", EditorStyles.boldLabel);
+                    for (int i = 0; i < networks.Length; i++)
+                    {
+                        bool selected = false;
+                        selected = EditorGUILayout.Toggle(networks[i].gameObject.name, selected);
+                        if (selected)
+                        {
+                            roadNetwork = networks[i].gameObject;
+                            parallel.roadNetwork = networks[i].gameObject;
+                            nameAutoChecked = false;
+                        }
+                    }
+                }
+            }
+        }
+
+        EditorGUILayout.Separator();
+
+        if (roadNetwork != null)
+        {
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Road name:", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField(parallel.gameObject.name);
+            EditorGUILayout.EndHorizontal();
+            if (!nameAutoChecked)
+            {
+                nameAutoChecked = true;
+                nameIsValid = CheckName(parallel.gameObject.name);
+                if (nameIsValid)
+                {
+                    roadName = parallel.gameObject.name;
+                }
+            }
+            if (nameIsValid)
+            {
+                ItalicLabel("Name is valid");
+            }
+            else
+            {
+                roadName = "";
+                WarningLabel("Invalid name. Name already exists.");
+            }
+            roadName = GUILayout.TextField(roadName);
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Label("Enter name");
+            if (GUILayout.Button("Rename"))
+            {
+                bool valid = CheckName(roadName);
+                if (!valid)
+                {
+                    renameInfo = "New name was not valid.";
+                }
+                else
+                {
+                    renameInfo = "Name changed to '" + roadName + "'.";
+                    parallel.gameObject.name = roadName;
+                    nameIsValid = true;
+                }
+            }
+            EditorGUILayout.EndHorizontal();
+            ItalicLabel(renameInfo);
+
+            EditorGUILayout.Separator();
+        }
+    }
+
+    private void WarningLabel(string message)
+    {
+        GUIStyle gs = new GUIStyle(EditorStyles.label);
+        gs.normal.textColor = Color.red;
+        EditorGUILayout.LabelField(message, gs);
+    }
+
+    private void ItalicLabel(string message)
+    {
+        GUIStyle gs = new GUIStyle(EditorStyles.label);
+        gs.fontStyle = FontStyle.Italic;
+        EditorGUILayout.LabelField(message, gs);
+    }
+
+    private bool CheckName(string name)
+    {
+        if (roadNetwork == null)
+        {
+            return false;
+        }
+        Transform t = roadNetwork.transform.Find(name);
+        if (t == null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private void BasicSettingsMenu()
@@ -175,6 +324,20 @@ public class ParallelBezierSplinesInspector : Editor
         ShowSelectedNodeInfo();
         ShowAngleChangeOption();
         ShowAdvancedOptions();
+        if (GUILayout.Button("Continue"))
+        {
+            parallel.LanesSet = true;
+        }
+    }
+
+    private void WaypointEditMenu()
+    {
+        ShowNodeSetupInstructions();
+        EditorGUILayout.LabelField("Node set-up", EditorStyles.boldLabel);
+        if (GUILayout.Button("Back"))
+        {
+            parallel.LanesSet = false;
+        }
     }
 
     private void ShowAdvancedOptions()
@@ -497,6 +660,13 @@ public class ParallelBezierSplinesInspector : Editor
     private void ShowEditInstructions()
     {
         EditorGUILayout.LabelField("Edit mode instructions:", EditorStyles.boldLabel);
+        EditorGUILayout.Separator();
+    }
+
+    private void ShowNodeSetupInstructions()
+    {
+        EditorGUILayout.LabelField("Node set-up instructions:", EditorStyles.boldLabel);
+        EditorGUILayout.Separator();
     }
 
     private void ShowLaneCountSelection()
@@ -545,26 +715,16 @@ public class ParallelBezierSplinesInspector : Editor
                 n = EditorGUILayout.ObjectField("Object link", rStart[i], typeof(Nodes), true) as Nodes;
                 if (n != null)
                 {
-                    if (n.StartNode == null)
+                    rStart[i] = n;
+                    linkedToNode = true;
+                    if (n.OutNodes.Length > 0)
                     {
-                        rStart[i] = n;
-                        linkedToNode = true;
-                        if (n.NextNodes.Length > 0)
-                        {
-                            directionVector = (n.NextNodes[0].transform.position - n.transform.position).normalized;
-                            directionSet = true;
-                        }
-                        else
-                        {
-                            directionSet = false;
-                        }
+                        directionVector = (n.OutNodes[0].transform.position - n.transform.position).normalized;
+                        directionSet = true;
                     }
-                    else if (testing)
+                    else
                     {
-                        Debug.Log("start node is null");
-                        linkedToNode = true;
                         directionSet = false;
-                        rStart[i] = n;
                     }
                 }
             }
@@ -609,20 +769,17 @@ public class ParallelBezierSplinesInspector : Editor
                 n = EditorGUILayout.ObjectField("Object link", lEnd[i], typeof(Nodes), true) as Nodes;
                 if (n)
                 {
-                    if (n.StartNode == null)
+                    linkedToNode = true;
+                    lEnd[i] = n;
+                    if (n.OutNodes.Length > 0)
                     {
-                        linkedToNode = true;
-                        lEnd[i] = n;
-                        if (n.NextNodes.Length > 0)
-                        {
-                            directionVector = (n.transform.position - n.NextNodes[0].transform.position).normalized;
-                            //directionSet = true;
-                            SceneView.RepaintAll();
-                        }
-                        else
-                        {
-                            //directionSet = false;
-                        }
+                        directionVector = (n.transform.position - n.OutNodes[0].transform.position).normalized;
+                        SceneView.RepaintAll();
+                        directionSet = true;
+                    }
+                    else
+                    {
+                        directionSet = false;
                     }
                 }
             }
@@ -1151,7 +1308,7 @@ public class ParallelBezierSplinesInspector : Editor
                 {
                     directionSet = true;
                     Vector3 dir;
-                    bool hasDir = rStart[i].GetDirection(out dir);
+                    bool hasDir = rStart[i].GetDirectionIn(out dir);
                     if (hasDir)
                     {
                         directionVector = dir;
@@ -1165,12 +1322,15 @@ public class ParallelBezierSplinesInspector : Editor
                 {
                     if (lEnd[i] != null)
                     {
-                        if (lEnd[i].NextNodes.Length > 0 && lEnd[i].NextNodes[0] != null)
+                        if (lEnd[i].OutNodes.Length > 0)
                         {
-                            directionVector = (lEnd[i].NextNodes[0].transform.position - lEnd[i].transform.position).normalized;
-                            directionSet = true;
-                            break;
+                            if (lEnd[i].GetDirectionOut(out Vector3 dir))
+                            {
+                                directionVector = dir;
+                                directionSet = true;
+                            }
                         }
+                        break;
                     }
                 }
             }
