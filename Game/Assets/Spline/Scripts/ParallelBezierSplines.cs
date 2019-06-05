@@ -115,6 +115,8 @@ public class ParallelBezierSplines : MonoBehaviour
     public GameObject rightParent1;
     public GameObject rightParent2;
     public GameObject rightParent3;
+    public Nodes[] startNodes;
+    public Nodes[] endNodes;
 
     [SerializeField]
     private int leftLaneCount;
@@ -142,6 +144,8 @@ public class ParallelBezierSplines : MonoBehaviour
     // 6 = left side, lane 2 change to lane 3
     // 7 = left side, lane 3 change to lane 2
     public bool[] permittedLaneChanges;
+    public int[] laneChangeStartIndex;
+    public int[] laneChangeEndIndex;
 
 
 
@@ -351,7 +355,7 @@ public class ParallelBezierSplines : MonoBehaviour
 
     public Vector3 GetRightLaneStartPoint(int lane)
     {
-        Vector2 v = Vector3.zero;
+        Vector3 v = Vector3.zero;
         switch(lane)
         {
             case 0:
@@ -2631,6 +2635,9 @@ public class ParallelBezierSplines : MonoBehaviour
         rightParent2 = null;
         rightParent3 = null;
 
+        startNodes = new Nodes[] { null, null, null, null, null, null };
+        endNodes = new Nodes[] { null, null, null, null, null, null };
+
         points = new Vector3[]
         {
             new Vector3(0f, 0f, 0f),
@@ -2681,6 +2688,9 @@ public class ParallelBezierSplines : MonoBehaviour
         rightSpacings1 = new float[] { 0f, 0f };
         rightSpacings2 = new float[] { 0f, 0f };
         rightSpacings3 = new float[] { 0f, 0f };
+
+        laneChangeStartIndex = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
+        laneChangeEndIndex = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
 
 
         leftModes1 = new BezierControlPointMode[]
