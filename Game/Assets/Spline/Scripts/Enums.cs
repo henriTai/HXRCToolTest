@@ -39,3 +39,17 @@ public enum IntersectionDirection
     Left,
     Right
 }
+
+public enum SpeedLimits
+{
+    KMH_20,
+    KMH_30,
+    KMH_40,
+    KMH_50,
+    KMH_60,
+    KMH_70,
+    KMH_80,
+    KMH_90,
+    KMH_100,
+    KMH_120
+}

@@ -13,6 +13,8 @@ public class ParallelBezierSplines : MonoBehaviour
     private bool initialized;
     [SerializeField]
     private bool lanesSet;
+    [SerializeField]
+    private bool nodesSet;
 
     [SerializeField]
     private Vector3[] points;
@@ -34,6 +36,8 @@ public class ParallelBezierSplines : MonoBehaviour
     private float[] segmentLengths;
     [SerializeField]
     private int[] nodesOnSegment;
+    [SerializeField]
+    private int nodeCount;
     
     [SerializeField]
     private float[] leftSegmentLengths1;
@@ -88,6 +92,10 @@ public class ParallelBezierSplines : MonoBehaviour
     private BezierControlPointMode[] rightModes3;
 
     [SerializeField]
+    private TrafficSize traffic;
+    [SerializeField]
+    private SpeedLimits speedLimit;
+    [SerializeField]
     public List<GameObject> wayPointsLeft1;
     [SerializeField]
     public List<GameObject> wayPointsLeft2;
@@ -112,7 +120,29 @@ public class ParallelBezierSplines : MonoBehaviour
     private int leftLaneCount;
     [SerializeField]
     private int rightLaneCount;
-    
+    [SerializeField]
+    private bool busLaneLeft;
+    [SerializeField]
+    private int busLeftStart;
+    [SerializeField]
+    private int busLeftEnd;
+    [SerializeField]
+    private int busRightStart;
+    [SerializeField]
+    private int busRightEnd;
+    [SerializeField]
+    private bool busLaneRight;
+    // To save space, possible lane changes are arranged in ana array, the order is:
+    // 0 = right side, lane 1 change to lane 2
+    // 1 = right side, lane 2 change to lane 1
+    // 2 = right side, lane 2 change to lane 3
+    // 3 = right side, lane 3 change to lane 2
+    // 4 = left side, lane 1 change to lane 2
+    // 5 = left side, lane 2 change to lane 1
+    // 6 = left side, lane 2 change to lane 3
+    // 7 = left side, lane 3 change to lane 2
+    public bool[] permittedLaneChanges;
+
 
 
     public int LeftLaneCount
@@ -142,6 +172,90 @@ public class ParallelBezierSplines : MonoBehaviour
         }
     }
 
+    public bool BusLaneLeft
+    {
+        get
+        {
+            return busLaneLeft;
+        }
+        set
+        {
+            busLaneLeft = value;
+        }
+    }
+
+    public bool BusLaneRight
+    {
+        get
+        {
+            return busLaneRight;
+        }
+        set
+        {
+            busLaneRight = value;
+        }
+    }
+
+    public int BusLeftStart
+    {
+        get
+        {
+            return busLeftStart;
+        }
+        set
+        {
+            busLeftStart = value;
+        }
+    }
+
+    public int BusLeftEnd
+    {
+        get
+        {
+            return busLeftEnd;
+        }
+        set
+        {
+            busLeftEnd = value;
+        }
+    }
+
+    public SpeedLimits SpeedLimit
+    {
+        get
+        {
+            return speedLimit;
+        }
+        set
+        {
+            speedLimit = value;
+        }
+    }
+
+    public int BusRightStart
+    {
+        get
+        {
+            return busRightStart;
+        }
+        set
+        {
+            busRightStart = value;
+        }
+    }
+
+    public int BusRightEnd
+    {
+        get
+        {
+            return busRightEnd;
+        }
+        set
+        {
+            busRightEnd = value;
+        }
+    }
+
     public bool Initialized
     {
         get
@@ -163,6 +277,42 @@ public class ParallelBezierSplines : MonoBehaviour
         set
         {
             lanesSet = value;
+        }
+    }
+
+    public bool NodesSet
+    {
+        get
+        {
+            return nodesSet;
+        }
+        set
+        {
+            nodesSet = value;
+        }
+    }
+
+    public int NodeCount
+    {
+        get
+        {
+            return nodeCount;
+        }
+        set
+        {
+            nodeCount = value;
+        }
+    }
+
+    public TrafficSize Traffic
+    {
+        get
+        {
+            return traffic;
+        }
+        set
+        {
+            traffic = value;
         }
     }
 
@@ -2462,6 +2612,15 @@ public class ParallelBezierSplines : MonoBehaviour
         loop = false;
         initialized = false;
         lanesSet = false;
+        nodesSet = false;
+        busLaneLeft = false;
+        busLeftStart = 0;
+        busLeftEnd = 0;
+        busLaneRight = false;
+        busRightStart = 0;
+        busRightEnd = 0;
+        traffic = TrafficSize.Average;
+        permittedLaneChanges = new bool[] { false, false, false, false, false, false, false, false };
 
         roadNetwork = null;
         roadParent = null;
@@ -2489,6 +2648,7 @@ public class ParallelBezierSplines : MonoBehaviour
         segmentLengths = new float[] { splineLength }; //jos ei alusteta suoralla pitää muuttaa
         nodesOnSegment = new int[] { 0 };
 
+        NodeCount = 0;
         LeftLaneCount = 0;
         RightLaneCount = 0;
 

@@ -1413,6 +1413,7 @@ MonoBehaviour:
   loop: 0
   initialized: 1
   lanesSet: 1
+  nodesSet: 1
   points:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 3.3333333}
@@ -1560,7 +1561,8 @@ MonoBehaviour:
   - 12.538345
   - 12.53305
   - 16.148853
-  nodesOnSegment: 030000000500000004000000050000000400000003000000
+  nodesOnSegment: 030000000500000004000000050000000500000003000000
+  nodeCount: 26
   leftSegmentLengths1:
   - 12.52461
   - 12.801892
@@ -1667,6 +1669,8 @@ MonoBehaviour:
   rightModes1: 01000000010000000100000001000000010000000100000001000000
   rightModes2: 01000000010000000100000001000000010000000100000001000000
   rightModes3: 01000000010000000100000001000000010000000100000001000000
+  traffic: 2
+  speedLimit: 2
   wayPointsLeft1: []
   wayPointsLeft2: []
   wayPointsLeft3: []
@@ -1683,6 +1687,13 @@ MonoBehaviour:
   rightParent3: {fileID: 0}
   leftLaneCount: 3
   rightLaneCount: 3
+  busLaneLeft: 0
+  busLeftStart: 0
+  busLeftEnd: 25
+  busRightStart: 0
+  busRightEnd: 25
+  busLaneRight: 0
+  permittedLaneChanges: 0000000000000000
 --- !u!4 &562504686
 Transform:
   m_ObjectHideFlags: 0
@@ -3473,6 +3484,7 @@ MonoBehaviour:
   loop: 0
   initialized: 1
   lanesSet: 0
+  nodesSet: 0
   points:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 3.3333333}
@@ -3533,6 +3545,7 @@ MonoBehaviour:
   - 11.209749
   - 11.280862
   nodesOnSegment: 
+  nodeCount: 0
   leftSegmentLengths1:
   - 11.750293
   - 10.0000515
@@ -3591,6 +3604,8 @@ MonoBehaviour:
   rightModes1: 010000000100000001000000
   rightModes2: 010000000100000001000000
   rightModes3: 010000000100000001000000
+  traffic: 0
+  speedLimit: 0
   wayPointsLeft1: []
   wayPointsLeft2: []
   wayPointsLeft3: []
@@ -3607,6 +3622,13 @@ MonoBehaviour:
   rightParent3: {fileID: 0}
   leftLaneCount: 3
   rightLaneCount: 3
+  busLaneLeft: 0
+  busLeftStart: 0
+  busLeftEnd: 0
+  busRightStart: 0
+  busRightEnd: 0
+  busLaneRight: 0
+  permittedLaneChanges: 
 --- !u!4 &1272598357
 Transform:
   m_ObjectHideFlags: 0
