@@ -1,0 +1,4205 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+OcclusionCullingSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: 0.25
+    backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
+--- !u!104 &2
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 9
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.01
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 0
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_HaloStrength: 0.5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_UseRadianceAmbientProbe: 0
+--- !u!157 &3
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 11
+  m_GIWorkflowMode: 1
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 1
+    m_EnableRealtimeLightmaps: 1
+  m_LightmapEditorSettings:
+    serializedVersion: 12
+    m_Resolution: 2
+    m_BakeResolution: 40
+    m_AtlasSize: 1024
+    m_AO: 0
+    m_AOMaxDistance: 1
+    m_CompAOExponent: 1
+    m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
+    m_Padding: 2
+    m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
+    m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
+    m_ReflectionCompression: 2
+    m_MixedBakeMode: 2
+    m_BakeBackend: 1
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 500
+    m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 500
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 2
+    m_PVRDenoiserTypeDirect: 0
+    m_PVRDenoiserTypeIndirect: 0
+    m_PVRDenoiserTypeAO: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVREnvironmentMIS: 0
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
+    m_ExportTrainingData: 0
+  m_LightingDataAsset: {fileID: 0}
+  m_UseShadowmask: 1
+--- !u!196 &4
+NavMeshSettings:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    serializedVersion: 2
+    agentTypeID: 0
+    agentRadius: 0.5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: 0.4
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    minRegionArea: 2
+    manualCellSize: 0
+    cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
+    accuratePlacement: 0
+    debug:
+      m_Flags: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!1 &1973218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1973220}
+  - component: {fileID: 1973219}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r1_3
+  m_TagString: Untagged
+  m_Icon: {fileID: -1072665210962886420, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1973219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1787138233}
+  outNodes:
+  - {fileID: 1967724595}
+  parallelLeft: {fileID: 0}
+  parallelRight: {fileID: 796898329}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 1534710074}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 747789950}
+--- !u!4 &1973220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973218}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.3156691, y: 0, z: 9.390339}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 747789951}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6194310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6194312}
+  - component: {fileID: 6194311}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l1_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 2860686844604528909, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &6194311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6194310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 789865773}
+  outNodes:
+  - {fileID: 717301873}
+  parallelLeft: {fileID: 0}
+  parallelRight: {fileID: 740582966}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 1465230961}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 436561816}
+--- !u!4 &6194312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6194310}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.72081065, y: 0, z: 9.841382}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436561817}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &67094904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 67094906}
+  - component: {fileID: 67094905}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r3_1
+  m_TagString: Untagged
+  m_Icon: {fileID: -6861806574729942327, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &67094905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67094904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1902759124}
+  outNodes:
+  - {fileID: 1238754939}
+  parallelLeft: {fileID: 133491106}
+  parallelRight: {fileID: 0}
+  laneChangeLeft: {fileID: 978547972}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 1
+  turnDirection: 0
+  parentLane: {fileID: 1828446980}
+--- !u!4 &67094906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67094904}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.1684768, y: 0, z: 2.8664718}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1828446979}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &133491105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 133491107}
+  - component: {fileID: 133491106}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r2_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 1777224716415355536, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &133491106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133491105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1110239903}
+  outNodes:
+  - {fileID: 978547972}
+  parallelLeft: {fileID: 171654458}
+  parallelRight: {fileID: 67094905}
+  laneChangeLeft: {fileID: 1787138233}
+  laneChangeRight: {fileID: 1238754939}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 2065469134}
+--- !u!4 &133491107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133491105}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.1483512, y: 0, z: 2.920278}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2065469135}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &163397773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 163397775}
+  - component: {fileID: 163397774}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l1_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 2860686844604528909, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &163397774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163397773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1929018505}
+  outNodes:
+  - {fileID: 789865773}
+  parallelLeft: {fileID: 0}
+  parallelRight: {fileID: 689133747}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 1911545314}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 436561816}
+--- !u!4 &163397775
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163397773}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.44544792, y: 0, z: 16.289536}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436561817}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &171654457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 171654459}
+  - component: {fileID: 171654458}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r1_1
+  m_TagString: Untagged
+  m_Icon: {fileID: -1072665210962886420, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &171654458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171654457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 2104075991}
+  outNodes:
+  - {fileID: 1787138233}
+  parallelLeft: {fileID: 0}
+  parallelRight: {fileID: 133491106}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 978547972}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 747789950}
+--- !u!4 &171654459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171654457}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.1324764, y: 0, z: 2.9743397}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 747789951}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &181881970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 181881972}
+  - component: {fileID: 181881971}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r1_6
+  m_TagString: Untagged
+  m_Icon: {fileID: -1072665210962886420, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &181881971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181881970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 508606158}
+  outNodes:
+  - {fileID: 1760961836}
+  parallelLeft: {fileID: 0}
+  parallelRight: {fileID: 403770304}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 1139523269}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 747789950}
+--- !u!4 &181881972
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181881970}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.1252923, y: 0, z: 18.794918}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 747789951}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &266545055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 266545057}
+  - component: {fileID: 266545056}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r3_5
+  m_TagString: Untagged
+  m_Icon: {fileID: -6861806574729942327, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &266545056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266545055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 821915267}
+  outNodes:
+  - {fileID: 902875078}
+  parallelLeft: {fileID: 1176001191}
+  parallelRight: {fileID: 0}
+  laneChangeLeft: {fileID: 403770304}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 1
+  turnDirection: 0
+  parentLane: {fileID: 1828446980}
+--- !u!4 &266545057
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266545055}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.110794, y: 0, z: 15.087477}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1828446979}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &389524233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 389524235}
+  - component: {fileID: 389524234}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l1_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 2860686844604528909, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &389524234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389524233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1515199352}
+  outNodes:
+  - {fileID: 1929018505}
+  parallelLeft: {fileID: 0}
+  parallelRight: {fileID: 503433108}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 1177582905}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 436561816}
+--- !u!4 &389524235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389524233}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.3330135, y: 0, z: 22.592953}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436561817}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &403770303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 403770305}
+  - component: {fileID: 403770304}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r2_6
+  m_TagString: Untagged
+  m_Icon: {fileID: 1777224716415355536, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &403770304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403770303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1176001191}
+  outNodes:
+  - {fileID: 1139523269}
+  parallelLeft: {fileID: 181881971}
+  parallelRight: {fileID: 902875078}
+  laneChangeLeft: {fileID: 1760961836}
+  laneChangeRight: {fileID: 426254138}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 2065469134}
+--- !u!4 &403770305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403770303}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.035879, y: 0, z: 18.465511}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2065469135}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &426254137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 426254139}
+  - component: {fileID: 426254138}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r3_7
+  m_TagString: Untagged
+  m_Icon: {fileID: -6861806574729942327, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &426254138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426254137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 902875078}
+  outNodes:
+  - {fileID: 1516368683}
+  parallelLeft: {fileID: 1139523269}
+  parallelRight: {fileID: 0}
+  laneChangeLeft: {fileID: 1343343250}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 1
+  turnDirection: 0
+  parentLane: {fileID: 1828446980}
+--- !u!4 &426254139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426254137}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.086627, y: 0, z: 21.340061}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1828446979}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &436561815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 436561817}
+  - component: {fileID: 436561816}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &436561816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436561815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4862f475928283488efd0e8609e07d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trafficSize: 2
+  laneYield: 0
+  speedLimit: 2
+--- !u!4 &436561817
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436561815}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1515199353}
+  - {fileID: 389524235}
+  - {fileID: 1929018506}
+  - {fileID: 163397775}
+  - {fileID: 789865774}
+  - {fileID: 6194312}
+  - {fileID: 717301874}
+  - {fileID: 1934763396}
+  - {fileID: 1795481109}
+  m_Father: {fileID: 1852263909}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &503433107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 503433109}
+  - component: {fileID: 503433108}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l2_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 8487625137779298168, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &503433108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503433107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1882710422}
+  outNodes:
+  - {fileID: 1177582905}
+  parallelLeft: {fileID: 389524234}
+  parallelRight: {fileID: 556297102}
+  laneChangeLeft: {fileID: 1929018505}
+  laneChangeRight: {fileID: 1927355678}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 1245289322}
+--- !u!4 &503433109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503433107}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.3922338, y: 0, z: 22.907558}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1245289323}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &508606157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 508606159}
+  - component: {fileID: 508606158}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r1_5
+  m_TagString: Untagged
+  m_Icon: {fileID: -1072665210962886420, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &508606158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508606157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1967724595}
+  outNodes:
+  - {fileID: 181881971}
+  parallelLeft: {fileID: 0}
+  parallelRight: {fileID: 1176001191}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 403770304}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 747789950}
+--- !u!4 &508606159
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508606157}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.281543, y: 0, z: 15.68633}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 747789951}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &556297101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 556297103}
+  - component: {fileID: 556297102}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l3_1
+  m_TagString: Untagged
+  m_Icon: {fileID: -6861806574729942327, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &556297102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556297101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1462079820}
+  outNodes:
+  - {fileID: 1927355678}
+  parallelLeft: {fileID: 503433108}
+  parallelRight: {fileID: 0}
+  laneChangeLeft: {fileID: 1177582905}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 1
+  turnDirection: 0
+  parentLane: {fileID: 1124395530}
+--- !u!4 &556297103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556297101}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.45215428, y: 0, z: 23.221853}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1124395529}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &624831713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 624831715}
+  - component: {fileID: 624831714}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r3_3
+  m_TagString: Untagged
+  m_Icon: {fileID: -6861806574729942327, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &624831714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624831713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1238754939}
+  outNodes:
+  - {fileID: 821915267}
+  parallelLeft: {fileID: 796898329}
+  parallelRight: {fileID: 0}
+  laneChangeLeft: {fileID: 1534710074}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 1
+  turnDirection: 0
+  parentLane: {fileID: 1828446980}
+--- !u!4 &624831715
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624831713}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.4122763, y: 0, z: 8.936499}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1828446979}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &689133746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 689133748}
+  - component: {fileID: 689133747}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l2_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 8487625137779298168, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &689133747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689133746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1177582905}
+  outNodes:
+  - {fileID: 1911545314}
+  parallelLeft: {fileID: 163397774}
+  parallelRight: {fileID: 1187330285}
+  laneChangeLeft: {fileID: 789865773}
+  laneChangeRight: {fileID: 1129153290}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 1245289322}
+--- !u!4 &689133748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689133746}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.47801775, y: 0, z: 16.594193}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1245289323}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &699323369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 699323371}
+  - component: {fileID: 699323370}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l3_6
+  m_TagString: Untagged
+  m_Icon: {fileID: -6861806574729942327, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &699323370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699323369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1488293542}
+  outNodes:
+  - {fileID: 1134663547}
+  parallelLeft: {fileID: 1465230961}
+  parallelRight: {fileID: 0}
+  laneChangeLeft: {fileID: 1778269377}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 1
+  turnDirection: 0
+  parentLane: {fileID: 1124395530}
+--- !u!4 &699323371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699323369}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.861537, y: 0, z: 6.7390423}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1124395529}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &717301872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 717301874}
+  - component: {fileID: 717301873}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l1_6
+  m_TagString: Untagged
+  m_Icon: {fileID: 2860686844604528909, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &717301873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717301872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 6194311}
+  outNodes:
+  - {fileID: 1934763395}
+  parallelLeft: {fileID: 0}
+  parallelRight: {fileID: 1465230961}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 1778269377}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 436561816}
+--- !u!4 &717301874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717301872}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.85704666, y: 0, z: 6.429316}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436561817}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &740582965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 740582967}
+  - component: {fileID: 740582966}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l2_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 8487625137779298168, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &740582966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740582965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1911545314}
+  outNodes:
+  - {fileID: 1465230961}
+  parallelLeft: {fileID: 6194311}
+  parallelRight: {fileID: 1488293542}
+  laneChangeLeft: {fileID: 717301873}
+  laneChangeRight: {fileID: 699323370}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 1245289322}
+--- !u!4 &740582967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740582965}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.7209806, y: 0, z: 10.064605}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1245289323}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &747789949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 747789951}
+  - component: {fileID: 747789950}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &747789950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747789949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4862f475928283488efd0e8609e07d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trafficSize: 2
+  laneYield: 0
+  speedLimit: 2
+--- !u!4 &747789951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747789949}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2104075992}
+  - {fileID: 171654459}
+  - {fileID: 1787138234}
+  - {fileID: 1973220}
+  - {fileID: 1967724596}
+  - {fileID: 508606159}
+  - {fileID: 181881972}
+  - {fileID: 1760961835}
+  - {fileID: 1931836634}
+  m_Father: {fileID: 1852263909}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &789865772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 789865774}
+  - component: {fileID: 789865773}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l1_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 2860686844604528909, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &789865773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789865772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 163397774}
+  outNodes:
+  - {fileID: 6194311}
+  parallelLeft: {fileID: 0}
+  parallelRight: {fileID: 1911545314}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 740582966}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 436561816}
+--- !u!4 &789865774
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789865772}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.27488905, y: 0, z: 13.114733}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436561817}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &796898328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 796898330}
+  - component: {fileID: 796898329}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r2_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 1777224716415355536, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &796898329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796898328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 978547972}
+  outNodes:
+  - {fileID: 1534710074}
+  parallelLeft: {fileID: 1973219}
+  parallelRight: {fileID: 624831714}
+  laneChangeLeft: {fileID: 1967724595}
+  laneChangeRight: {fileID: 821915267}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 2065469134}
+--- !u!4 &796898330
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796898328}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.3575962, y: 0, z: 9.163035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2065469135}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &821915266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 821915268}
+  - component: {fileID: 821915267}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r3_4
+  m_TagString: Untagged
+  m_Icon: {fileID: -6861806574729942327, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &821915267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821915266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 624831714}
+  outNodes:
+  - {fileID: 266545056}
+  parallelLeft: {fileID: 1534710074}
+  parallelRight: {fileID: 0}
+  laneChangeLeft: {fileID: 1176001191}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 1
+  turnDirection: 0
+  parentLane: {fileID: 1828446980}
+--- !u!4 &821915268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821915266}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.6643414, y: 0, z: 12.42014}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1828446979}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &902875077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 902875079}
+  - component: {fileID: 902875078}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r3_6
+  m_TagString: Untagged
+  m_Icon: {fileID: -6861806574729942327, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &902875078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902875077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 266545056}
+  outNodes:
+  - {fileID: 426254138}
+  parallelLeft: {fileID: 403770304}
+  parallelRight: {fileID: 0}
+  laneChangeLeft: {fileID: 1139523269}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 1
+  turnDirection: 0
+  parentLane: {fileID: 1828446980}
+--- !u!4 &902875079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902875077}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.948627, y: 0, z: 18.135262}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1828446979}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &910158685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 910158686}
+  - component: {fileID: 910158687}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l3_8
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &910158686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910158685}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1124395529}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &910158687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910158685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1134663547}
+  outNodes: []
+  parallelLeft: {fileID: 1139494075}
+  parallelRight: {fileID: 0}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 1124395530}
+--- !u!1 &978547971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 978547973}
+  - component: {fileID: 978547972}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r2_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 1777224716415355536, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &978547972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978547971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 133491106}
+  outNodes:
+  - {fileID: 796898329}
+  parallelLeft: {fileID: 1787138233}
+  parallelRight: {fileID: 1238754939}
+  laneChangeLeft: {fileID: 1973219}
+  laneChangeRight: {fileID: 624831714}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 2065469134}
+--- !u!4 &978547973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978547971}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.2240427, y: 0, z: 5.956578}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2065469135}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1083927854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1083927856}
+  - component: {fileID: 1083927855}
+  m_Layer: 0
+  m_Name: NodeNetwork
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1083927855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083927854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b6e8f7be0832334f9d74f0606a8e750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1083927856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083927854}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1852263909}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1110239902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1110239904}
+  - component: {fileID: 1110239903}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r2_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1110239903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110239902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes: []
+  outNodes:
+  - {fileID: 133491106}
+  parallelLeft: {fileID: 2104075991}
+  parallelRight: {fileID: 1902759124}
+  laneChangeLeft: {fileID: 171654458}
+  laneChangeRight: {fileID: 67094905}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 2065469134}
+--- !u!4 &1110239904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110239902}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2065469135}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1124395528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1124395529}
+  - component: {fileID: 1124395530}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1124395529
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124395528}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1462079821}
+  - {fileID: 556297103}
+  - {fileID: 1927355679}
+  - {fileID: 1187330286}
+  - {fileID: 1129153291}
+  - {fileID: 1488293543}
+  - {fileID: 699323371}
+  - {fileID: 1134663548}
+  - {fileID: 910158686}
+  m_Father: {fileID: 1852263909}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1124395530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124395528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4862f475928283488efd0e8609e07d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trafficSize: 2
+  laneYield: 0
+  speedLimit: 2
+--- !u!1 &1129153289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1129153291}
+  - component: {fileID: 1129153290}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l3_4
+  m_TagString: Untagged
+  m_Icon: {fileID: -6861806574729942327, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1129153290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129153289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1187330285}
+  outNodes:
+  - {fileID: 1488293542}
+  parallelLeft: {fileID: 1911545314}
+  parallelRight: {fileID: 0}
+  laneChangeLeft: {fileID: 740582966}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 1
+  turnDirection: 0
+  parentLane: {fileID: 1124395530}
+--- !u!4 &1129153291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129153289}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.2445033, y: 0, z: 13.462029}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1124395529}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1134663546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1134663548}
+  - component: {fileID: 1134663547}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l3_7
+  m_TagString: Untagged
+  m_Icon: {fileID: -6861806574729942327, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1134663547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134663546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 699323370}
+  outNodes:
+  - {fileID: 910158687}
+  parallelLeft: {fileID: 1778269377}
+  parallelRight: {fileID: 0}
+  laneChangeLeft: {fileID: 1139494075}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 1
+  turnDirection: 0
+  parentLane: {fileID: 1124395530}
+--- !u!4 &1134663548
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134663546}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.886115, y: 0, z: 3.1865697}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1124395529}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1139494074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1139494076}
+  - component: {fileID: 1139494075}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l2_8
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1139494075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139494074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1778269377}
+  outNodes: []
+  parallelLeft: {fileID: 1795481108}
+  parallelRight: {fileID: 910158687}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 1245289322}
+--- !u!4 &1139494076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139494074}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1245289323}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1139523268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1139523270}
+  - component: {fileID: 1139523269}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r2_7
+  m_TagString: Untagged
+  m_Icon: {fileID: 1777224716415355536, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1139523269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139523268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 403770304}
+  outNodes:
+  - {fileID: 1343343250}
+  parallelLeft: {fileID: 1760961836}
+  parallelRight: {fileID: 426254138}
+  laneChangeLeft: {fileID: 1931836633}
+  laneChangeRight: {fileID: 1516368683}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 2065469134}
+--- !u!4 &1139523270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139523268}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.148389, y: 0, z: 21.653076}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2065469135}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1176001190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1176001192}
+  - component: {fileID: 1176001191}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r2_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 1777224716415355536, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1176001191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176001190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1534710074}
+  outNodes:
+  - {fileID: 403770304}
+  parallelLeft: {fileID: 508606158}
+  parallelRight: {fileID: 266545056}
+  laneChangeLeft: {fileID: 181881971}
+  laneChangeRight: {fileID: 902875078}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 2065469134}
+--- !u!4 &1176001192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176001190}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.1949532, y: 0, z: 15.387378}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2065469135}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1177582904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1177582906}
+  - component: {fileID: 1177582905}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l2_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 8487625137779298168, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1177582905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177582904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 503433108}
+  outNodes:
+  - {fileID: 689133747}
+  parallelLeft: {fileID: 1929018505}
+  parallelRight: {fileID: 1927355678}
+  laneChangeLeft: {fileID: 163397774}
+  laneChangeRight: {fileID: 1187330285}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 1245289322}
+--- !u!4 &1177582906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177582904}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.37634832, y: 0, z: 19.79292}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1245289323}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1187330284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1187330286}
+  - component: {fileID: 1187330285}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l3_3
+  m_TagString: Untagged
+  m_Icon: {fileID: -6861806574729942327, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1187330285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187330284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1927355678}
+  outNodes:
+  - {fileID: 1129153290}
+  parallelLeft: {fileID: 689133747}
+  parallelRight: {fileID: 0}
+  laneChangeLeft: {fileID: 1911545314}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 1
+  turnDirection: 0
+  parentLane: {fileID: 1124395530}
+--- !u!4 &1187330286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187330284}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.3993833, y: 0, z: 16.897923}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1124395529}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1238754938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1238754940}
+  - component: {fileID: 1238754939}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r3_2
+  m_TagString: Untagged
+  m_Icon: {fileID: -6861806574729942327, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1238754939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238754938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 67094905}
+  outNodes:
+  - {fileID: 624831714}
+  parallelLeft: {fileID: 978547972}
+  parallelRight: {fileID: 0}
+  laneChangeLeft: {fileID: 796898329}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 1
+  turnDirection: 0
+  parentLane: {fileID: 1828446980}
+--- !u!4 &1238754940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238754938}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.2764454, y: 0, z: 5.7986236}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1828446979}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1245289321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1245289323}
+  - component: {fileID: 1245289322}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1245289322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245289321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4862f475928283488efd0e8609e07d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trafficSize: 2
+  laneYield: 0
+  speedLimit: 2
+--- !u!4 &1245289323
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245289321}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1882710423}
+  - {fileID: 503433109}
+  - {fileID: 1177582906}
+  - {fileID: 689133748}
+  - {fileID: 1911545315}
+  - {fileID: 740582967}
+  - {fileID: 1465230962}
+  - {fileID: 1778269378}
+  - {fileID: 1139494076}
+  m_Father: {fileID: 1852263909}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1343343249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1343343251}
+  - component: {fileID: 1343343250}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r2_8
+  m_TagString: Untagged
+  m_Icon: {fileID: 1777224716415355536, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1343343250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343343249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1139523269}
+  outNodes: []
+  parallelLeft: {fileID: 1931836633}
+  parallelRight: {fileID: 1516368683}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 2065469134}
+--- !u!4 &1343343251
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343343249}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.4785576, y: 0, z: 24.774963}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2065469135}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1346101837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1346101838}
+  - component: {fileID: 1346101839}
+  m_Layer: 0
+  m_Name: Paciuksenkatu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1346101838
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346101837}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1346101839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346101837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f46363af9e8d0498fb017a403b66a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loop: 0
+  initialized: 1
+  lanesSet: 1
+  nodesSet: 1
+  points:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0.3042512, y: 0, z: 3.8404171}
+  - {x: -0.13812244, y: 0, z: 8.576649}
+  - {x: 0.7099185, y: 0, z: 12.941085}
+  - {x: 1.4788806, y: 0, z: 16.898542}
+  - {x: 2.673816, y: 0, z: 21.327137}
+  - {x: 4.5685143, y: 0, z: 25.368036}
+  leftLanePoints1:
+  - {x: 3.6134927, y: 0, z: 25.664572}
+  - {x: 1.7187943, y: 0, z: 21.623672}
+  - {x: 0.6240012, y: 0, z: 17.33907}
+  - {x: -0.27488905, y: 0, z: 13.114733}
+  - {x: -1.1647458, y: 0, z: 8.932849}
+  - {x: -0.6957489, y: 0, z: 3.8404171}
+  - {x: -1, y: 0, z: 0}
+  leftLanePoints2:
+  - {x: 2.658471, y: 0, z: 25.96111}
+  - {x: 0.76377285, y: 0, z: 21.92021}
+  - {x: -0.22643542, y: 0, z: 17.777744}
+  - {x: -1.2596965, y: 0, z: 13.288382}
+  - {x: -2.1803417, y: 0, z: 9.288318}
+  - {x: -1.6957486, y: 0, z: 3.8404171}
+  - {x: -2, y: 0, z: 0}
+  leftLanePoints3:
+  - {x: 1.7034497, y: 0, z: 26.257645}
+  - {x: -0.19124866, y: 0, z: 22.216745}
+  - {x: -1.0718946, y: 0, z: 18.214218}
+  - {x: -2.2445033, y: 0, z: 13.462029}
+  - {x: -3.1868489, y: 0, z: 9.64302}
+  - {x: -2.6957488, y: 0, z: 3.8404171}
+  - {x: -3, y: 0, z: 0}
+  rightLanePoints1:
+  - {x: 1, y: 0, z: 0}
+  - {x: 1.3042512, y: 0, z: 3.8404171}
+  - {x: 0.95210946, y: 0, z: 8.211004}
+  - {x: 1.6947262, y: 0, z: 12.767437}
+  - {x: 2.2991881, y: 0, z: 16.4762}
+  - {x: 3.6288373, y: 0, z: 21.030602}
+  - {x: 5.5235357, y: 0, z: 25.0715}
+  rightLanePoints2:
+  - {x: 2, y: 0, z: 0}
+  - {x: 2.3042512, y: 0, z: 3.8404171}
+  - {x: 2.0666842, y: 0, z: 7.845861}
+  - {x: 2.6795342, y: 0, z: 12.593788}
+  - {x: 3.1257885, y: 0, z: 16.05105}
+  - {x: 4.5838594, y: 0, z: 20.734064}
+  - {x: 6.4785576, y: 0, z: 24.774963}
+  rightLanePoints3:
+  - {x: 3, y: 0, z: 0}
+  - {x: 3.3042512, y: 0, z: 3.8404171}
+  - {x: 3.2114892, y: 0, z: 7.482533}
+  - {x: 3.6643414, y: 0, z: 12.42014}
+  - {x: 3.958151, y: 0, z: 15.62365}
+  - {x: 5.5388803, y: 0, z: 20.437529}
+  - {x: 7.433579, y: 0, z: 24.478428}
+  segmentLengths:
+  - 12.976424
+  - 13.044658
+  nodesOnSegment: 0400000003000000
+  nodeCount: 8
+  leftSegmentLengths1:
+  - 13.168036
+  - 13.153566
+  leftSegmentLengths2:
+  - 13.291593
+  - 13.330381
+  leftSegmentLengths3:
+  - 13.41534
+  - 13.506806
+  rightSegmentLengths1:
+  - 10
+  - 12.715764
+  rightSegmentLengths2:
+  - 12.439535
+  - 12.419474
+  rightSegmentLengths3:
+  - 10
+  - 12.68537
+  splineLength: 26.021082
+  leftSplineLengths:
+  - 26.321602
+  - 26.621975
+  - 26.922146
+  rightSplineLengths:
+  - 10
+  - 10
+  - 22.685371
+  leftSpacings1:
+  - 1
+  - 1
+  - 1
+  leftSpacings2:
+  - 1
+  - 1
+  - 1
+  leftSpacings3:
+  - 1
+  - 1
+  - 1
+  rightSpacings1:
+  - 1
+  - 1
+  - 1
+  rightSpacings2:
+  - 1
+  - 1
+  - 1
+  rightSpacings3:
+  - 1
+  - 1
+  - 1
+  modes: 010000000100000001000000
+  leftModes1: 010000000100000001000000
+  leftModes2: 010000000100000001000000
+  leftModes3: 010000000100000001000000
+  rightModes1: 010000000100000001000000
+  rightModes2: 010000000100000001000000
+  rightModes3: 010000000100000001000000
+  traffic: 2
+  speedLimit: 2
+  wayPointsLeft1: []
+  wayPointsLeft2: []
+  wayPointsLeft3: []
+  wayPointsRight1: []
+  wayPointsRight2: []
+  wayPointsRight3: []
+  roadNetwork: {fileID: 1083927854}
+  roadParent: {fileID: 0}
+  leftParent1: {fileID: 0}
+  leftParent2: {fileID: 0}
+  leftParent3: {fileID: 0}
+  rightParent1: {fileID: 0}
+  rightParent2: {fileID: 0}
+  rightParent3: {fileID: 0}
+  startNodes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  endNodes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  leftLaneCount: 3
+  rightLaneCount: 3
+  busLaneLeft: 1
+  busLeftStart: 0
+  busLeftEnd: 7
+  busRightStart: 0
+  busRightEnd: 7
+  busLaneRight: 1
+  permittedLaneChanges: 0000000000000000
+  laneChangeStartIndex: 0000000000000000000000000000000000000000000000000000000000000000
+  laneChangeEndIndex: 0800000008000000080000000800000008000000080000000800000008000000
+--- !u!1 &1462079819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1462079821}
+  - component: {fileID: 1462079820}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l3_0
+  m_TagString: Untagged
+  m_Icon: {fileID: -6861806574729942327, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1462079820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462079819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 0}
+  outNodes: []
+  parallelLeft: {fileID: 1882710422}
+  parallelRight: {fileID: 0}
+  laneChangeLeft: {fileID: 503433108}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 1
+  turnDirection: 0
+  parentLane: {fileID: 1124395530}
+--- !u!4 &1462079821
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462079819}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7034497, y: 0, z: 26.257645}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1124395529}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1465230960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1465230962}
+  - component: {fileID: 1465230961}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l2_6
+  m_TagString: Untagged
+  m_Icon: {fileID: 8487625137779298168, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1465230961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465230960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 740582966}
+  outNodes:
+  - {fileID: 1778269377}
+  parallelLeft: {fileID: 717301873}
+  parallelRight: {fileID: 699323370}
+  laneChangeLeft: {fileID: 1934763395}
+  laneChangeRight: {fileID: 1134663547}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 1245289322}
+--- !u!4 &1465230962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465230960}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.860996, y: 0, z: 6.5843234}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1245289323}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1488293541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1488293543}
+  - component: {fileID: 1488293542}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l3_5
+  m_TagString: Untagged
+  m_Icon: {fileID: -6861806574729942327, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1488293542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488293541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1129153290}
+  outNodes:
+  - {fileID: 699323370}
+  parallelLeft: {fileID: 740582966}
+  parallelRight: {fileID: 0}
+  laneChangeLeft: {fileID: 1465230961}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 1
+  turnDirection: 0
+  parentLane: {fileID: 1124395530}
+--- !u!4 &1488293543
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488293541}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.7173164, y: 0, z: 10.287501}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1124395529}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1515199351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1515199353}
+  - component: {fileID: 1515199352}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l1_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 2860686844604528909, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1515199352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515199351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 0}
+  outNodes: []
+  parallelLeft: {fileID: 0}
+  parallelRight: {fileID: 1882710422}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 503433108}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 436561816}
+--- !u!4 &1515199353
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515199351}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.6134927, y: 0, z: 25.664572}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436561817}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1516368681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1516368682}
+  - component: {fileID: 1516368683}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r3_8
+  m_TagString: Untagged
+  m_Icon: {fileID: -6861806574729942327, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1516368682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516368681}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.433579, y: 0, z: 24.478428}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1828446979}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1516368683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516368681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 426254138}
+  outNodes: []
+  parallelLeft: {fileID: 1343343250}
+  parallelRight: {fileID: 0}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 1
+  turnDirection: 0
+  parentLane: {fileID: 1828446980}
+--- !u!1 &1534710073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1534710075}
+  - component: {fileID: 1534710074}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r2_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 1777224716415355536, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1534710074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534710073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 796898329}
+  outNodes:
+  - {fileID: 1176001191}
+  parallelLeft: {fileID: 1967724595}
+  parallelRight: {fileID: 821915267}
+  laneChangeLeft: {fileID: 508606158}
+  laneChangeRight: {fileID: 266545056}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 2065469134}
+--- !u!4 &1534710075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534710073}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.6795342, y: 0, z: 12.593788}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2065469135}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1735661055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1735661058}
+  - component: {fileID: 1735661057}
+  - component: {fileID: 1735661056}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &1735661056
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735661055}
+  m_Enabled: 1
+--- !u!20 &1735661057
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735661055}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 30
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1735661058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735661055}
+  m_LocalRotation: {x: -0.05582625, y: 0.91399497, z: -0.1347711, w: -0.3785939}
+  m_LocalPosition: {x: 545.0059, y: 232.04587, z: -84.90335}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1760961834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1760961835}
+  - component: {fileID: 1760961836}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r1_7
+  m_TagString: Untagged
+  m_Icon: {fileID: -1072665210962886420, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1760961835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760961834}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.210961, y: 0, z: 21.965782}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 747789951}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1760961836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760961834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 181881971}
+  outNodes:
+  - {fileID: 1931836633}
+  parallelLeft: {fileID: 0}
+  parallelRight: {fileID: 1139523269}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 1343343250}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 747789950}
+--- !u!1 &1778269376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1778269378}
+  - component: {fileID: 1778269377}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l2_7
+  m_TagString: Untagged
+  m_Icon: {fileID: 8487625137779298168, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1778269377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778269376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1465230961}
+  outNodes:
+  - {fileID: 1139494075}
+  parallelLeft: {fileID: 1934763395}
+  parallelRight: {fileID: 1134663547}
+  laneChangeLeft: {fileID: 1795481108}
+  laneChangeRight: {fileID: 910158687}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 1245289322}
+--- !u!4 &1778269378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778269376}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.8854373, y: 0, z: 3.1339765}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1245289323}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1787138232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1787138234}
+  - component: {fileID: 1787138233}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r1_2
+  m_TagString: Untagged
+  m_Icon: {fileID: -1072665210962886420, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1787138233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787138232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 171654458}
+  outNodes:
+  - {fileID: 1973219}
+  parallelLeft: {fileID: 0}
+  parallelRight: {fileID: 978547972}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 796898329}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 747789950}
+--- !u!4 &1787138234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787138232}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.182976, y: 0, z: 6.115213}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 747789951}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1795481107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1795481109}
+  - component: {fileID: 1795481108}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l1_8
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1795481108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795481107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1934763395}
+  outNodes: []
+  parallelLeft: {fileID: 0}
+  parallelRight: {fileID: 1139494075}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 436561816}
+--- !u!4 &1795481109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795481107}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436561817}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1828446978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1828446979}
+  - component: {fileID: 1828446980}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1828446979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828446978}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1902759125}
+  - {fileID: 67094906}
+  - {fileID: 1238754940}
+  - {fileID: 624831715}
+  - {fileID: 821915268}
+  - {fileID: 266545057}
+  - {fileID: 902875079}
+  - {fileID: 426254139}
+  - {fileID: 1516368682}
+  m_Father: {fileID: 1852263909}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1828446980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828446978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4862f475928283488efd0e8609e07d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trafficSize: 2
+  laneYield: 0
+  speedLimit: 2
+--- !u!1 &1852263908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1852263909}
+  m_Layer: 0
+  m_Name: Paciuksenkatu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1852263909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852263908}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 747789951}
+  - {fileID: 2065469135}
+  - {fileID: 1828446979}
+  - {fileID: 436561817}
+  - {fileID: 1245289323}
+  - {fileID: 1124395529}
+  m_Father: {fileID: 1083927856}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1882710421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1882710423}
+  - component: {fileID: 1882710422}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l2_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 8487625137779298168, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1882710422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882710421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 0}
+  outNodes: []
+  parallelLeft: {fileID: 1515199352}
+  parallelRight: {fileID: 1462079820}
+  laneChangeLeft: {fileID: 389524234}
+  laneChangeRight: {fileID: 556297102}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 1245289322}
+--- !u!4 &1882710423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882710421}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.658471, y: 0, z: 25.96111}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1245289323}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1886838894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1886838896}
+  - component: {fileID: 1886838895}
+  m_Layer: 0
+  m_Name: Paciuksenkatu2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1886838895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886838894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f46363af9e8d0498fb017a403b66a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loop: 0
+  initialized: 1
+  lanesSet: 1
+  nodesSet: 1
+  points:
+  - {x: 0, y: 0, z: 0}
+  - {x: 1.2976403, y: 0, z: 3.0703812}
+  - {x: 2.2981238, y: 0, z: 6.2553635}
+  - {x: 3.892921, y: 0, z: 9.2111435}
+  - {x: 5.4738026, y: 0, z: 12.141132}
+  - {x: 6.8504276, y: 0, z: 14.93079}
+  - {x: 9.056564, y: 0, z: 17.790613}
+  - {x: 11.09805, y: 0, z: 20.436998}
+  - {x: 18.20309, y: 0, z: 28.859001}
+  - {x: 20.244576, y: 0, z: 31.505386}
+  leftLanePoints1:
+  - {x: 19.452791, y: 0, z: 32.116188}
+  - {x: 17.411306, y: 0, z: 29.469803}
+  - {x: 10.306266, y: 0, z: 21.0478}
+  - {x: 8.199776, y: 0, z: 18.30628}
+  - {x: 5.9936385, y: 0, z: 15.446457}
+  - {x: 4.6170135, y: 0, z: 12.656799}
+  - {x: 3.0534, y: 0, z: 9.754471}
+  - {x: 1.5425019, y: 0, z: 6.9499907}
+  - {x: 0.37652594, y: 0, z: 3.4596732}
+  - {x: -0.9211144, y: 0, z: 0.38929206}
+  leftLanePoints2:
+  - {x: 18.661007, y: 0, z: 32.72699}
+  - {x: 16.619522, y: 0, z: 30.080605}
+  - {x: 9.5144825, y: 0, z: 21.658602}
+  - {x: 7.3429866, y: 0, z: 18.821947}
+  - {x: 5.13685, y: 0, z: 15.962125}
+  - {x: 3.7602248, y: 0, z: 13.172467}
+  - {x: 2.2138796, y: 0, z: 10.297799}
+  - {x: 0.7866509, y: 0, z: 7.6445694}
+  - {x: -0.54458845, y: 0, z: 3.8489652}
+  - {x: -1.8422288, y: 0, z: 0.7785841}
+  leftLanePoints3:
+  - {x: 17.869225, y: 0, z: 33.337788}
+  - {x: 15.82774, y: 0, z: 30.691402}
+  - {x: 8.722698, y: 0, z: 22.269402}
+  - {x: 6.4861975, y: 0, z: 19.337616}
+  - {x: 4.280061, y: 0, z: 16.477793}
+  - {x: 2.9034357, y: 0, z: 13.688134}
+  - {x: 1.3743589, y: 0, z: 10.841126}
+  - {x: 0.030553818, y: 0, z: 8.339079}
+  - {x: -1.4657028, y: 0, z: 4.2382574}
+  - {x: -2.763343, y: 0, z: 1.1678762}
+  rightLanePoints1:
+  - {x: 0.9211144, y: 0, z: -0.38929206}
+  - {x: 2.2187548, y: 0, z: 2.6810892}
+  - {x: 3.0535312, y: 0, z: 5.5607047}
+  - {x: 4.732442, y: 0, z: 8.667816}
+  - {x: 6.3305917, y: 0, z: 11.625465}
+  - {x: 7.7072163, y: 0, z: 14.415123}
+  - {x: 9.913353, y: 0, z: 17.274946}
+  - {x: 11.889834, y: 0, z: 19.826197}
+  - {x: 18.994873, y: 0, z: 28.2482}
+  - {x: 21.036358, y: 0, z: 30.894585}
+  rightLanePoints2:
+  - {x: 1.8422288, y: 0, z: -0.7785841}
+  - {x: 3.1398692, y: 0, z: 2.2917972}
+  - {x: 3.8087385, y: 0, z: 4.8660316}
+  - {x: 5.5719624, y: 0, z: 8.124488}
+  - {x: 7.1873803, y: 0, z: 11.1097975}
+  - {x: 8.564006, y: 0, z: 13.899455}
+  - {x: 10.770143, y: 0, z: 16.75928}
+  - {x: 12.681618, y: 0, z: 19.215395}
+  - {x: 19.78666, y: 0, z: 27.637398}
+  - {x: 21.828144, y: 0, z: 30.283783}
+  rightLanePoints3:
+  - {x: 2.763343, y: 0, z: -1.1678762}
+  - {x: 4.0609837, y: 0, z: 1.9025049}
+  - {x: 4.563756, y: 0, z: 4.1713514}
+  - {x: 6.4114833, y: 0, z: 7.5811605}
+  - {x: 8.044169, y: 0, z: 10.5941305}
+  - {x: 9.4207945, y: 0, z: 13.383788}
+  - {x: 11.626931, y: 0, z: 16.24361}
+  - {x: 13.473402, y: 0, z: 18.604595}
+  - {x: 20.578442, y: 0, z: 27.026598}
+  - {x: 22.619926, y: 0, z: 29.672983}
+  segmentLengths:
+  - 10.00607
+  - 10.02692
+  - 17.699846
+  nodesOnSegment: 030000000400000005000000
+  nodeCount: 13
+  leftSegmentLengths1:
+  - 10.141955
+  - 9.980913
+  - 9.999908
+  leftSegmentLengths2:
+  - 10.256993
+  - 9.948308
+  - 9.999911
+  leftSegmentLengths3:
+  - 10.372032
+  - 9.915706
+  - 9.999913
+  rightSegmentLengths1:
+  - 9.999945
+  - 10.04612
+  - 9.911894
+  rightSegmentLengths2:
+  - 9.999929
+  - 10.078725
+  - 9.796868
+  rightSegmentLengths3:
+  - 9.999928
+  - 10.111327
+  - 9.681852
+  splineLength: 37.732834
+  leftSplineLengths:
+  - 9.999908
+  - 9.999911
+  - 9.999913
+  rightSplineLengths:
+  - 9.999945
+  - 9.999929
+  - 9.999928
+  leftSpacings1:
+  - 1
+  - 1
+  - 1
+  - 1
+  leftSpacings2:
+  - 1
+  - 1
+  - 1
+  - 1
+  leftSpacings3:
+  - 1
+  - 1
+  - 1
+  - 1
+  rightSpacings1:
+  - 1
+  - 1
+  - 1
+  - 1
+  rightSpacings2:
+  - 1
+  - 1
+  - 1
+  - 1
+  rightSpacings3:
+  - 1
+  - 1
+  - 1
+  - 1
+  modes: 01000000010000000100000001000000
+  leftModes1: 01000000010000000100000001000000
+  leftModes2: 01000000010000000100000001000000
+  leftModes3: 01000000010000000100000001000000
+  rightModes1: 01000000010000000100000001000000
+  rightModes2: 01000000010000000100000001000000
+  rightModes3: 01000000010000000100000001000000
+  traffic: 2
+  speedLimit: 2
+  wayPointsLeft1: []
+  wayPointsLeft2: []
+  wayPointsLeft3: []
+  wayPointsRight1: []
+  wayPointsRight2: []
+  wayPointsRight3: []
+  roadNetwork: {fileID: 0}
+  roadParent: {fileID: 0}
+  leftParent1: {fileID: 0}
+  leftParent2: {fileID: 0}
+  leftParent3: {fileID: 0}
+  rightParent1: {fileID: 0}
+  rightParent2: {fileID: 0}
+  rightParent3: {fileID: 0}
+  startNodes:
+  - {fileID: 1931836633}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  endNodes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  leftLaneCount: 3
+  rightLaneCount: 3
+  busLaneLeft: 1
+  busLeftStart: 0
+  busLeftEnd: 12
+  busRightStart: 0
+  busRightEnd: 12
+  busLaneRight: 1
+  permittedLaneChanges: 0000000000000000
+  laneChangeStartIndex: 0000000000000000000000000000000000000000000000000000000000000000
+  laneChangeEndIndex: 0700000007000000070000000000000000000000000000000000000000000000
+--- !u!4 &1886838896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886838894}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.62, y: 0, z: 25.57}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1902759123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1902759125}
+  - component: {fileID: 1902759124}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r3_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1902759124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902759123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes: []
+  outNodes:
+  - {fileID: 67094905}
+  parallelLeft: {fileID: 1110239903}
+  parallelRight: {fileID: 0}
+  laneChangeLeft: {fileID: 133491106}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 1
+  turnDirection: 0
+  parentLane: {fileID: 1828446980}
+--- !u!4 &1902759125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902759123}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1828446979}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1911545313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1911545315}
+  - component: {fileID: 1911545314}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l2_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 8487625137779298168, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1911545314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911545313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 689133747}
+  outNodes:
+  - {fileID: 740582966}
+  parallelLeft: {fileID: 789865773}
+  parallelRight: {fileID: 1129153290}
+  laneChangeLeft: {fileID: 6194311}
+  laneChangeRight: {fileID: 1488293542}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 1245289322}
+--- !u!4 &1911545315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911545313}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.2596965, y: 0, z: 13.288382}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1245289323}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1927355677
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1927355679}
+  - component: {fileID: 1927355678}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l3_2
+  m_TagString: Untagged
+  m_Icon: {fileID: -6861806574729942327, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1927355678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927355677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 556297102}
+  outNodes:
+  - {fileID: 1187330285}
+  parallelLeft: {fileID: 1177582905}
+  parallelRight: {fileID: 0}
+  laneChangeLeft: {fileID: 689133747}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 1
+  turnDirection: 0
+  parentLane: {fileID: 1124395530}
+--- !u!4 &1927355679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927355677}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5413104, y: 0, z: 20.126572}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1124395529}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1929018504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1929018506}
+  - component: {fileID: 1929018505}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l1_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 2860686844604528909, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1929018505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929018504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 389524234}
+  outNodes:
+  - {fileID: 163397774}
+  parallelLeft: {fileID: 0}
+  parallelRight: {fileID: 1177582905}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 689133747}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 436561816}
+--- !u!4 &1929018506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929018504}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.2958738, y: 0, z: 19.45844}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436561817}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1931836632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1931836634}
+  - component: {fileID: 1931836633}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r1_8
+  m_TagString: Untagged
+  m_Icon: {fileID: -1072665210962886420, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1931836633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931836632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1760961836}
+  outNodes:
+  - {fileID: 0}
+  parallelLeft: {fileID: 0}
+  parallelRight: {fileID: 0}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 0}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 747789950}
+--- !u!4 &1931836634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931836632}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.5235357, y: 0, z: 25.0715}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 747789951}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1934763394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1934763396}
+  - component: {fileID: 1934763395}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_l1_7
+  m_TagString: Untagged
+  m_Icon: {fileID: 2860686844604528909, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1934763395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934763394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 717301873}
+  outNodes:
+  - {fileID: 1795481108}
+  parallelLeft: {fileID: 0}
+  parallelRight: {fileID: 1778269377}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 1139494075}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 436561816}
+--- !u!4 &1934763396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934763394}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.8834816, y: 0, z: 3.0812755}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436561817}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1967724594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1967724596}
+  - component: {fileID: 1967724595}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r1_4
+  m_TagString: Untagged
+  m_Icon: {fileID: -1072665210962886420, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1967724595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967724594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes:
+  - {fileID: 1973219}
+  outNodes:
+  - {fileID: 508606158}
+  parallelLeft: {fileID: 0}
+  parallelRight: {fileID: 1534710074}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 1176001191}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 747789950}
+--- !u!4 &1967724596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967724594}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.6947262, y: 0, z: 12.767437}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 747789951}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2052862992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2052862996}
+  - component: {fileID: 2052862995}
+  - component: {fileID: 2052862994}
+  - component: {fileID: 2052862993}
+  m_Layer: 0
+  m_Name: Plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!64 &2052862993
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052862992}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &2052862994
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052862992}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: ec9364afbd00d614f9a5950781b2087e, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &2052862995
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052862992}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2052862996
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052862992}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 20, y: 1, z: 20}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2065469133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2065469135}
+  - component: {fileID: 2065469134}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2065469134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065469133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4862f475928283488efd0e8609e07d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trafficSize: 2
+  laneYield: 0
+  speedLimit: 2
+--- !u!4 &2065469135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065469133}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1110239904}
+  - {fileID: 133491107}
+  - {fileID: 978547973}
+  - {fileID: 796898330}
+  - {fileID: 1534710075}
+  - {fileID: 1176001192}
+  - {fileID: 403770305}
+  - {fileID: 1139523270}
+  - {fileID: 1343343251}
+  m_Father: {fileID: 1852263909}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2084562522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2084562524}
+  - component: {fileID: 2084562523}
+  m_Layer: 0
+  m_Name: Directional Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &2084562523
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084562522}
+  m_Enabled: 1
+  serializedVersion: 9
+  m_Type: 1
+  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &2084562524
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084562522}
+  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &2104075990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2104075992}
+  - component: {fileID: 2104075991}
+  m_Layer: 0
+  m_Name: Paciuksenkatu_r1_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2104075991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104075990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3fdf061037c594b9c4dccae30d71d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inNodes: []
+  outNodes:
+  - {fileID: 171654458}
+  parallelLeft: {fileID: 0}
+  parallelRight: {fileID: 1110239903}
+  laneChangeLeft: {fileID: 0}
+  laneChangeRight: {fileID: 133491106}
+  isConnectNode: 0
+  isBusLane: 0
+  turnDirection: 0
+  parentLane: {fileID: 747789950}
+--- !u!4 &2104075992
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104075990}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 747789951}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

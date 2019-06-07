@@ -93,7 +93,7 @@ public class ParallelBezierSplinesInspector : Editor
                 WaypointEditMenu();
             }
         }
-        //base.OnInspectorGUI();
+        base.OnInspectorGUI();
     }
 
     private void InitializeArrays()
@@ -369,6 +369,7 @@ public class ParallelBezierSplinesInspector : Editor
             BusLanesMenu();
             LaneChangeMenu();
             EndNodeLinkMenu();
+            CreateNodesMenu();
             return;
         }
 
@@ -386,7 +387,7 @@ public class ParallelBezierSplinesInspector : Editor
         {
             int pts = parallel.GetNodesOnSegment(i);
             pts = EditorGUILayout.IntField("Seg. " + (i + 1) + " nodes", pts);
-            if (pts > 0 && pts != parallel.GetNodesOnSegment(i))
+            if (pts >= 0 && pts != parallel.GetNodesOnSegment(i))
             {
                 parallel.SetNodesOnSegment(i, pts);
             }
@@ -529,125 +530,116 @@ public class ParallelBezierSplinesInspector : Editor
         EditorGUILayout.LabelField("Lane change options", EditorStyles.boldLabel);
         EditorGUILayout.Separator();
         bool v;
+        int val;
         if (parallel.RightLaneCount > 1)
         {
             EditorGUILayout.LabelField("Right lane 1", EditorStyles.boldLabel);
-            v = parallel.permittedLaneChanges[0];
-            v = EditorGUILayout.ToggleLeft("Change to lane 2 (right) permitted?", v);
-            if (v != parallel.permittedLaneChanges[0])
-            {
-                parallel.permittedLaneChanges[0] = v;
-                //resets values when changed true
-                if (v == true)
-                {
-                    parallel.laneChangeStartIndex[0] = 0;
-                    parallel.laneChangeEndIndex[0] = parallel.NodeCount - 1;
-                }
-            }
-
+            //from right lane 1 to lane 2
+            LaneChangeMenuOptions(0);
             EditorGUILayout.LabelField("Right lane 2", EditorStyles.boldLabel);
-            v = parallel.permittedLaneChanges[1];
-            v = EditorGUILayout.ToggleLeft("Change to lane 1 (left) permitted?", v);
-            if (v != parallel.permittedLaneChanges[1])
-            {
-                parallel.permittedLaneChanges[1] = v;
-                if (v == true)
-                {
-                    parallel.laneChangeStartIndex[1] = 0;
-                    parallel.laneChangeEndIndex[1] = parallel.NodeCount - 1;
-                }
-            }
+            // from right lane 2 to lane 1
+            LaneChangeMenuOptions(1);
             if (parallel.RightLaneCount > 2)
             {
-                v = parallel.permittedLaneChanges[2];
-                v = EditorGUILayout.ToggleLeft("Change to lane 3 (right) permitted?", v);
-                if (v != parallel.permittedLaneChanges[2])
-                {
-                    parallel.permittedLaneChanges[2] = v;
-                    if (v == true)
-                    {
-                        parallel.laneChangeStartIndex[2] = 0;
-                        parallel.laneChangeEndIndex[2] = parallel.NodeCount - 1;
-                    }
-                }
+                // from right lane 2 to lane 3
+                LaneChangeMenuOptions(2);
                 EditorGUILayout.LabelField("Right lane 3", EditorStyles.boldLabel);
-                v = parallel.permittedLaneChanges[3];
-                v = EditorGUILayout.ToggleLeft("Change to lane 2 (left) permitted?", v);
-                if (v != parallel.permittedLaneChanges[3])
-                {
-                    parallel.permittedLaneChanges[3] = v;
-                    if (v == true)
-                    {
-                        parallel.laneChangeStartIndex[3] = 0;
-                        parallel.laneChangeEndIndex[3] = parallel.NodeCount - 1;
-                    }
-                }
+                // from right lane 3 to lane 2
+                LaneChangeMenuOptions(3);
             }
-
             EditorGUILayout.Separator();
         }
-
+        //left lanes
         if (parallel.LeftLaneCount > 1)
         {
             EditorGUILayout.LabelField("Left lane 1", EditorStyles.boldLabel);
-            v = parallel.permittedLaneChanges[4];
-            v = EditorGUILayout.ToggleLeft("Change to lane 2 (right) permitted?", v);
-            if (v != parallel.permittedLaneChanges[4])
-            {
-                parallel.permittedLaneChanges[4] = v;
-                if (v == true)
-                {
-                    parallel.laneChangeStartIndex[4] = 0;
-                    parallel.laneChangeEndIndex[4] = parallel.NodeCount - 1;
-                }
-            }
-
+            //from left lane 1 to lane 2
+            LaneChangeMenuOptions(4);
             EditorGUILayout.LabelField("Left lane 2", EditorStyles.boldLabel);
-            v = parallel.permittedLaneChanges[5];
-            v = EditorGUILayout.ToggleLeft("Change to lane 1 (left) permitted?", v);
-            if (v != parallel.permittedLaneChanges[5])
-            {
-                parallel.permittedLaneChanges[5] = v;
-                if (v == true)
-                {
-                    parallel.laneChangeStartIndex[5] = 0;
-                    parallel.laneChangeEndIndex[5] = parallel.NodeCount - 1;
-                }
-            }
+            //from left lane 2 to lane 1
+            LaneChangeMenuOptions(5);
             if (parallel.RightLaneCount > 2)
             {
-                v = parallel.permittedLaneChanges[6];
-                v = EditorGUILayout.ToggleLeft("Change to lane 3 (right) permitted?", v);
-                if (v != parallel.permittedLaneChanges[6])
-                {
-                    parallel.permittedLaneChanges[6] = v;
-                    if (v == true)
-                    {
-                        parallel.laneChangeStartIndex[6] = 0;
-                        parallel.laneChangeEndIndex[6] = parallel.NodeCount - 1;
-                    }
-                }
+                //from left lane 2 to lane 3
+                LaneChangeMenuOptions(6);
                 EditorGUILayout.LabelField("Left lane 3", EditorStyles.boldLabel);
-                v = parallel.permittedLaneChanges[7];
-                v = EditorGUILayout.ToggleLeft("Change to lane 2 (left) permitted?", v);
-                if (v != parallel.permittedLaneChanges[7])
-                {
-                    parallel.permittedLaneChanges[7] = v;
-                    if (v == true)
-                    {
-                        parallel.laneChangeStartIndex[7] = 0;
-                        parallel.laneChangeEndIndex[7] = parallel.NodeCount - 1;
-                    }
-                }
+                //from left lane 3 to lane 2
+                LaneChangeMenuOptions(7);
             }
-        }
-        EditorGUILayout.Separator();
-        if (GUILayout.Button("Preview lane changes"))
-        {
-            CalculateLaneChanges();
         }
         EditorGUILayout.Separator();
         DrawEditorLine();
+    }
+
+    private void LaneChangeMenuOptions(int index)
+    {
+        string toggleText = "";
+        switch(index)
+        {
+            case 0:
+                toggleText = "Change to lane 2 (right) permitted?";
+                break;
+            case 1:
+                toggleText = "Change to lane 1 (left) permitted?";
+                break;
+            case 2:
+                toggleText = "Change to lane 3 (right) permitted?";
+                break;
+            case 3:
+                toggleText = "Change to lane 2 (left) permitted?";
+                break;
+            case 4:
+                toggleText = "Change to lane 2 (right) permitted?";
+                break;
+            case 5:
+                toggleText = "Change to lane 1 (left) permitted?";
+                break;
+            case 6:
+                toggleText = "Change to lane 3 (right) permitted?";
+                break;
+            case 7:
+                toggleText = "Change to lane 2 (left) permitted?";
+                break;
+        }
+        int val;
+        bool v = parallel.permittedLaneChanges[index];
+        v = EditorGUILayout.ToggleLeft(toggleText, v);
+        if (v != parallel.permittedLaneChanges[index])
+        {
+            parallel.permittedLaneChanges[index] = v;
+            //resets values when changed true
+            if (v == true)
+            {
+                parallel.laneChangeStartIndex[index] = 0;
+                parallel.laneChangeEndIndex[index] = parallel.NodeCount - 1;
+            }
+            CalculateLaneChanges();
+        }
+        if (v == true)
+        {
+            val = parallel.laneChangeStartIndex[index];
+            val = EditorGUILayout.IntField("From " + parallel.laneChangeStartIndex[index], val);
+            if (val != parallel.laneChangeStartIndex[index])
+            {
+                if (val >= 0 && val < parallel.NodeCount && val < parallel.laneChangeEndIndex[index])
+                {
+                    parallel.laneChangeStartIndex[index] = val;
+                    CalculateLaneChanges();
+                }
+            }
+            val = parallel.laneChangeEndIndex[index];
+            val = EditorGUILayout.IntField("From " + parallel.laneChangeEndIndex[index], val);
+            if (val != parallel.laneChangeEndIndex[index])
+            {
+                if (val >= 0 && val < parallel.NodeCount && val > parallel.laneChangeStartIndex[index])
+                {
+                    parallel.laneChangeEndIndex[index] = val;
+                    CalculateLaneChanges();
+                }
+            }
+            EditorGUILayout.LabelField("(" + parallel.laneChangeStartIndex[index] + "-"
+                + parallel.laneChangeEndIndex[index] + ")");
+        }
     }
 
     private List<Vector3> CalculateNodepoints(bool isRightLane, int laneIndex)
@@ -656,7 +648,7 @@ public class ParallelBezierSplinesInspector : Editor
         Vector3 pos;
         if (isRightLane)
         {
-            pos = parallel.GetRightLaneStartPoint(laneIndex);
+            pos = parallel.GetSegmentedPointRight(laneIndex, 0, 0f);
             pnts.Add(pos);
             for (int seg = 0; seg < parallel.SegmentCount; seg++)
             {
@@ -681,7 +673,7 @@ public class ParallelBezierSplinesInspector : Editor
                     pnts.Add(pos);
                 }
             }
-            pos = parallel.GetLeftEndPoint(laneIndex);
+            pos = parallel.GetSegmentedPointLeft(laneIndex, parallel.SegmentCount - 1, 1f);
             pnts.Add(pos);
             return pnts;
         }
@@ -699,9 +691,12 @@ public class ParallelBezierSplinesInspector : Editor
         laneChangePoints = new List<Vector3>();
 
         //r lane 1 to lane 2
+        int start, end;
         if (parallel.permittedLaneChanges[0] && parallel.RightLaneCount > 1)
         {
-            for (int i = 0; i < rLane1.Count; i++)
+            start = parallel.laneChangeStartIndex[0];
+            end = parallel.laneChangeEndIndex[0];
+            for (int i = start; i <= end; i++)
             {
                 Vector3 p0 = rLane1[i];
                 int ind = i + 1;
@@ -735,7 +730,9 @@ public class ParallelBezierSplinesInspector : Editor
         //r lane 2 to lane 1
         if (parallel.permittedLaneChanges[1] && parallel.RightLaneCount > 1)
         {
-            for (int i = 0; i < rLane2.Count; i++)
+            start = parallel.laneChangeStartIndex[1];
+            end = parallel.laneChangeEndIndex[1];
+            for (int i = start; i <= end; i++)
             {
                 Vector3 p0 = rLane2[i];
                 int ind = i + 1;
@@ -769,7 +766,9 @@ public class ParallelBezierSplinesInspector : Editor
         //r lane 2 to lane 3
         if (parallel.permittedLaneChanges[2] && parallel.RightLaneCount > 2)
         {
-            for (int i = 0; i < rLane2.Count; i++)
+            start = parallel.laneChangeStartIndex[2];
+            end = parallel.laneChangeEndIndex[2];
+            for (int i = start; i <= end; i++)
             {
                 Vector3 p0 = rLane2[i];
                 int ind = i + 1;
@@ -803,7 +802,9 @@ public class ParallelBezierSplinesInspector : Editor
         //r lane 3 to lane 2
         if (parallel.permittedLaneChanges[3] && parallel.RightLaneCount > 2)
         {
-            for (int i = 0; i < rLane3.Count; i++)
+            start = parallel.laneChangeStartIndex[3];
+            end = parallel.laneChangeEndIndex[3];
+            for (int i = start; i <= end; i++)
             {
                 Vector3 p0 = rLane3[i];
                 int ind = i + 1;
@@ -837,7 +838,9 @@ public class ParallelBezierSplinesInspector : Editor
         //left lane 1 to lane 2
         if (parallel.permittedLaneChanges[4] && parallel.LeftLaneCount > 1)
         {
-            for (int i = 0; i < lLane1.Count; i++)
+            start = parallel.laneChangeStartIndex[4];
+            end = parallel.laneChangeEndIndex[4];
+            for (int i = start; i <= end; i++)
             {
                 Vector3 p0 = lLane1[i];
                 int ind = i + 1;
@@ -871,7 +874,9 @@ public class ParallelBezierSplinesInspector : Editor
         //left lane 2 to lane 1
         if (parallel.permittedLaneChanges[5] && parallel.LeftLaneCount > 1)
         {
-            for (int i = 0; i < lLane2.Count; i++)
+            start = parallel.laneChangeStartIndex[5];
+            end = parallel.laneChangeEndIndex[5];
+            for (int i = start; i <= end; i++)
             {
                 Vector3 p0 = lLane2[i];
                 int ind = i + 1;
@@ -905,7 +910,9 @@ public class ParallelBezierSplinesInspector : Editor
         //left lane 2 to lane 3
         if (parallel.permittedLaneChanges[6] && parallel.LeftLaneCount > 2)
         {
-            for (int i = 0; i < lLane2.Count; i++)
+            start = parallel.laneChangeStartIndex[6];
+            end = parallel.laneChangeEndIndex[6];
+            for (int i = start; i <= end; i++)
             {
                 Vector3 p0 = lLane2[i];
                 int ind = i + 1;
@@ -939,7 +946,9 @@ public class ParallelBezierSplinesInspector : Editor
         //left lane 3 to lane 2
         if (parallel.permittedLaneChanges[7] && parallel.LeftLaneCount > 2)
         {
-            for (int i = 0; i < lLane3.Count; i++)
+            start = parallel.laneChangeStartIndex[7];
+            end = parallel.laneChangeEndIndex[7];
+            for (int i = start; i <= end; i++)
             {
                 Vector3 p0 = lLane3[i];
                 int ind = i + 1;
@@ -974,6 +983,7 @@ public class ParallelBezierSplinesInspector : Editor
         SceneView.RepaintAll();
     }
 
+
     private void EndNodeLinkMenu()
     {
         EditorGUILayout.LabelField("End node linking", EditorStyles.boldLabel);
@@ -990,7 +1000,9 @@ public class ParallelBezierSplinesInspector : Editor
                 parallel.startNodes[i] = n;
                 if (n != null)
                 {
-                    parallel.SetControlPointRight(i, 0, n.transform.position);
+                    Vector3 moved = n.transform.position - parallel.GetControlPointRight(i, 0);
+                    parallel.AdjustControlPointRight(i, 0, moved);
+                    //parallel.SetControlPointRight(i, 0, n.transform.position);
                     parallel.RecalculateLengthRight(i, 0);
                     SceneView.RepaintAll();
                 }
@@ -1047,6 +1059,14 @@ public class ParallelBezierSplinesInspector : Editor
         }
         EditorGUILayout.Separator();
         DrawEditorLine();
+    }
+
+    private void CreateNodesMenu()
+    {
+        if (GUILayout.Button("Create nodes"))
+        {
+            GenerateNodes();
+        }
     }
 
     private void ShowAdvancedOptions()
@@ -1680,37 +1700,41 @@ public class ParallelBezierSplinesInspector : Editor
     private void DrawSegmentLines()
     {
         Vector3 leftPoint, rightPoint, labelPoint;
+        Vector3 labelAdjust = new Vector3(0f, 0f, 1f);
         for (int i = 0; i < parallel.ControlPointCount; i += 3)
         {
             int leftI = parallel.ControlPointCount -  1 - i;
-            leftPoint = parallel.GetControlPoint(i);
-            rightPoint = parallel.GetControlPoint(i);
-            labelPoint = parallel.GetControlPoint(i);
+            leftPoint = handleTransform.TransformPoint(parallel.GetControlPoint(i));
+            rightPoint = handleTransform.TransformPoint(parallel.GetControlPoint(i));
+            labelPoint = handleTransform.TransformPoint(parallel.GetControlPoint(i) + labelAdjust);
             switch (parallel.LeftLaneCount)
             {
                 case 1:
-                    leftPoint = parallel.GetControlPointLeft(0, leftI);
-                    labelPoint = leftPoint;
+                    leftPoint = handleTransform.TransformPoint(parallel.GetControlPointLeft(0, leftI));
+                    labelPoint = handleTransform.TransformPoint(parallel.GetControlPointLeft(0, leftI)
+                        + labelAdjust);
                     break;
                 case 2:
-                    leftPoint = parallel.GetControlPointLeft(1, leftI);
-                    labelPoint = leftPoint;
+                    leftPoint = handleTransform.TransformPoint(parallel.GetControlPointLeft(1, leftI));
+                    labelPoint = handleTransform.TransformPoint(parallel.GetControlPointLeft(1, leftI)
+                        + labelAdjust);
                     break;
                 case 3:
-                    leftPoint = parallel.GetControlPointLeft(2, leftI);
-                    labelPoint = leftPoint;
+                    leftPoint = handleTransform.TransformPoint(parallel.GetControlPointLeft(2, leftI));
+                    labelPoint = handleTransform.TransformPoint(parallel.GetControlPointLeft(2, leftI)
+                        + labelAdjust);
                     break;
             }
             switch (parallel.RightLaneCount)
             {
                 case 1:
-                    rightPoint = parallel.GetControlPointRight(0, i);
+                    rightPoint = handleTransform.TransformPoint(parallel.GetControlPointRight(0, i));
                     break;
                 case 2:
-                    rightPoint = parallel.GetControlPointRight(1, i);
+                    rightPoint = handleTransform.TransformPoint(parallel.GetControlPointRight(1, i));
                     break;
                 case 3:
-                    rightPoint = parallel.GetControlPointRight(2, i);
+                    rightPoint = handleTransform.TransformPoint(parallel.GetControlPointRight(2, i));
                     break;
             }
             labelPoint.x -= 6f;
@@ -1729,15 +1753,17 @@ public class ParallelBezierSplinesInspector : Editor
         float handleSize = 0.3f;
         Vector3 pos;
         //Start poits for each lane
-        for (int i = 0; i < parallel.RightLaneCount; i++)
+        for (int lane = 0; lane < parallel.RightLaneCount; lane++)
         {
-            pos = parallel.GetRightLaneStartPoint(i);
+            pos = parallel.GetSegmentedPointRight(lane, 0, 0f);
+            //pos = parallel.GetRightLaneStartPoint(i);
             Handles.RadiusHandle(Quaternion.identity, pos, handleSize);
         }
-        for (int i = 0; i < parallel.LeftLaneCount; i++)
+        for (int lane = 0; lane < parallel.LeftLaneCount; lane++)
         {
             // points on left lane are inversed for easier handling
-            pos = parallel.GetLeftEndPoint(i);
+            pos = parallel.GetSegmentedPointLeft(lane, parallel.SegmentCount - 1, 1f);
+            //pos = parallel.GetLeftEndPoint(i);
             Handles.RadiusHandle(Quaternion.identity, pos, handleSize);
         }
         for (int seg = 0; seg < parallel.SegmentCount; seg++)
@@ -1778,7 +1804,7 @@ public class ParallelBezierSplinesInspector : Editor
                 int index = 0;
                 if (parallel.BusRightStart == 0)
                 {
-                    rightBusPoints[index] = parallel.GetRightLaneStartPoint(lane);
+                    rightBusPoints[index] = parallel.GetSegmentedPointRight(lane, 0, 0f);
                     pntsLeft--;
                     index++;
                 }
@@ -1814,44 +1840,53 @@ public class ParallelBezierSplinesInspector : Editor
         }
         if (parallel.BusLaneLeft)
         {
+            // Generate points only when changes are made
             if (leftBusPoints == null)
             {
                 int lane = parallel.LeftLaneCount - 1;
                 int arraySize = parallel.BusLeftEnd - parallel.BusLeftStart + 1;
                 int pntsLeft = arraySize;
                 leftBusPoints = new Vector3[arraySize];
-                int index = 0;
+                int arrayIndex = 0;
+
                 if (parallel.BusLeftStart == 0)
                 {
-                    leftBusPoints[index] = parallel.GetLeftLaneStartPoint(lane);
+                    leftBusPoints[0] = parallel.GetSegmentedPointLeft(lane, 0, 0f);
+                    arrayIndex++;
                     pntsLeft--;
-                    index++;
                 }
-                //find start segment and node
+                List<int> nodesInversed = new List<int>();
+                for (int i = parallel.SegmentCount - 1; i >=0; i--)
+                {
+                    nodesInversed.Add(parallel.GetNodesOnSegment(i));
+                }
                 int segment = 0;
                 int node = parallel.BusLeftStart;
-                if (node == 0)
+                if (node==0)
                 {
                     node++;
                 }
-                while (node > parallel.GetNodesOnSegment(segment))
+                // finding start segment
+                while (node > nodesInversed[segment])
                 {
-                    node -= parallel.GetNodesOnSegment(segment);
+                    node -= nodesInversed[segment];
                     segment++;
                 }
-                int pntsOnSegment = parallel.GetNodesOnSegment(segment);
+                int pntsOnSegment = nodesInversed[segment];
                 while (pntsLeft > 0)
                 {
-                    if (node > parallel.GetNodesOnSegment(segment))
+                    if (node > nodesInversed[segment])
                     {
-                        node -= parallel.GetNodesOnSegment(segment);
+                        node -= nodesInversed[segment];
                         segment++;
-                        pntsOnSegment = parallel.GetNodesOnSegment(segment);
+                        pntsOnSegment = nodesInversed[segment];
+                        
                     }
-                    leftBusPoints[index] = parallel.GetSegmentedPointLeft(lane, segment, (float)node / pntsOnSegment);
-                    pntsLeft--;
+                    leftBusPoints[arrayIndex] = parallel.GetSegmentedPointLeft(lane, segment, (float)node / pntsOnSegment);
+                    arrayIndex++;
                     node++;
-                    index++;
+                    pntsLeft--;
+
                 }
             }
             Handles.color = Color.yellow;
@@ -2262,6 +2297,331 @@ public class ParallelBezierSplinesInspector : Editor
         guidePoints[2] = guidePoints[1] + directionVector * (defaultLength / 3f);
         guidePoints[3] = guidePoints[2] + directionVector * (defaultLength / 3f);
 
+    }
+
+    private string GenerateNodes()
+    {
+        string message = "";
+        if (roadNetwork==null)
+        {
+            message = "Roadnetwork not selected";
+            return message;
+        }
+        if (!CheckName(roadName))
+        {
+            message = "Name is not valid";
+            return message;
+        }
+        string parentName = roadName;
+        //Create parent object
+        GameObject parentObject = new GameObject(parentName);
+        parentObject.transform.position = parallel.transform.position;
+        //Insert 'Add component' here when there is a script to add
+        parentObject.transform.parent = roadNetwork.transform;
+
+        // temporary list for node gameobjects for each lane
+        List<GameObject> r1_Obs = new List<GameObject>();
+        List<GameObject> r2_Obs = new List<GameObject>();
+        List<GameObject> r3_Obs = new List<GameObject>();
+        List<GameObject> l1_Obs = new List<GameObject>();
+        List<GameObject> l2_Obs = new List<GameObject>();
+        List<GameObject> l3_Obs = new List<GameObject>();
+        // node points for each lane
+        List<Vector3> rLane1 = CalculateNodepoints(true, 0);
+        List<Vector3> rLane2 = CalculateNodepoints(true, 1);
+        List<Vector3> rLane3 = CalculateNodepoints(true, 2);
+        List<Vector3> lLane1 = CalculateNodepoints(false, 0);
+        List<Vector3> lLane2 = CalculateNodepoints(false, 1);
+        List<Vector3> lLane3 = CalculateNodepoints(false, 2);
+
+        // Initialize lanes, nodes, in-nodes, out-nodes
+        // right lanes
+        // right lane 1
+        if (parallel.RightLaneCount > 0)
+        {
+            string laneName = roadName + "_r1";
+            InitializeLaneObject(laneName, ref parentObject, out GameObject laneObject);
+            InitializeNodes(0, ref r1_Obs, ref rLane1, laneObject);
+        }
+        // right lane 2
+        if (parallel.RightLaneCount > 1)
+        {
+            string laneName = roadName + "_r2";
+            InitializeLaneObject(laneName, ref parentObject, out GameObject laneObject);
+            InitializeNodes(1, ref r2_Obs, ref rLane2, laneObject);
+        }
+        // right lane 3
+        if (parallel.RightLaneCount > 2)
+        {
+            string laneName = roadName + "_r3";
+            InitializeLaneObject(laneName, ref parentObject, out GameObject laneObject);
+            InitializeNodes(2, ref r3_Obs, ref rLane3, laneObject);
+        }
+        // left lanes
+        // left lane 1
+        if (parallel.LeftLaneCount > 0)
+        {
+            string laneName = roadName + "_l1";
+            InitializeLaneObject(laneName, ref parentObject, out GameObject laneObject);
+            InitializeNodes(3, ref l1_Obs, ref lLane1, laneObject);
+        }
+        // left lane 2
+        if (parallel.LeftLaneCount > 1)
+        {
+            string laneName = roadName + "_l2";
+            InitializeLaneObject(laneName, ref parentObject, out GameObject laneObject);
+            InitializeNodes(4, ref l2_Obs, ref lLane2, laneObject);
+        }
+        // left lane 3
+        if (parallel.LeftLaneCount > 2)
+        {
+            string laneName = roadName + "_l3";
+            InitializeLaneObject(laneName, ref parentObject, out GameObject laneObject);
+            InitializeNodes(5, ref l3_Obs, ref lLane3, laneObject);
+        }
+        //initialize buslanes
+        if (parallel.BusLaneRight)
+        {
+            switch (parallel.RightLaneCount)
+            {
+                case 1:
+                    for (int i = parallel.BusRightStart; i < parallel.BusRightEnd; i++)
+                    {
+                        r1_Obs[i].GetComponent<Nodes>().BusLane = true;
+                    }
+                    break;
+                case 2:
+                    for (int i = parallel.BusRightStart; i < parallel.BusRightEnd; i++)
+                    {
+                        r2_Obs[i].GetComponent<Nodes>().BusLane = true;
+                    }
+                    break;
+                case 3:
+                    for (int i = parallel.BusRightStart; i < parallel.BusRightEnd; i++)
+                    {
+                        r3_Obs[i].GetComponent<Nodes>().BusLane = true;
+                    }
+                    break;
+            }
+        }
+        if (parallel.BusLaneLeft)
+        {
+            switch (parallel.LeftLaneCount)
+            {
+                case 1:
+                    for (int i = parallel.BusLeftStart; i < parallel.BusLeftEnd; i++)
+                    {
+                        l1_Obs[i].GetComponent<Nodes>().BusLane = true;
+                    }
+                    break;
+                case 2:
+                    for (int i = parallel.BusLeftStart; i < parallel.BusLeftEnd; i++)
+                    {
+                        l2_Obs[i].GetComponent<Nodes>().BusLane = true;
+                    }
+                    break;
+                case 3:
+                    for (int i = parallel.BusLeftStart; i < parallel.BusLeftEnd; i++)
+                    {
+                        l3_Obs[i].GetComponent<Nodes>().BusLane = true;
+                    }
+                    break;
+            }
+        }
+        //set parallel lanes
+        for (int i=0; i < parallel.NodeCount; i++)
+        {
+            if (parallel.RightLaneCount > 1)
+            {
+                // r1 to r2
+                r1_Obs[i].GetComponent<Nodes>().ParallelRight = r2_Obs[i].GetComponent<Nodes>();
+                // r2 to r1
+                r2_Obs[i].GetComponent<Nodes>().ParallelLeft = r1_Obs[i].GetComponent<Nodes>();
+            }
+            if (parallel.RightLaneCount > 2)
+            {
+                // r2 to r3
+                r2_Obs[i].GetComponent<Nodes>().ParallelRight = r3_Obs[i].GetComponent<Nodes>();
+                // r3 to r2
+                r3_Obs[i].GetComponent<Nodes>().ParallelLeft = r2_Obs[i].GetComponent<Nodes>();
+            }
+            if (parallel.LeftLaneCount > 1)
+            {
+                // l1 to l2
+                l1_Obs[i].GetComponent<Nodes>().ParallelRight = l2_Obs[i].GetComponent<Nodes>();
+                // l2 to l1
+                l2_Obs[i].GetComponent<Nodes>().ParallelLeft = l1_Obs[i].GetComponent<Nodes>();
+            }
+            if (parallel.LeftLaneCount > 2)
+            {
+                // l2 to l3
+                l2_Obs[i].GetComponent<Nodes>().ParallelRight = l3_Obs[i].GetComponent<Nodes>();
+                // l3 to l2
+                l3_Obs[i].GetComponent<Nodes>().ParallelLeft = l2_Obs[i].GetComponent<Nodes>();
+            }
+        }
+        // set lane changes
+        List<Vector2Int> changes;
+        //r1 to r2
+        if (parallel.permittedLaneChanges[0])
+        {
+            changes = IndexedLaneChanges(ref rLane1, ref rLane2, parallel.laneChangeStartIndex[0],
+                parallel.laneChangeEndIndex[0]);
+            foreach (Vector2Int c in changes)
+            {
+                r1_Obs[c.x].GetComponent<Nodes>().LaneChangeRight = r2_Obs[c.y].GetComponent<Nodes>();
+            }
+        }
+        // r2 to r1
+        if (parallel.permittedLaneChanges[1])
+        {
+            changes = IndexedLaneChanges(ref rLane2, ref rLane1, parallel.laneChangeStartIndex[1],
+                parallel.laneChangeEndIndex[1]);
+            foreach (Vector2Int c in changes)
+            {
+                r2_Obs[c.x].GetComponent<Nodes>().LaneChangeLeft = r1_Obs[c.y].GetComponent<Nodes>();
+            }
+        }
+        // r2 to r3
+        if (parallel.permittedLaneChanges[2])
+        {
+            changes = IndexedLaneChanges(ref rLane2, ref rLane3, parallel.laneChangeStartIndex[2],
+                parallel.laneChangeEndIndex[2]);
+            foreach (Vector2Int c in changes)
+            {
+                r2_Obs[c.x].GetComponent<Nodes>().LaneChangeRight = r3_Obs[c.y].GetComponent<Nodes>();
+            }
+        }
+        // r3 to r2
+        if (parallel.permittedLaneChanges[3])
+        {
+            changes = IndexedLaneChanges(ref rLane3, ref rLane2, parallel.laneChangeStartIndex[3],
+                parallel.laneChangeEndIndex[3]);
+            foreach (Vector2Int c in changes)
+            {
+                r3_Obs[c.x].GetComponent<Nodes>().LaneChangeLeft = r2_Obs[c.y].GetComponent<Nodes>();
+            }
+        }
+        // l1 to l2
+        if (parallel.permittedLaneChanges[4])
+        {
+            changes = IndexedLaneChanges(ref lLane1, ref lLane2, parallel.laneChangeStartIndex[4],
+                parallel.laneChangeEndIndex[4]);
+            foreach (Vector2Int c in changes)
+            {
+                l1_Obs[c.x].GetComponent<Nodes>().LaneChangeRight = l2_Obs[c.y].GetComponent<Nodes>();
+            }
+        }
+        // l2 to l1
+        if (parallel.permittedLaneChanges[5])
+        {
+            changes = IndexedLaneChanges(ref lLane2, ref lLane1, parallel.laneChangeStartIndex[5],
+                parallel.laneChangeEndIndex[5]);
+            foreach (Vector2Int c in changes)
+            {
+                l2_Obs[c.x].GetComponent<Nodes>().LaneChangeLeft = l1_Obs[c.y].GetComponent<Nodes>();
+            }
+        }
+        // l2 to l3
+        if (parallel.permittedLaneChanges[6])
+        {
+            changes = IndexedLaneChanges(ref lLane2, ref lLane3, parallel.laneChangeStartIndex[6],
+                parallel.laneChangeEndIndex[6]);
+            foreach (Vector2Int c in changes)
+            {
+                l2_Obs[c.x].GetComponent<Nodes>().LaneChangeRight = l3_Obs[c.y].GetComponent<Nodes>();
+            }
+        }
+        // l3 to l2
+        if (parallel.permittedLaneChanges[7])
+        {
+            changes = IndexedLaneChanges(ref lLane3, ref lLane2, parallel.laneChangeStartIndex[7],
+                parallel.laneChangeEndIndex[7]);
+            foreach (Vector2Int c in changes)
+            {
+                l3_Obs[c.x].GetComponent<Nodes>().LaneChangeLeft = l2_Obs[c.y].GetComponent<Nodes>();
+            }
+        }
+
+        ObjectTagger.SetLaneIcons(TagColorScheme.ByLaneNumber, 0, ref r1_Obs);
+        ObjectTagger.SetLaneIcons(TagColorScheme.ByLaneNumber, 1, ref r2_Obs);
+        ObjectTagger.SetLaneIcons(TagColorScheme.ByLaneNumber, 2, ref r3_Obs);
+        ObjectTagger.SetLaneIcons(TagColorScheme.ByLaneNumber, 3, ref l1_Obs);
+        ObjectTagger.SetLaneIcons(TagColorScheme.ByLaneNumber, 4, ref l2_Obs);
+        ObjectTagger.SetLaneIcons(TagColorScheme.ByLaneNumber, 5, ref l3_Obs);
+
+        message = "Nodes created";
+        return message;
+    }
+
+    private void InitializeLaneObject(string laneName, ref GameObject parentObject, out GameObject laneObject)
+    {
+        laneObject = new GameObject(laneName);
+        laneObject.transform.position = parallel.transform.position;
+        laneObject.transform.parent = parentObject.transform;
+        Lane l = laneObject.AddComponent<Lane>();
+        l.Traffic = parallel.Traffic;
+        l.LaneYield = DriverYield.Normal;
+        l.SpeedLimit = parallel.SpeedLimit;
+    }
+
+    private void InitializeNodes(int laneIndex, ref List<GameObject>objectList,
+        ref List<Vector3> positionList, GameObject laneObject)
+    {
+        for (int i = 0; i < parallel.NodeCount; i++)
+        {
+            // If first node is linked to an existing one,
+            // link instead of creating a new one. Same with the last node and
+            // with the other lanes as well.
+            if (i == 0 && parallel.startNodes[laneIndex] != null)
+            {
+                objectList.Add(parallel.startNodes[laneIndex].gameObject);
+            }
+            else if (i == parallel.NodeCount - 1 && parallel.endNodes[laneIndex] != null)
+            {
+                objectList.Add(parallel.endNodes[laneIndex].gameObject);
+            }
+            else
+            {
+                string pName = laneObject.name + "_" + i;
+                GameObject pObject = new GameObject(pName);
+                pObject.transform.position = positionList[i];
+                pObject.AddComponent<Nodes>();
+                objectList.Add(pObject);
+                pObject.transform.parent = laneObject.transform;
+                pObject.GetComponent<Nodes>().ParentLane = laneObject.GetComponent<Lane>();
+            }
+            // set in-nodes and out-nodes
+            if (i > 0)
+            {
+                objectList[i].GetComponent<Nodes>().AddInNode(objectList[i - 1].GetComponent<Nodes>());
+                objectList[i - 1].GetComponent<Nodes>().AddOutNode(objectList[i].GetComponent<Nodes>());
+            }
+        }
+    }
+
+    private List<Vector2Int> IndexedLaneChanges (ref List<Vector3> fromLane, ref List<Vector3> toLane, int start, int end)
+    {
+        List<Vector2Int> indexVector = new List<Vector2Int>();
+        for (int i = start; i <= end; i++)
+        {
+            Vector3 p0 = fromLane[i];
+            int ind = i + 1;
+            while(true)
+            {
+                if (ind > toLane.Count - 1)
+                {
+                    break;
+                }
+                if (Vector3.Distance(fromLane[i], toLane[ind]) > laneChangeDistance)
+                {
+                    indexVector.Add(new Vector2Int(i, ind));
+                    break;
+                }
+                ind++;
+            }
+        }
+        return indexVector;
     }
 
     private void OnEnable()

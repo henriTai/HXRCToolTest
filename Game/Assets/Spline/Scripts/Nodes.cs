@@ -11,8 +11,6 @@ public class Nodes : MonoBehaviour
     [SerializeField]
     private Nodes[] outNodes;
     [SerializeField]
-    private TrafficSize trafficSize;
-    [SerializeField]
     private Nodes parallelLeft;
     [SerializeField]
     private Nodes parallelRight;
@@ -25,19 +23,27 @@ public class Nodes : MonoBehaviour
     [SerializeField]
     bool isBusLane;
     [SerializeField]
-    DriverYield laneYield;
-    [SerializeField]
     IntersectionDirection turnDirection;
+    [SerializeField]
+    Lane parentLane;
 
     public TrafficSize Traffic
     {
         get
         {
-            return trafficSize;
+            if (parentLane == null)
+            {
+                parentLane = transform.parent.GetComponent<Lane>();
+            }
+            return parentLane.Traffic;
         }
         set
         {
-            trafficSize = value;
+            if (parentLane == null)
+            {
+                parentLane = transform.parent.GetComponent<Lane>();
+            }
+            parentLane.Traffic = value;
         }
     }
 
@@ -130,11 +136,39 @@ public class Nodes : MonoBehaviour
     {
         get
         {
-            return laneYield;
+            if (parentLane==null)
+            {
+                parentLane = transform.parent.GetComponent<Lane>();
+            }
+            return parentLane.LaneYield;
         }
         set
         {
-            laneYield = value;
+            if (parentLane == null)
+            {
+                parentLane = transform.parent.GetComponent<Lane>();
+            }
+            parentLane.LaneYield = value;
+        }
+    }
+
+    public SpeedLimits SpeedLimit
+    {
+        get
+        {
+            if (parentLane == null)
+            {
+                parentLane = transform.parent.GetComponent<Lane>();
+            }
+            return parentLane.SpeedLimit;
+        }
+        set
+        {
+            if (parentLane == null)
+            {
+                parentLane = transform.parent.GetComponent<Lane>();
+            }
+            parentLane.SpeedLimit = value;
         }
     }
 
@@ -305,11 +339,23 @@ public class Nodes : MonoBehaviour
         }
     }
 
+    public Lane ParentLane
+    {
+        get
+        {
+            return parentLane;
+        }
+        set
+        {
+            parentLane = value;
+        }
+    }
+
     private void Reset()
     {
+        parentLane = null;
         inNodes = new Nodes[0];
         outNodes = new Nodes[0];
-        trafficSize = TrafficSize.Average;
         parallelLeft = null;
         parallelRight = null;
         laneChangeLeft = null;

@@ -53,3 +53,25 @@ public enum SpeedLimits
     KMH_100,
     KMH_120
 }
+
+public enum TagColorScheme
+{
+    /* Each lane (left / right 1-3) has its own color.
+     * Bus lanes are marked yellow
+     * Connect points are larger squares, other nodes are smaller rounds
+     * Unconnected end nodes are larger RED squares
+     */
+    ByLaneNumber
+}
+
+public enum IconColor
+{
+    Gray,
+    Blue,
+    Jade,
+    Green,
+    Yellow,
+    Orange,
+    Red,
+    Purple
+}

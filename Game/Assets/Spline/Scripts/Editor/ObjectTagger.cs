@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEditor;
 using System;
+using System.Collections.Generic;
 
 public static class ObjectTagger
 {
@@ -108,5 +109,196 @@ public static class ObjectTagger
                 setIconP.Invoke(null, argsP);
                 break;
         }
+    }
+
+    public static void SetIcon(GameObject g, IconType i, IconColor c, bool round)
+    {
+        switch (c)
+        {
+            case IconColor.Gray:
+                if (round || i == IconType.Label)
+                {
+                    SetIcon(g, i, 0);
+                }
+                else
+                {
+                    SetIcon(g, i, 8);
+                }
+                break;
+            case IconColor.Blue:
+                if (round || i == IconType.Label)
+                {
+                    SetIcon(g, i, 1);
+                }
+                else
+                {
+                    SetIcon(g, i, 9);
+                }
+                break;
+            case IconColor.Jade:
+                if (round || i == IconType.Label)
+                {
+                    SetIcon(g, i, 2);
+                }
+                else
+                {
+                    SetIcon(g, i, 10);
+                }
+                break;
+            case IconColor.Green:
+                if (round || i == IconType.Label)
+                {
+                    SetIcon(g, i, 3);
+                }
+                else
+                {
+                    SetIcon(g, i, 11);
+                }
+                break;
+            case IconColor.Yellow:
+                if (round || i == IconType.Label)
+                {
+                    SetIcon(g, i, 4);
+                }
+                else
+                {
+                    SetIcon(g, i, 12);
+                }
+                break;
+            case IconColor.Orange:
+                if (round || i == IconType.Label)
+                {
+                    SetIcon(g, i, 5);
+                }
+                else
+                {
+                    SetIcon(g, i, 13);
+                }
+                break;
+            case IconColor.Red:
+                if (round || i == IconType.Label)
+                {
+                    SetIcon(g, i, 6);
+                }
+                else
+                {
+                    SetIcon(g, i, 14);
+                }
+                break;
+            case IconColor.Purple:
+                if (round || i == IconType.Label)
+                {
+                    SetIcon(g, i, 7);
+                }
+                else
+                {
+                    SetIcon(g, i, 15);
+                }
+                break;
+        }
+    }
+
+    public static void SetAsUnconnectedConnectNode(GameObject g)
+    {
+        SetIcon(g, IconType.Pix16, 8);
+    }
+
+    public static void SetAsUnconnectedNormalNode(GameObject g)
+    {
+        SetIcon(g, IconType.Pix16, 0);
+    }
+
+    public static void SetAsBusConnectNode(GameObject g)
+    {
+        SetIcon(g, IconType.Pix16, 12);
+    }
+
+    public static void SetAsBusNormalNode(GameObject g)
+    {
+        SetIcon(g, IconType.Small, 4);
+    }
+
+    public static void SetLaneIcons(TagColorScheme scheme, int laneIndex, ref List<GameObject> nodeList)
+    {
+        switch(scheme)
+        {
+            case TagColorScheme.ByLaneNumber:
+                foreach (GameObject g in nodeList)
+                {
+                    ByLaneNumber(laneIndex, g);
+                }
+                break;
+        }
+    }
+
+    public static void ByLaneNumber(int laneIndex, GameObject g)
+    {
+        IconColor c = IconColor.Gray;
+        switch(laneIndex)
+        {
+            case 0:
+                c = IconColor.Blue;
+                break;
+            case 1:
+                c = IconColor.Jade;
+                break;
+            case 2:
+                c = IconColor.Green;
+                break;
+            case 3:
+                c = IconColor.Orange;
+                break;
+            case 4:
+                c = IconColor.Red;
+                break;
+            case 5:
+                c = IconColor.Purple;
+                break;
+        }
+
+        Nodes n = g.GetComponent<Nodes>();
+        bool busLane = n.BusLane;
+        bool connected = true;
+        bool connectNode = n.ConnectNode;
+        if (n.InNodesLength == 0)
+        {
+            connected = false;
+        }
+        if (n.OutNodesLength==0)
+        {
+            connected = false;
+        }
+
+        if (connectNode)
+        {
+            if (!connected)
+            {
+                SetAsUnconnectedConnectNode(g);
+            }
+            else if (busLane)
+            {
+                SetAsBusConnectNode(g);
+            }
+            else
+            {
+                SetIcon(g, IconType.Pix16, c, false);
+            }
+        }
+        else
+        {
+            if (!connected)
+            {
+                SetAsUnconnectedNormalNode(g);
+            }
+            else if (busLane)
+            {
+                SetAsBusNormalNode(g);
+            }
+            else
+            {
+                SetIcon(g, IconType.Small, c, true);
+            }
+        }
+
     }
 }

@@ -335,41 +335,7 @@ public class ParallelBezierSplines : MonoBehaviour
         return points[0];
     }
 
-    public Vector3 GetLeftLaneStartPoint(int lane)
-    {
-        Vector3 v = Vector3.zero;
-        switch (lane)
-        {
-            case 0:
-                v = leftLanePoints1[0];
-                break;
-            case 1:
-                v = leftLanePoints2[0];
-                break;
-            case 2:
-                v = leftLanePoints3[0];
-                break;
-        }
-        return v;
-    }
 
-    public Vector3 GetRightLaneStartPoint(int lane)
-    {
-        Vector3 v = Vector3.zero;
-        switch(lane)
-        {
-            case 0:
-                v = rightLanePoints1[0];
-                break;
-            case 1:
-                v = rightLanePoints2[0];
-                break;
-            case 2:
-                v = rightLanePoints3[0];
-                break;
-        }
-        return v;
-    }
 
     public int GetNodesOnSegment(int segment)
     {
@@ -392,42 +358,6 @@ public class ParallelBezierSplines : MonoBehaviour
     public Vector3 GetEndPoint()
     {
         return points[points.Length - 1];
-    }
-
-    public Vector3 GetLeftEndPoint(int lane)
-    {
-        Vector3 v = Vector3.zero;
-        switch(lane)
-        {
-            case 0:
-                v = leftLanePoints1[leftLanePoints1.Length - 1];
-                break;
-            case 1:
-                v = leftLanePoints2[leftLanePoints2.Length - 1];
-                break;
-            case 2:
-                v = leftLanePoints3[leftLanePoints3.Length - 1];
-                break;
-        }
-        return v;
-    }
-
-    public Vector3 GetRightEndPoint(int lane)
-    {
-        Vector3 v = Vector3.zero;
-        switch (lane)
-        {
-            case 0:
-                v = rightLanePoints1[rightLanePoints1.Length - 1];
-                break;
-            case 1:
-                v = rightLanePoints2[rightLanePoints2.Length - 1];
-                break;
-            case 2:
-                v = rightLanePoints3[rightLanePoints3.Length - 1];
-                break;
-        }
-        return v;
     }
 
     public int SegmentCount
@@ -2624,6 +2554,7 @@ public class ParallelBezierSplines : MonoBehaviour
         busRightStart = 0;
         busRightEnd = 0;
         traffic = TrafficSize.Average;
+        speedLimit = SpeedLimits.KMH_40;
         permittedLaneChanges = new bool[] { false, false, false, false, false, false, false, false };
 
         roadNetwork = null;
