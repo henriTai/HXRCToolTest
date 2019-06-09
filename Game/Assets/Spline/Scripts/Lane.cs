@@ -12,6 +12,7 @@ public class Lane : MonoBehaviour
     private DriverYield laneYield;
     [SerializeField]
     private SpeedLimits speedLimit;
+    public Nodes[] nodesOnLane;
 
     public TrafficSize Traffic
     {
@@ -49,11 +50,13 @@ public class Lane : MonoBehaviour
         }
     }
 
+
     private void Reset()
     {
         Traffic = TrafficSize.Average;
         LaneYield = DriverYield.Normal;
         SpeedLimit = SpeedLimits.KMH_40;
+        nodesOnLane = null;
 
     }
 }

@@ -49,7 +49,7 @@ public class ParallelBezierSplinesInspector : Editor
     private int leftLaneCount;
     private int rightLaneCount;
     [SerializeField]
-    private float spacingOverride = 1f;
+    private float spacingOverride = 2.5f;
     [SerializeField]
     private float adjustment = 0f;
     private float[] lSpacing;
@@ -529,8 +529,6 @@ public class ParallelBezierSplinesInspector : Editor
     {
         EditorGUILayout.LabelField("Lane change options", EditorStyles.boldLabel);
         EditorGUILayout.Separator();
-        bool v;
-        int val;
         if (parallel.RightLaneCount > 1)
         {
             EditorGUILayout.LabelField("Right lane 1", EditorStyles.boldLabel);
@@ -648,14 +646,14 @@ public class ParallelBezierSplinesInspector : Editor
         Vector3 pos;
         if (isRightLane)
         {
-            pos = parallel.GetSegmentedPointRight(laneIndex, 0, 0f);
+            pos = parallel.GetSegmentedPointLane(laneIndex, 0, 0f, true);
             pnts.Add(pos);
             for (int seg = 0; seg < parallel.SegmentCount; seg++)
             {
                 int nodesOnSeg = parallel.GetNodesOnSegment(seg);
                 for (int pnt = 1; pnt <= nodesOnSeg; pnt++)
                 {
-                    pos = parallel.GetSegmentedPointRight(laneIndex, seg, (float)pnt / nodesOnSeg);
+                    pos = parallel.GetSegmentedPointLane(laneIndex, seg, (float)pnt / nodesOnSeg, true);
                     pnts.Add(pos);
                 }
             }
@@ -669,11 +667,11 @@ public class ParallelBezierSplinesInspector : Editor
                 int nodesOnSeg = parallel.GetNodesOnSegment(seg);
                 for (int pnt = 0; pnt < nodesOnSeg; pnt++)
                 {
-                    pos = parallel.GetSegmentedPointLeft(laneIndex, lseg, (float)pnt / nodesOnSeg);
+                    pos = parallel.GetSegmentedPointLane(laneIndex, lseg, (float)pnt / nodesOnSeg, false);
                     pnts.Add(pos);
                 }
             }
-            pos = parallel.GetSegmentedPointLeft(laneIndex, parallel.SegmentCount - 1, 1f);
+            pos = parallel.GetSegmentedPointLane(laneIndex, parallel.SegmentCount - 1, 1f, false);
             pnts.Add(pos);
             return pnts;
         }
@@ -1000,10 +998,13 @@ public class ParallelBezierSplinesInspector : Editor
                 parallel.startNodes[i] = n;
                 if (n != null)
                 {
-                    Vector3 moved = n.transform.position - parallel.GetControlPointRight(i, 0);
-                    parallel.AdjustControlPointRight(i, 0, moved);
-                    //parallel.SetControlPointRight(i, 0, n.transform.position);
-                    parallel.RecalculateLengthRight(i, 0);
+                    Vector3 pos = n.transform.position - parallel.transform.position;
+                    parallel.SetControlPointRight(i, 0, pos);
+                    parallel.RecalculateLaneLength(i, 0, true);
+                    //reset right bus lanes
+                    rightBusPoints = null;
+                    //reset lane changes
+                    CalculateLaneChanges();
                     SceneView.RepaintAll();
                 }
             }
@@ -1018,8 +1019,12 @@ public class ParallelBezierSplinesInspector : Editor
                 parallel.endNodes[i + 3] = n;
                 if (n != null)
                 {
-                    parallel.SetControlPointLeft(i, last, n.transform.position);
-                    parallel.RecalculateLengthLeft(i, last);
+                    Vector3 pos = n.transform.position - parallel.transform.position;
+                    parallel.SetControlPointLeft(i, last, pos);
+                    parallel.RecalculateLaneLength(i, last, false);
+                    //reset left bus lanes
+                    leftBusPoints = null;
+                    CalculateLaneChanges();
                     SceneView.RepaintAll();
                 }
             }
@@ -1035,8 +1040,12 @@ public class ParallelBezierSplinesInspector : Editor
                 parallel.endNodes[i] = n;
                 if (n != null)
                 {
-                    parallel.SetControlPointRight(i, last, n.transform.position);
-                    parallel.RecalculateLengthRight(i, last);
+                    Vector3 pos = n.transform.position - parallel.transform.position;
+                    parallel.SetControlPointRight(i, last, pos);
+                    parallel.RecalculateLaneLength(i, last, true);
+                    //reset left bus lanes
+                    rightBusPoints = null;
+                    CalculateLaneChanges();
                     SceneView.RepaintAll();
                 }
             }
@@ -1051,8 +1060,12 @@ public class ParallelBezierSplinesInspector : Editor
                 parallel.startNodes[i + 3] = n;
                 if (n != null)
                 {
-                    parallel.SetControlPointLeft(i, 0, n.transform.position);
-                    parallel.RecalculateLengthLeft(i, 0);
+                    Vector3 pos = n.transform.position - parallel.transform.position;
+                    parallel.SetControlPointLeft(i, 0, pos);
+                    parallel.RecalculateLaneLength(i, 0, false);
+                    //reset left bus lanes
+                    leftBusPoints = null;
+                    CalculateLaneChanges();
                     SceneView.RepaintAll();
                 }
             }
@@ -1232,7 +1245,7 @@ public class ParallelBezierSplinesInspector : Editor
                             {
                                 Vector3 newPoint = moved + parallel.GetControlPointRight(j, index);
                                 parallel.SetControlPointRight(j, index, newPoint);
-                                parallel.RecalculateLengthRight(j, index);
+                                parallel.RecalculateLaneLength(j, index, true);
                             }
 
                             SceneView.RepaintAll();
@@ -1259,7 +1272,7 @@ public class ParallelBezierSplinesInspector : Editor
                             {
                                 Vector3 newPoint = moved + parallel.GetControlPointLeft(j, index);
                                 parallel.SetControlPointLeft(j, index, newPoint);
-                                parallel.RecalculateLengthLeft(j, index);
+                                parallel.RecalculateLaneLength(j, index, false);
                             }
 
                             SceneView.RepaintAll();
@@ -1344,7 +1357,7 @@ public class ParallelBezierSplinesInspector : Editor
             parallel.SetControlPointRight(i, 2, gp2 + right * space);
             parallel.SetRightSpacing(i, 0, rSpacing[i]);
             parallel.SetRightSpacing(i, 3, rSpacing[i]);
-            parallel.RecalculateLengthRight(i, 0);
+            parallel.RecalculateLaneLength(i, 0, true);
         }
         space = 0f;
         for (int i = 0; i < leftLaneCount; i++)
@@ -1357,7 +1370,7 @@ public class ParallelBezierSplinesInspector : Editor
             parallel.SetControlPointLeft(i, 1, gp2 - right * space);
             parallel.SetLeftSpacing(i, 0, lSpacing[i]);
             parallel.SetLeftSpacing(i, 3, lSpacing[i]);
-            parallel.RecalculateLengthLeft(i, 0);
+            parallel.RecalculateLaneLength(i, 0, false);
         }
         adjustment = 0f;
         parallel.Initialized = true;
@@ -1755,14 +1768,14 @@ public class ParallelBezierSplinesInspector : Editor
         //Start poits for each lane
         for (int lane = 0; lane < parallel.RightLaneCount; lane++)
         {
-            pos = parallel.GetSegmentedPointRight(lane, 0, 0f);
+            pos = parallel.GetSegmentedPointLane(lane, 0, 0f, true);
             //pos = parallel.GetRightLaneStartPoint(i);
             Handles.RadiusHandle(Quaternion.identity, pos, handleSize);
         }
         for (int lane = 0; lane < parallel.LeftLaneCount; lane++)
         {
             // points on left lane are inversed for easier handling
-            pos = parallel.GetSegmentedPointLeft(lane, parallel.SegmentCount - 1, 1f);
+            pos = parallel.GetSegmentedPointLane(lane, parallel.SegmentCount - 1, 1f, false);
             //pos = parallel.GetLeftEndPoint(i);
             Handles.RadiusHandle(Quaternion.identity, pos, handleSize);
         }
@@ -1775,7 +1788,7 @@ public class ParallelBezierSplinesInspector : Editor
             {
                 for (int pnt = 1; pnt <= nodesOnSeg; pnt++)
                 {
-                    pos = parallel.GetSegmentedPointRight(lane, seg, (float)pnt / nodesOnSeg);
+                    pos = parallel.GetSegmentedPointLane(lane, seg, (float)pnt / nodesOnSeg, true);
                     Handles.RadiusHandle(Quaternion.identity, pos, handleSize);
                 }
             }
@@ -1784,7 +1797,7 @@ public class ParallelBezierSplinesInspector : Editor
             {
                 for (int pnt = 0; pnt < nodesOnSeg; pnt++)
                 {
-                    pos = parallel.GetSegmentedPointLeft(lane, lSeg, (float)pnt / nodesOnSeg);
+                    pos = parallel.GetSegmentedPointLane(lane, lSeg, (float)pnt / nodesOnSeg, false);
                     Handles.RadiusHandle(Quaternion.identity, pos, handleSize);
                 }
             }
@@ -1804,7 +1817,7 @@ public class ParallelBezierSplinesInspector : Editor
                 int index = 0;
                 if (parallel.BusRightStart == 0)
                 {
-                    rightBusPoints[index] = parallel.GetSegmentedPointRight(lane, 0, 0f);
+                    rightBusPoints[index] = parallel.GetSegmentedPointLane(lane, 0, 0f, true);
                     pntsLeft--;
                     index++;
                 }
@@ -1829,7 +1842,8 @@ public class ParallelBezierSplinesInspector : Editor
                         segment++;
                         pntsOnSegment = parallel.GetNodesOnSegment(segment);
                     }
-                    rightBusPoints[index] = parallel.GetSegmentedPointRight(lane, segment, (float)node / pntsOnSegment);
+                    rightBusPoints[index] = parallel.GetSegmentedPointLane(lane, segment,
+                        (float)node / pntsOnSegment, true);
                     pntsLeft--;
                     node++;
                     index++;
@@ -1851,7 +1865,7 @@ public class ParallelBezierSplinesInspector : Editor
 
                 if (parallel.BusLeftStart == 0)
                 {
-                    leftBusPoints[0] = parallel.GetSegmentedPointLeft(lane, 0, 0f);
+                    leftBusPoints[0] = parallel.GetSegmentedPointLane(lane, 0, 0f, false);
                     arrayIndex++;
                     pntsLeft--;
                 }
@@ -1882,7 +1896,8 @@ public class ParallelBezierSplinesInspector : Editor
                         pntsOnSegment = nodesInversed[segment];
                         
                     }
-                    leftBusPoints[arrayIndex] = parallel.GetSegmentedPointLeft(lane, segment, (float)node / pntsOnSegment);
+                    leftBusPoints[arrayIndex] = parallel.GetSegmentedPointLane(lane, segment,
+                        (float)node / pntsOnSegment, false);
                     arrayIndex++;
                     node++;
                     pntsLeft--;
@@ -2011,7 +2026,9 @@ public class ParallelBezierSplinesInspector : Editor
 
                 EditorGUI.BeginChangeCheck();
                 point = Handles.DoPositionHandle(point, handleRotation);
-                Vector3 dRight = GeneralDirection.DirectionRight(parallel.GetDirectionRight(lane, (float)index / parallel.CurveCount));
+                Vector3 dRight = GeneralDirection.DirectionRight
+                    (parallel.GetDirectionLane(
+                        lane, (float)index / parallel.CurveCount, true));
                 Vector3 p = handleTransform.InverseTransformPoint(point);
 
                 if (EditorGUI.EndChangeCheck())
@@ -2031,7 +2048,7 @@ public class ParallelBezierSplinesInspector : Editor
                     rightMoves[2] = parallel.GetControlPointRight(2, index) - parallel.GetControlPointRight(lane, index);
 
                     parallel.SetControlPointRight(lane, index, handleTransform.InverseTransformPoint(point));
-                    parallel.RecalculateLengthRight(lane, selectedIndex);
+                    parallel.RecalculateLaneLength(lane, selectedIndex, true);
                     if (index % 3 != 0)
                     {
                         leftMoves[0] -= parallel.GetControlPointLeft(0, leftIndex);
@@ -2101,7 +2118,9 @@ public class ParallelBezierSplinesInspector : Editor
 
                 EditorGUI.BeginChangeCheck();
                 point = Handles.DoPositionHandle(point, handleRotation);
-                Vector3 dRight = GeneralDirection.DirectionRight(parallel.GetDirectionLeft(lane, (float)selectedIndex / parallel.CurveCount));
+                Vector3 dRight = GeneralDirection.DirectionRight(
+                    parallel.GetDirectionLane(
+                        lane, (float)selectedIndex / parallel.CurveCount, true));
                 Vector3 p = handleTransform.InverseTransformPoint(point);
 
                 if (EditorGUI.EndChangeCheck())
@@ -2120,7 +2139,7 @@ public class ParallelBezierSplinesInspector : Editor
                     rightMoves[2] = parallel.GetControlPointRight(2, index) - parallel.GetControlPointLeft(lane, selectedIndex);
 
                     parallel.SetControlPointLeft(lane, selectedIndex, handleTransform.InverseTransformPoint(point));
-                    parallel.RecalculateLengthLeft(lane, selectedIndex);
+                    parallel.RecalculateLaneLength(lane, selectedIndex, false);
                     if (index % 3 != 0)
                     {
                         leftMoves[0] -= parallel.GetControlPointLeft(0, leftIndex);
@@ -2598,6 +2617,13 @@ public class ParallelBezierSplinesInspector : Editor
                 objectList[i - 1].GetComponent<Nodes>().AddOutNode(objectList[i].GetComponent<Nodes>());
             }
         }
+        // set node array in lane
+        Nodes[] nodeArray = new Nodes[objectList.Count];
+        for (int i = 0; i < objectList.Count; i++)
+        {
+            nodeArray[i] = objectList[i].GetComponent<Nodes>();
+        }
+        laneObject.GetComponent<Lane>().nodesOnLane = nodeArray;
     }
 
     private List<Vector2Int> IndexedLaneChanges (ref List<Vector3> fromLane, ref List<Vector3> toLane, int start, int end)

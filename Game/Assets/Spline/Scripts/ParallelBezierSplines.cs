@@ -6,9 +6,6 @@ using UnityEngine;
 [Serializable]
 public class ParallelBezierSplines : MonoBehaviour
 {
-
-    [SerializeField]
-    private bool loop;
     [SerializeField]
     private bool initialized;
     [SerializeField]
@@ -355,11 +352,6 @@ public class ParallelBezierSplines : MonoBehaviour
         nodesOnSegment[segment] = amount;
     }
 
-    public Vector3 GetEndPoint()
-    {
-        return points[points.Length - 1];
-    }
-
     public int SegmentCount
     {
         get
@@ -405,31 +397,6 @@ public class ParallelBezierSplines : MonoBehaviour
         else
         {
             return 0f;
-        }
-    }
-
-    public bool Loop
-    {
-        get
-        {
-            return loop;
-        }
-        set
-        {
-            loop = value;
-            if (value)
-            {
-                modes[modes.Length - 1] = modes[0];
-                SetControlPoint(0, points[0]);
-                SetControlPointRight(0, 0, rightLanePoints1[0]);
-                SetControlPointRight(1, 0, rightLanePoints2[0]);
-                SetControlPointRight(2, 0, rightLanePoints3[0]);
-                int ind = ControlPointCount - 1;
-                SetControlPointLeft(0, ind, leftLanePoints1[ind]);
-                SetControlPointLeft(1, ind, leftLanePoints2[ind]);
-                SetControlPointLeft(2, ind, leftLanePoints3[ind]);
-
-            }
         }
     }
 
@@ -479,14 +446,7 @@ public class ParallelBezierSplines : MonoBehaviour
         int segment = index / 3;
         if (segment == segmentLengths.Length)
         {
-            if (loop)
-            {
-                segment = 0;
-            }
-            else
-            {
-                segment -= 1;
-            }
+            segment -= 1;
         }
         return segmentLengths[segment];
     }
@@ -496,14 +456,7 @@ public class ParallelBezierSplines : MonoBehaviour
         int segment = index / 3;
         if (segment == segmentLengths.Length)
         {
-            if (loop)
-            {
-                segment = 0;
-            }
-            else
-            {
-                segment -= 1;
-            }
+            segment -= 1;
         }
         float f = 0f;
         switch (lane)
@@ -526,14 +479,7 @@ public class ParallelBezierSplines : MonoBehaviour
         int segment = index / 3;
         if (segment == segmentLengths.Length)
         {
-            if (loop)
-            {
-                segment = 0;
-            }
-            else
-            {
-                segment -= 1;
-            }
+            segment -= 1;
         }
         float f = 0f;
         switch (lane)
@@ -634,36 +580,13 @@ public class ParallelBezierSplines : MonoBehaviour
         if (index % 3 == 0)
         {
             Vector3 delta = point - points[index];
-            if (loop)
+            if (index > 0)
             {
-                if (index == 0)
-                {
-                    points[1] += delta;
-                    points[points.Length - 2] += delta;
-                    points[points.Length - 1] = point;
-                }
-                else if (index == points.Length - 1)
-                {
-                    points[0] = point;
-                    points[1] += delta;
-                    points[index - 1] += delta;
-                }
-                else
-                {
-                    points[index - 1] += delta;
-                    points[index + 1] += delta;
-                }
+                points[index - 1] += delta;
             }
-            else
+            if (index + 1 < points.Length)
             {
-                if (index > 0)
-                {
-                    points[index - 1] += delta;
-                }
-                if (index + 1 < points.Length)
-                {
-                    points[index + 1] += delta;
-                }
+                points[index + 1] += delta;
             }
         }
         //***********
@@ -671,137 +594,64 @@ public class ParallelBezierSplines : MonoBehaviour
         EnforceMode(index);
     }
 
+    public void SetControlPointRight(int lane, int index, Vector3 point)
+    {
+        switch (lane)
+        {
+            case 0:
+                SetControlPointLane(lane, index, true, point, ref rightLanePoints1);
+                break;
+            case 1:
+                SetControlPointLane(lane, index, true, point, ref rightLanePoints2);
+                break;
+            case 2:
+                SetControlPointLane(lane, index, true, point, ref rightLanePoints3);
+                break;
+        }
+    }
+
     public void SetControlPointLeft(int lane, int index,  Vector3 point)
+    {
+        switch (lane)
+        {
+            case 0:
+                SetControlPointLane(lane, index, false, point, ref leftLanePoints1);
+                break;
+            case 1:
+                SetControlPointLane(lane, index, false, point, ref leftLanePoints2);
+                break;
+            case 2:
+                SetControlPointLane(lane, index, false, point, ref leftLanePoints3);
+                break;
+        }
+    }
+
+    private void SetControlPointLane(int lane, int index, bool rightLane, Vector3 point, ref Vector3[] pointArray)
     {
         //******** this adjustment is made so that when a middle point is moved, it
         // affects points on both sides of it
         if (index % 3 == 0)
         {
-            Vector3 delta = point;
-            switch (lane)
+            Vector3 delta = point - pointArray[index];
+            if (index > 0)
             {
-                case 0:
-                    delta -= leftLanePoints1[index];
-                    break;
-                case 1:
-                    delta -= leftLanePoints2[index];
-                    break;
-                case 2:
-                    delta -= leftLanePoints3[index];
-                    break;
+                pointArray[index - 1] += delta;
             }
-            if (loop)
+            if (index + 1 < ControlPointCount)
             {
-                if (index == 0)
-                {
-                    int pLength = ControlPointCount;
-                    switch (lane)
-                    {
-                        case 0:
-                            leftLanePoints1[1] += delta;
-                            leftLanePoints1[pLength - 2] += delta;
-                            leftLanePoints1[pLength - 1] = point;
-                            break;
-                        case 1:
-                            leftLanePoints2[1] += delta;
-                            leftLanePoints2[pLength - 2] += delta;
-                            leftLanePoints2[pLength - 1] = point;
-                            break;
-                        case 2:
-                            leftLanePoints3[1] += delta;
-                            leftLanePoints3[pLength - 2] += delta;
-                            leftLanePoints3[pLength - 1] = point;
-                            break;
-                    }
-                }
-                else if (index == points.Length - 1)
-                {
-                    switch (lane)
-                    {
-                        case 0:
-                            leftLanePoints1[0] = point;
-                            leftLanePoints1[1] += delta;
-                            leftLanePoints1[index - 1] += delta;
-                            break;
-                        case 1:
-                            leftLanePoints2[0] = point;
-                            leftLanePoints2[1] += delta;
-                            leftLanePoints2[index - 1] += delta;
-                            break;
-                        case 2:
-                            leftLanePoints3[0] = point;
-                            leftLanePoints3[1] += delta;
-                            leftLanePoints3[index - 1] += delta;
-                            break;
-                    }
-                }
-                else
-                {
-                    switch (lane)
-                    {
-                        case 0:
-                            leftLanePoints1[index - 1] += delta;
-                            leftLanePoints1[index + 1] += delta;
-                            break;
-                        case 1:
-                            leftLanePoints2[index - 1] += delta;
-                            leftLanePoints2[index + 1] += delta;
-                            break;
-                        case 2:
-                            leftLanePoints3[index - 1] += delta;
-                            leftLanePoints3[index + 1] += delta;
-                            break;
-                    }
-                }
-            }
-            else
-            {
-                if (index > 0)
-                {
-                    switch (lane)
-                    {
-                        case 0:
-                            leftLanePoints1[index - 1] += delta;
-                            break;
-                        case 1:
-                            leftLanePoints2[index - 1] += delta;
-                            break;
-                        case 2:
-                            leftLanePoints3[index - 1] += delta;
-                            break;
-                    }
-                }
-                if (index + 1 < points.Length)
-                {
-                    switch (lane)
-                    {
-                        case 0:
-                            leftLanePoints1[index + 1] += delta;
-                            break;
-                        case 1:
-                            leftLanePoints2[index + 1] += delta;
-                            break;
-                        case 2:
-                            leftLanePoints3[index + 1] += delta;
-                            break;
-                    }
-                }
+                pointArray[index + 1] += delta;
             }
         }
         //***********
-        switch (lane)
+        pointArray[index] = point;
+        if (rightLane)
         {
-            case 0:
-                leftLanePoints1[index] = point;
-                break;
-            case 1:
-                leftLanePoints2[index] = point;
-                break;
-            case 2:
-                leftLanePoints3[index] = point;
-                break;
+            EnforceModeRight(lane, index);
         }
-        EnforceModeLeft(lane, index);
+        else
+        {
+            EnforceModeLeft(lane, index);
+        }
     }
 
     public void AdjustControlPointRight(int lane, int index, Vector3 moved)
@@ -809,417 +659,108 @@ public class ParallelBezierSplines : MonoBehaviour
         switch (lane)
         {
             case 0:
-                if (index % 3 == 0)
-                {
-                    rightLanePoints1[index] = GetControlPoint(index) + moved;
-                    if (loop && index == 0)
-                    {
-                        rightLanePoints1[rightLanePoints1.Length - 2] = GetControlPoint(ControlPointCount - 2) + moved;
-                    }
-                    if (index > 0)
-                    {
-                        rightLanePoints1[index - 1] = GetControlPoint(index - 1) + moved;
-                    }
-                    if (index < rightLanePoints1.Length - 1)
-                    {
-                        rightLanePoints1[index + 1] = GetControlPoint(index + 1) + moved;
-                    }
-                }
-                else
-                {
-                    rightLanePoints1[index] += moved;
-                    EnforceModeRight(0, index);
-                }
+                AdjustLane(lane, index, moved, true, ref rightLanePoints1);
                 break;
             case 1:
-                if (index % 3 == 0)
-                {
-                    rightLanePoints2[index] = GetControlPoint(index) + moved;
-                    if (loop && index == 0)
-                    {
-                        rightLanePoints2[rightLanePoints2.Length - 2] = GetControlPoint(ControlPointCount - 2) + moved;
-                    }
-                    if (index > 0)
-                    {
-                        rightLanePoints2[index - 1] = GetControlPoint(index - 1) + moved;
-                    }
-                    if (index < rightLanePoints2.Length - 1)
-                    {
-                        rightLanePoints2[index + 1] = GetControlPoint(index + 1) + moved;
-                    }
-                }
-                else
-                {
-                    rightLanePoints2[index] += moved;
-                    EnforceModeRight(1, index);
-                }
+                AdjustLane(lane, index, moved, true, ref rightLanePoints2);
                 break;
             case 2:
-                if (index % 3 == 0)
-                {
-                    rightLanePoints3[index] = GetControlPoint(index) + moved;
-                    if (loop && index == 0)
-                    {
-                        rightLanePoints3[rightLanePoints3.Length - 2] = GetControlPoint(ControlPointCount - 2) + moved;
-                    }
-                    if (index > 0)
-                    {
-                        rightLanePoints3[index - 1] = GetControlPoint(index - 1) + moved;
-                    }
-                    if (index < rightLanePoints3.Length - 1)
-                    {
-                        rightLanePoints3[index + 1] = GetControlPoint(index + 1) + moved;
-                    }
-                }
-                else
-                {
-                    rightLanePoints3[index] += moved;
-                    EnforceModeRight(2, index);
-                }
+                AdjustLane(lane, index, moved, true, ref rightLanePoints3);
                 break;
         }
+        return;
     }
 
     public void AdjustControlPointLeft(int lane, int index, Vector3 moved)
     {
-        int ind = ControlPointCount - 1 - index;
-        switch (lane)
+       switch (lane)
         {
             case 0:
-                if (ind % 3 == 0)
-                {
-                    leftLanePoints1[ind] = GetControlPoint(index) + moved;
-                    if (loop && ind == 0)
-                    {
-                        leftLanePoints1[leftLanePoints1.Length - 2] = GetControlPoint(1) + moved;
-                    }
-                    if (ind > 0)
-                    {
-                        leftLanePoints1[ind - 1] = GetControlPoint(index + 1) + moved;
-                    }
-                    if (ind < leftLanePoints1.Length - 1)
-                    {
-                        leftLanePoints1[ind + 1] = GetControlPoint(index - 1) + moved;
-                    }
-                }
-                else
-                {
-                    leftLanePoints1[ind] += moved;
-                    EnforceModeLeft(0, ind);
-                }
+                AdjustLane(lane, index, moved, false, ref leftLanePoints1);
                 break;
             case 1:
-                if (ind % 3 == 0)
-                {
-                    leftLanePoints2[ind] = GetControlPoint(index) + moved;
-                    if (loop && ind == 0)
-                    {
-                        leftLanePoints2[leftLanePoints2.Length - 2] = GetControlPoint(1) + moved;
-                    }
-                    if (ind > 0)
-                    {
-                        leftLanePoints2[ind - 1] = GetControlPoint(index + 1) + moved;
-                    }
-                    if (ind < leftLanePoints2.Length - 1)
-                    {
-                        leftLanePoints2[ind + 1] = GetControlPoint(index - 1) + moved;
-                    }
-                }
-                else
-                {
-                    leftLanePoints2[ind] += moved;
-                    EnforceModeLeft(1, ind);
-                }
+                AdjustLane(lane, index, moved, false, ref leftLanePoints2);
                 break;
             case 2:
-                if (ind % 3 == 0)
-                {
-                    leftLanePoints3[ind] = GetControlPoint(index) + moved;
-                    if (loop && ind == 0)
-                    {
-                        leftLanePoints3[leftLanePoints3.Length - 2] = GetControlPoint(1) + moved;
-                    }
-                    if (ind > 0)
-                    {
-                        leftLanePoints3[ind - 1] = GetControlPoint(index + 1) + moved;
-                    }
-                    if (ind < leftLanePoints3.Length - 1)
-                    {
-                        leftLanePoints3[ind + 1] = GetControlPoint(index - 1) + moved;
-                    }
-                }
-                else
-                {
-                    leftLanePoints3[ind] += moved;
-                    EnforceModeLeft(2, ind);
-                }
+                AdjustLane(lane, index, moved, false, ref leftLanePoints3);
                 break;
         }
+        return;
     }
 
-    public void SetControlPointRight(int lane, int index, Vector3 point)
+    private void AdjustLane(int lane, int index, Vector3 moved, bool rightLane, ref Vector3[] pointArray)
     {
-        //******** this adjustment is made so that when a middle point is moved, it
-        // affects points on both sides of it
+        int ind;
+        if (rightLane)
+        {
+            ind = index;
+        }
+        else
+        {
+            ind = ControlPointCount - 1 - index;
+        }
         if (index % 3 == 0)
         {
-            Vector3 delta = point;
-            switch (lane)
+            pointArray[ind] = GetControlPoint(index) + moved;
+            if (ind > 0)
             {
-                case 0:
-                    delta -= rightLanePoints1[index];
-                    break;
-                case 1:
-                    delta -= rightLanePoints2[index];
-                    break;
-                case 2:
-                    delta -= rightLanePoints3[index];
-                    break;
-            }
-            if (loop)
-            {
-                if (index == 0)
+                if (rightLane)
                 {
-                    int pLength = ControlPointCount;
-                    switch (lane)
-                    {
-                        case 0:
-                            rightLanePoints1[1] += delta;
-                            rightLanePoints1[pLength - 2] += delta;
-                            rightLanePoints1[pLength - 1] = point;
-                            break;
-                        case 1:
-                            rightLanePoints2[1] += delta;
-                            rightLanePoints2[pLength - 2] += delta;
-                            rightLanePoints2[pLength - 1] = point;
-                            break;
-                        case 2:
-                            rightLanePoints3[1] += delta;
-                            rightLanePoints3[pLength - 2] += delta;
-                            rightLanePoints3[pLength - 1] = point;
-                            break;
-                    }
-                }
-                else if (index == points.Length - 1)
-                {
-                    switch (lane)
-                    {
-                        case 0:
-                            rightLanePoints1[0] = point;
-                            rightLanePoints1[1] += delta;
-                            rightLanePoints1[index - 1] += delta;
-                            break;
-                        case 1:
-                            rightLanePoints2[0] = point;
-                            rightLanePoints2[1] += delta;
-                            rightLanePoints2[index - 1] += delta;
-                            break;
-                        case 2:
-                            rightLanePoints3[0] = point;
-                            rightLanePoints3[1] += delta;
-                            rightLanePoints3[index - 1] += delta;
-                            break;
-                    }
+                    pointArray[index - 1] = GetControlPoint(index - 1) + moved;
                 }
                 else
                 {
-                    switch (lane)
-                    {
-                        case 0:
-                            rightLanePoints1[index - 1] += delta;
-                            rightLanePoints1[index + 1] += delta;
-                            break;
-                        case 1:
-                            rightLanePoints2[index - 1] += delta;
-                            rightLanePoints2[index + 1] += delta;
-                            break;
-                        case 2:
-                            rightLanePoints3[index - 1] += delta;
-                            rightLanePoints3[index + 1] += delta;
-                            break;
-                    }
+                    pointArray[ind - 1] = GetControlPoint(index + 1) + moved;
                 }
             }
-            else
+            if (ind < pointArray.Length - 1)
             {
-                if (index > 0)
+                if (rightLane)
                 {
-                    switch (lane)
-                    {
-                        case 0:
-                            rightLanePoints1[index - 1] += delta;
-                            break;
-                        case 1:
-                            rightLanePoints2[index - 1] += delta;
-                            break;
-                        case 2:
-                            rightLanePoints3[index - 1] += delta;
-                            break;
-                    }
+                    pointArray[index + 1] = GetControlPoint(index + 1) + moved;
                 }
-                if (index + 1 < points.Length)
+                else
                 {
-                    switch (lane)
-                    {
-                        case 0:
-                            rightLanePoints1[index + 1] += delta;
-                            break;
-                        case 1:
-                            rightLanePoints2[index + 1] += delta;
-                            break;
-                        case 2:
-                            rightLanePoints3[index + 1] += delta;
-                            break;
-                    }
+                    pointArray[ind + 1] = GetControlPoint(index - 1) + moved;
                 }
-            }
-        }
-        //***********
-        switch (lane)
-        {
-            case 0:
-                rightLanePoints1[index] = point;
-                break;
-            case 1:
-                rightLanePoints2[index] = point;
-                break;
-            case 2:
-                rightLanePoints3[index] = point;
-                break;
-        }
-
-        EnforceModeRight(lane, index);
-    }
-
-    private void EnforceMode(int index)
-    {
-        int modeIndex = (index + 1) / 3;
-        BezierControlPointMode mode = modes[modeIndex];
-        // We don't enforce if we are at end points or the current mode is set to 'FREE'.
-        if (mode == BezierControlPointMode.Free || !loop && (modeIndex == 0 || modeIndex == modes.Length - 1))
-        {
-            return;
-        }
-        int middleIndex = modeIndex * 3;
-        int fixedIndex, enforcedIndex;
-        if (index <= middleIndex)
-        {
-            fixedIndex = middleIndex - 1;
-            if (fixedIndex < 0)
-            {
-                fixedIndex = points.Length - 2;
-            }
-            enforcedIndex = middleIndex + 1;
-            if (enforcedIndex >= points.Length)
-            {
-                enforcedIndex = 1;
             }
         }
         else
         {
-            fixedIndex = middleIndex + 1;
-            if (fixedIndex >= points.Length)
+            pointArray[ind] += moved;
+            if (rightLane)
             {
-                fixedIndex = 1;
+                EnforceModeRight(lane, ind);
             }
-            enforcedIndex = middleIndex - 1;
-            if (enforcedIndex < 0)
+            else
             {
-                enforcedIndex = points.Length - 2;
+                EnforceModeLeft(lane, ind);
             }
         }
-
-        Vector3 middle = points[middleIndex];
-        Vector3 enforcedTangent = middle - points[fixedIndex];
-        if (mode == BezierControlPointMode.Aligned)
-        {
-            enforcedTangent = enforcedTangent.normalized * Vector3.Distance(middle, points[enforcedIndex]);
-        }
-        points[enforcedIndex] = middle + enforcedTangent;
+    }
+    
+    private void EnforceMode(int index)
+    {
+        int modeIndex = (index + 1) / 3;
+        BezierControlPointMode mode = modes[modeIndex];
+        EnforceLane(index, mode, ref points);
+        return;
     }
 
     private void EnforceModeLeft(int lane, int index)
     {
         int modeIndex = (index + 1) / 3;
-        BezierControlPointMode mode = BezierControlPointMode.Aligned;
+        BezierControlPointMode mode = GetLaneMode(lane, index, false);
         switch (lane)
         {
             case 0:
-                mode = leftModes1[modeIndex];
+                EnforceLane(index, mode, ref leftLanePoints1);
                 break;
             case 1:
-                mode = leftModes2[modeIndex];
+                EnforceLane(index, mode, ref leftLanePoints2);
                 break;
             case 2:
-                mode = leftModes3[modeIndex];
-                break;
-        }
-        // We don't enforce if we are at end points or the current mode is set to 'FREE'.
-        if (mode == BezierControlPointMode.Free || !loop && (modeIndex == 0 || modeIndex == modes.Length - 1))
-        {
-            return;
-        }
-        int middleIndex = modeIndex * 3;
-        int fixedIndex, enforcedIndex;
-        if (index <= middleIndex)
-        {
-            fixedIndex = middleIndex - 1;
-            if (fixedIndex < 0)
-            {
-                fixedIndex = ControlPointCount - 2;
-            }
-            enforcedIndex = middleIndex + 1;
-            if (enforcedIndex >= ControlPointCount)
-            {
-                enforcedIndex = 1;
-            }
-        }
-        else
-        {
-            fixedIndex = middleIndex + 1;
-            if (fixedIndex >= ControlPointCount)
-            {
-                fixedIndex = 1;
-            }
-            enforcedIndex = middleIndex - 1;
-            if (enforcedIndex < 0)
-            {
-                enforcedIndex = ControlPointCount - 2;
-            }
-        }
-        Vector3 middle = Vector3.zero;
-        Vector3 enforcedTangent = Vector3.zero;
-        switch (lane)
-        {
-            case 0:
-                middle = leftLanePoints1[middleIndex];
-                enforcedTangent = middle - leftLanePoints1[fixedIndex];
-                if (mode == BezierControlPointMode.Aligned)
-                {
-                    enforcedTangent = enforcedTangent.normalized *
-                        Vector3.Distance(middle, leftLanePoints1[enforcedIndex]);
-                }
-                leftLanePoints1[enforcedIndex] = middle + enforcedTangent;
-                break;
-            case 1:
-                middle = leftLanePoints2[middleIndex];
-                enforcedTangent = middle - leftLanePoints2[fixedIndex];
-                if (mode == BezierControlPointMode.Aligned)
-                {
-                    enforcedTangent = enforcedTangent.normalized *
-                        Vector3.Distance(middle, leftLanePoints2[enforcedIndex]);
-                }
-                leftLanePoints2[enforcedIndex] = middle + enforcedTangent;
-                break;
-            case 2:
-                middle = leftLanePoints3[middleIndex];
-                enforcedTangent = middle - leftLanePoints3[fixedIndex];
-                if (mode == BezierControlPointMode.Aligned)
-                {
-                    enforcedTangent = enforcedTangent.normalized *
-                        Vector3.Distance(middle, leftLanePoints3[enforcedIndex]);
-                }
-                leftLanePoints3[enforcedIndex] = middle + enforcedTangent;
+                EnforceLane(index, mode, ref leftLanePoints3);
                 break;
         }
     }
@@ -1227,22 +768,26 @@ public class ParallelBezierSplines : MonoBehaviour
     private void EnforceModeRight(int lane, int index)
     {
         int modeIndex = (index + 1) / 3;
-        BezierControlPointMode mode = BezierControlPointMode.Aligned;
+        BezierControlPointMode mode = GetLaneMode(lane, index, true);
         switch (lane)
         {
             case 0:
-                mode = rightModes1[modeIndex];
+                EnforceLane(index, mode, ref rightLanePoints1);
                 break;
             case 1:
-                mode = rightModes2[modeIndex];
+                EnforceLane(index, mode, ref rightLanePoints2);
                 break;
             case 2:
-                mode = rightModes3[modeIndex];
+                EnforceLane(index, mode, ref rightLanePoints3);
                 break;
         }
+    }
+
+    private void EnforceLane(int index, BezierControlPointMode mode, ref Vector3[] pointArray)
+    {
+        int modeIndex = (index + 1) / 3;
         // We don't enforce if we are at end points or the current mode is set to 'FREE'.
-        
-        if (mode == BezierControlPointMode.Free || !loop && (modeIndex == 0 || modeIndex == modes.Length - 1))
+        if (mode == BezierControlPointMode.Free || modeIndex == 0 || modeIndex == modes.Length - 1)
         {
             return;
         }
@@ -1274,41 +819,14 @@ public class ParallelBezierSplines : MonoBehaviour
                 enforcedIndex = ControlPointCount - 2;
             }
         }
-        Vector3 middle = Vector3.zero;
-        Vector3 enforcedTangent = Vector3.zero;
-        switch (lane)
+
+        Vector3 middle = pointArray[middleIndex];
+        Vector3 enforcedTangent = middle - pointArray[fixedIndex];
+        if (mode == BezierControlPointMode.Aligned)
         {
-            case 0:
-                middle = rightLanePoints1[middleIndex];
-                enforcedTangent = middle - rightLanePoints1[fixedIndex];
-                if (mode == BezierControlPointMode.Aligned)
-                {
-                    enforcedTangent = enforcedTangent.normalized *
-                        Vector3.Distance(middle, rightLanePoints1[enforcedIndex]);
-                }
-                rightLanePoints1[enforcedIndex] = middle + enforcedTangent;
-                break;
-            case 1:
-                middle = rightLanePoints2[middleIndex];
-                enforcedTangent = middle - rightLanePoints2[fixedIndex];
-                if (mode == BezierControlPointMode.Aligned)
-                {
-                    enforcedTangent = enforcedTangent.normalized *
-                        Vector3.Distance(middle, rightLanePoints2[enforcedIndex]);
-                }
-                rightLanePoints2[enforcedIndex] = middle + enforcedTangent;
-                break;
-            case 2:
-                middle = rightLanePoints3[middleIndex];
-                enforcedTangent = middle - rightLanePoints3[fixedIndex];
-                if (mode == BezierControlPointMode.Aligned)
-                {
-                    enforcedTangent = enforcedTangent.normalized *
-                        Vector3.Distance(middle, rightLanePoints3[enforcedIndex]);
-                }
-                rightLanePoints3[enforcedIndex] = middle + enforcedTangent;
-                break;
+            enforcedTangent = enforcedTangent.normalized * Vector3.Distance(middle, pointArray[enforcedIndex]);
         }
+        pointArray[enforcedIndex] = middle + enforcedTangent;
     }
 
     public Vector3 GetDirectionWhenTraveled(float distanceTraveled)
@@ -1335,128 +853,10 @@ public class ParallelBezierSplines : MonoBehaviour
         return GetSegmentedDirection(segment, fraction);
     }
 
-    public Vector3 GetDirectionWhenTraveledLeft(int lane, float distanceTraveled)
-    {
-        if (lane >= leftLaneCount)
-        {
-            return Vector3.zero;
-        }
-        float dist = distanceTraveled;
-        int segment = 0;
-        int segmentCount = segmentLengths.Length;
-        if (segmentCount > 1)
-        {
-            for (int i = 0; i < segmentCount; i++)
-            {
-                float length = 0f;
-                switch (lane)
-                {
-                    case 0:
-                        length = leftSegmentLengths1[i];
-                        break;
-                    case 1:
-                        length = leftSegmentLengths2[i];
-                        break;
-                    case 2:
-                        length = leftSegmentLengths3[i];
-                        break;
-                }
-                if (dist - length  < 0)
-                {
-                    segment = i;
-                    break;
-                }
-                else
-                {
-                    dist -= length;
-                }
-            }
-        }
-        float fraction = 0f;
-        switch (lane)
-        {
-            case 0:
-                fraction = dist / leftSegmentLengths1[segment];
-                break;
-            case 1:
-                fraction = dist / leftSegmentLengths2[segment];
-                break;
-            case 2:
-                fraction = dist / leftSegmentLengths3[segment];
-                break;
-        }
-        return GetSegmentedDirectionLeft(lane, segment, fraction);
-    }
-
-    public Vector3 GetDirectionWhenTraveledRight(int lane, float distanceTraveled)
-    {
-        if (lane >= rightLaneCount)
-        {
-            return Vector3.zero;
-        }
-        float dist = distanceTraveled;
-        int segment = 0;
-        int segmentCount = segmentLengths.Length;
-        if (segmentCount > 1)
-        {
-            for (int i = 0; i < segmentCount; i++)
-            {
-                float length = 0f;
-                switch (lane)
-                {
-                    case 0:
-                        length = rightSegmentLengths1[i];
-                        break;
-                    case 1:
-                        length = rightSegmentLengths2[i];
-                        break;
-                    case 2:
-                        length = rightSegmentLengths3[i];
-                        break;
-                }
-                if (dist - length < 0)
-                {
-                    segment = i;
-                    break;
-                }
-                else
-                {
-                    dist -= length;
-                }
-            }
-        }
-        float fraction = 0f;
-        switch (lane)
-        {
-            case 0:
-                fraction = dist / rightSegmentLengths1[segment];
-                break;
-            case 1:
-                fraction = dist / rightSegmentLengths2[segment];
-                break;
-            case 2:
-                fraction = dist / rightSegmentLengths3[segment];
-                break;
-        }
-        return GetSegmentedDirectionRight(lane, segment, fraction);
-    }
-
     private Vector3 GetSegmentedDirection(int segment, float fraction)
     {
 
         return GetSegmentedVelocity(segment, fraction).normalized;
-    }
-
-    private Vector3 GetSegmentedDirectionLeft(int lane, int segment, float fraction)
-    {
-
-        return GetSegmentedVelocityLeft(lane, segment, fraction).normalized;
-    }
-
-    private Vector3 GetSegmentedDirectionRight(int lane, int segment, float fraction)
-    {
-
-        return GetSegmentedVelocityRight(lane, segment, fraction).normalized;
     }
 
     private Vector3 GetSegmentedVelocity(int segment, float fraction)
@@ -1467,315 +867,59 @@ public class ParallelBezierSplines : MonoBehaviour
             - transform.position;
     }
 
-    private Vector3 GetSegmentedVelocityLeft(int lane, int segment, float fraction)
-    {
-        int i = segment * 3;
-        Vector3 v = Vector3.zero;
-        switch (lane)
-        {
-            case 0:
-                v = transform.TransformPoint(Bezier.GetFirstDerivative(leftLanePoints1[i],
-                    leftLanePoints1[i + 1], leftLanePoints1[i + 2], leftLanePoints1[i + 3],
-                    fraction)) - transform.position;
-                break;
-            case 1:
-                v = transform.TransformPoint(Bezier.GetFirstDerivative(leftLanePoints2[i],
-                    leftLanePoints2[i + 1], leftLanePoints2[i + 2], leftLanePoints2[i + 3],
-                    fraction)) - transform.position;
-                break;
-            case 2:
-                v = transform.TransformPoint(Bezier.GetFirstDerivative(leftLanePoints3[i],
-                    leftLanePoints3[i + 1], leftLanePoints3[i + 2], leftLanePoints3[i + 3],
-                    fraction)) - transform.position;
-                break;
-        }
-        return v;
-    }
-
-    private Vector3 GetSegmentedVelocityRight(int lane, int segment, float fraction)
-    {
-        int i = segment * 3;
-        Vector3 v = Vector3.zero;
-        switch (lane)
-        {
-            case 0:
-                v = transform.TransformPoint(Bezier.GetFirstDerivative(rightLanePoints1[i],
-                    rightLanePoints1[i + 1], rightLanePoints1[i + 2], rightLanePoints1[i + 3],
-                    fraction)) - transform.position;
-                break;
-            case 1:
-                v = transform.TransformPoint(Bezier.GetFirstDerivative(rightLanePoints2[i],
-                    rightLanePoints2[i + 1], rightLanePoints2[i + 2], rightLanePoints2[i + 3],
-                    fraction)) - transform.position;
-                break;
-            case 2:
-                v = transform.TransformPoint(Bezier.GetFirstDerivative(rightLanePoints3[i],
-                    rightLanePoints3[i + 1], rightLanePoints3[i + 2], rightLanePoints3[i + 3],
-                    fraction)) - transform.position;
-                break;
-        }
-        return v;
-    }
-
-    public Vector3 GetPointWhenTraveled(float distanceTraveled)
-    {
-        float dist = distanceTraveled;
-        int segment = 0;
-        int segmentCount = segmentLengths.Length;
-        if (segmentCount > 1)
-        {
-            for (int i = 0; i < segmentCount; i++)
-            {
-                if (dist - segmentLengths[i] < 0)
-                {
-                    segment = i;
-                    break;
-                }
-                else
-                {
-                    dist -= segmentLengths[i];
-                }
-            }
-        }
-        float fraction = dist / segmentLengths[segment];
-        return GetSegmentedPoint(segment, fraction);
-    }
-
-    public Vector3 GetPointWhenTraveledLeft(int lane, float distanceTraveled)
-    {
-        float dist = distanceTraveled;
-        int segment = 0;
-        int segmentCount = segmentLengths.Length;
-        if (segmentCount > 1)
-        {
-            for (int i = 0; i < segmentCount; i++)
-            {
-                float length = 0f;
-                switch(lane)
-                {
-                    case 0:
-                        length = leftSegmentLengths1[i];
-                        break;
-                    case 1:
-                        length = leftSegmentLengths2[i];
-                        break;
-                    case 2:
-                        length = leftSegmentLengths3[i];
-                        break;
-                }
-                if (dist - length < 0)
-                {
-                    segment = i;
-                    break;
-                }
-                else
-                {
-                    dist -= length;
-                }
-            }
-        }
-        float fraction = 0f;
-        switch(lane)
-        {
-            case 0:
-                fraction = dist / leftSegmentLengths1[segment];
-                break;
-            case 1:
-                fraction = dist / leftSegmentLengths2[segment];
-                break;
-            case 2:
-                fraction = dist / leftSegmentLengths2[segment];
-                break;
-        }
-        return GetSegmentedPointLeft(lane, segment, fraction);
-    }
-
-    public Vector3 GetPointWhenTraveledRight(int lane, float distanceTraveled)
-    {
-        float dist = distanceTraveled;
-        int segment = 0;
-        int segmentCount = segmentLengths.Length;
-        if (segmentCount > 1)
-        {
-            for (int i = 0; i < segmentCount; i++)
-            {
-                float length = 0f;
-                switch (lane)
-                {
-                    case 0:
-                        length = rightSegmentLengths1[i];
-                        break;
-                    case 1:
-                        length = rightSegmentLengths2[i];
-                        break;
-                    case 2:
-                        length = rightSegmentLengths3[i];
-                        break;
-                }
-                if (dist - length < 0)
-                {
-                    segment = i;
-                    break;
-                }
-                else
-                {
-                    dist -= length;
-                }
-            }
-        }
-        float fraction = 0f;
-        switch (lane)
-        {
-            case 0:
-                fraction = dist / rightSegmentLengths1[segment];
-                break;
-            case 1:
-                fraction = dist / rightSegmentLengths2[segment];
-                break;
-            case 2:
-                fraction = dist / rightSegmentLengths3[segment];
-                break;
-        }
-        return GetSegmentedPointRight(lane, segment, fraction);
-    }
-
     public Vector3 GetSegmentedPoint(int segment, float fraction)
     {
         if (segment == segmentLengths.Length)
         {
-            if (loop)
-            {
-                segment = 0;
-            }
-            else
-            {
-                segment -= 1;
-            }
+            segment -= 1;
         }
         int i = segment * 3;
         return transform.TransformPoint(Bezier.GetPoint(points[i], points[i + 1], points[i + 2], points[i + 3], fraction));
     }
 
-    public Vector3 GetSegmentedPointLeft(int lane, int segment, float fraction)
+    public Vector3 GetSegmentedPointLane(int lane, int segment, float fraction, bool rightLane)
     {
         if (segment == segmentLengths.Length)
         {
-            if (loop)
-            {
-                segment = 0;
-            }
-            else
-            {
-                segment -= 1;
-            }
+            segment -= 1;
         }
         int i = segment * 3;
         Vector3 v = Vector3.zero;
-        switch (lane)
+        if (rightLane)
         {
-            case 0:
-                v = transform.TransformPoint(Bezier.GetPoint(leftLanePoints1[i], leftLanePoints1[i + 1],
-                    leftLanePoints1[i + 2], leftLanePoints1[i + 3], fraction));
-                break;
-            case 1:
-                v = transform.TransformPoint(Bezier.GetPoint(leftLanePoints2[i], leftLanePoints2[i + 1],
-                    leftLanePoints2[i + 2], leftLanePoints2[i + 3], fraction));
-                break;
-            case 2:
-                v = transform.TransformPoint(Bezier.GetPoint(leftLanePoints3[i], leftLanePoints3[i + 1],
-                    leftLanePoints3[i + 2], leftLanePoints3[i + 3], fraction));
-                break;
-        }
-        return v;
-    }
-
-    public Vector3 GetSegmentedPointRight(int lane, int segment, float fraction)
-    {
-        if (segment == segmentLengths.Length)
-        {
-            if (loop)
+            switch (lane)
             {
-                segment = 0;
-            }
-            else
-            {
-                segment -= 1;
+                case 0:
+                    v = transform.TransformPoint(Bezier.GetPoint(rightLanePoints1[i], rightLanePoints1[i + 1],
+                        rightLanePoints1[i + 2], rightLanePoints1[i + 3], fraction));
+                    break;
+                case 1:
+                    v = transform.TransformPoint(Bezier.GetPoint(rightLanePoints2[i], rightLanePoints2[i + 1],
+                        rightLanePoints2[i + 2], rightLanePoints2[i + 3], fraction));
+                    break;
+                case 2:
+                    v = transform.TransformPoint(Bezier.GetPoint(rightLanePoints3[i], rightLanePoints3[i + 1],
+                        rightLanePoints3[i + 2], rightLanePoints3[i + 3], fraction));
+                    break;
             }
         }
-        int i = segment * 3;
-        Vector3 v = Vector3.zero;
-        switch (lane)
+        else
         {
-            case 0:
-                v = transform.TransformPoint(Bezier.GetPoint(rightLanePoints1[i], rightLanePoints1[i + 1],
-                    rightLanePoints1[i + 2], rightLanePoints1[i + 3], fraction));
-                break;
-            case 1:
-                v = transform.TransformPoint(Bezier.GetPoint(rightLanePoints2[i], rightLanePoints2[i + 1],
-                    rightLanePoints2[i + 2], rightLanePoints2[i + 3], fraction));
-                break;
-            case 2:
-                v = transform.TransformPoint(Bezier.GetPoint(rightLanePoints3[i], rightLanePoints3[i + 1],
-                    rightLanePoints3[i + 2], rightLanePoints3[i + 3], fraction));
-                break;
-        }
-        return v;
-    }
-
-    public Vector3 GetPoint(float t)
-    {
-        int i = GetI(ref t);
-        return transform.TransformPoint(Bezier.GetPoint(points[i], points[i + 1], points[i + 2], points[i + 3], t));
-    }
-
-    public Vector3 GetPointLeft(int lane, float t)
-    {
-        Vector3 v = Vector3.zero;
-        if (lane >= LeftLaneCount)
-        {
-            return v;
-        }
-        int i = GetI(ref t);
-        switch(lane)
-        {
-            case 0:
-                v = transform.TransformPoint(Bezier.GetPoint(leftLanePoints1[i],
-                    leftLanePoints1[i + 1], leftLanePoints1[i + 2], leftLanePoints1[i + 3], t));
-                break;
-            case 1:
-                v = transform.TransformPoint(Bezier.GetPoint(leftLanePoints2[i],
-                    leftLanePoints2[i + 1], leftLanePoints2[i + 2], leftLanePoints2[i + 3], t));
-                break;
-            case 2:
-                v = transform.TransformPoint(Bezier.GetPoint(leftLanePoints1[i],
-                    leftLanePoints3[i + 1], leftLanePoints3[i + 2], leftLanePoints3[i + 3], t));
-                break;
-        }
-        return v;
-    }
-
-    public Vector3 GetPointRight(int lane, float t)
-    {
-        Vector3 v = Vector3.zero;
-        if (lane >= RightLaneCount)
-        {
-            return v;
-        }
-        int i = GetI(ref t);
-        switch (lane)
-        {
-            case 0:
-                v = transform.TransformPoint(Bezier.GetPoint(rightLanePoints1[i], rightLanePoints1[1 + 1],
-                    rightLanePoints1[i + 2], rightLanePoints1[i + 3], t));
-                break;
-            case 1:
-                v = transform.TransformPoint(Bezier.GetPoint(rightLanePoints2[i], rightLanePoints2[1 + 1],
-                    rightLanePoints2[i + 2], rightLanePoints2[i + 3], t));
-                break;
-            case 2:
-                v = transform.TransformPoint(Bezier.GetPoint(rightLanePoints3[i], rightLanePoints3[1 + 1],
-                    rightLanePoints3[i + 2], rightLanePoints3[i + 3], t));
-                break;
+            switch (lane)
+            {
+                case 0:
+                    v = transform.TransformPoint(Bezier.GetPoint(leftLanePoints1[i], leftLanePoints1[i + 1],
+                        leftLanePoints1[i + 2], leftLanePoints1[i + 3], fraction));
+                    break;
+                case 1:
+                    v = transform.TransformPoint(Bezier.GetPoint(leftLanePoints2[i], leftLanePoints2[i + 1],
+                        leftLanePoints2[i + 2], leftLanePoints2[i + 3], fraction));
+                    break;
+                case 2:
+                    v = transform.TransformPoint(Bezier.GetPoint(leftLanePoints3[i], leftLanePoints3[i + 1],
+                        leftLanePoints3[i + 2], leftLanePoints3[i + 3], fraction));
+                    break;
+            }
         }
         return v;
     }
@@ -1785,14 +929,9 @@ public class ParallelBezierSplines : MonoBehaviour
         return GetVelocity(t).normalized;
     }
 
-    public Vector3 GetDirectionLeft(int lane, float t)
+    public Vector3 GetDirectionLane(int lane, float t, bool rightLane)
     {
-        return GetVelocityLeft(lane, t).normalized;
-    }
-
-    public Vector3 GetDirectionRight(int lane, float t)
-    {
-        return GetVelocityRight(lane, t).normalized;
+        return GetVelocityLane(lane, t, rightLane).normalized;
     }
 
     public Vector3 GetVelocity(float t)
@@ -1803,60 +942,59 @@ public class ParallelBezierSplines : MonoBehaviour
             - transform.position;
     }
 
-    public Vector3 GetVelocityLeft(int lane, float t)
+    public Vector3 GetVelocityLane(int lane, float t, bool rightLane)
     {
         Vector3 v = Vector3.zero;
-        if (lane >= LeftLaneCount)
-        {
-            return v;
-        }
         int i = GetI(ref t);
-        switch (lane)
+        if (rightLane)
         {
-            case 0:
-                v = transform.TransformPoint(Bezier.GetFirstDerivative(leftLanePoints1[i],
-                    leftLanePoints1[i + 1], leftLanePoints1[i + 2], leftLanePoints1[i + 3], t))
-                    - transform.position;
-                break;
-            case 1:
-                v = transform.TransformPoint(Bezier.GetFirstDerivative(leftLanePoints2[i],
-                    leftLanePoints2[i + 1], leftLanePoints2[i + 2], leftLanePoints2[i + 3], t))
-                    - transform.position;
-                break;
-            case 2:
-                v = transform.TransformPoint(Bezier.GetFirstDerivative(leftLanePoints3[i],
-                    leftLanePoints3[i + 1], leftLanePoints3[i + 2], leftLanePoints3[i + 3], t))
-                    - transform.position;
-                break;
+            if (lane >= RightLaneCount)
+            {
+                return v;
+            }
+            switch (lane)
+            {
+                case 0:
+                    v = transform.TransformPoint(Bezier.GetFirstDerivative(rightLanePoints1[i],
+                        rightLanePoints1[i + 1], rightLanePoints1[i + 2], rightLanePoints1[i + 3], t))
+                        - transform.position;
+                    break;
+                case 1:
+                    v = transform.TransformPoint(Bezier.GetFirstDerivative(rightLanePoints2[i],
+                        rightLanePoints2[i + 1], rightLanePoints2[i + 2], rightLanePoints2[i + 3], t))
+                        - transform.position;
+                    break;
+                case 2:
+                    v = transform.TransformPoint(Bezier.GetFirstDerivative(rightLanePoints3[i],
+                        rightLanePoints3[i + 1], rightLanePoints3[i + 2], rightLanePoints3[i + 3], t))
+                        - transform.position;
+                    break;
+            }
         }
-        return v;
-    }
-
-    public Vector3 GetVelocityRight(int lane, float t)
-    {
-        Vector3 v = Vector3.zero;
-        if (lane >= RightLaneCount)
+        else
         {
-            return v;
-        }
-        int i = GetI(ref t);
-        switch (lane)
-        {
-            case 0:
-                v = transform.TransformPoint(Bezier.GetFirstDerivative(rightLanePoints1[i],
-                    rightLanePoints1[i + 1], rightLanePoints1[i + 2], rightLanePoints1[i + 3], t))
-                    - transform.position;
-                break;
-            case 1:
-                v = transform.TransformPoint(Bezier.GetFirstDerivative(rightLanePoints2[i],
-                    rightLanePoints2[i + 1], rightLanePoints2[i + 2], rightLanePoints2[i + 3], t))
-                    - transform.position;
-                break;
-            case 2:
-                v = transform.TransformPoint(Bezier.GetFirstDerivative(rightLanePoints3[i],
-                    rightLanePoints3[i + 1], rightLanePoints3[i + 2], rightLanePoints3[i + 3], t))
-                    - transform.position;
-                break;
+            if (lane >= LeftLaneCount)
+            {
+                return v;
+            }
+            switch (lane)
+            {
+                case 0:
+                    v = transform.TransformPoint(Bezier.GetFirstDerivative(leftLanePoints1[i],
+                        leftLanePoints1[i + 1], leftLanePoints1[i + 2], leftLanePoints1[i + 3], t))
+                        - transform.position;
+                    break;
+                case 1:
+                    v = transform.TransformPoint(Bezier.GetFirstDerivative(leftLanePoints2[i],
+                        leftLanePoints2[i + 1], leftLanePoints2[i + 2], leftLanePoints2[i + 3], t))
+                        - transform.position;
+                    break;
+                case 2:
+                    v = transform.TransformPoint(Bezier.GetFirstDerivative(leftLanePoints3[i],
+                        leftLanePoints3[i + 1], leftLanePoints3[i + 2], leftLanePoints3[i + 3], t))
+                        - transform.position;
+                    break;
+            }
         }
         return v;
     }
@@ -1884,14 +1022,7 @@ public class ParallelBezierSplines : MonoBehaviour
         int segment = index / 3;
         if (segment == segmentLengths.Length)
         {
-            if (loop)
-            {
-                segment = 0;
-            }
-            else
-            {
-                segment -= 1;
-            }
+            segment -= 1;
         }
         float dist = 0f;
         Vector3 prev = GetSegmentedPoint(segment, 0f);
@@ -1902,7 +1033,7 @@ public class ParallelBezierSplines : MonoBehaviour
             prev = next;
         }
         segmentLengths[segment] = dist;
-        if (loop == false && segment == 0)
+        if (segment == 0)
         {
             UpdateSplineLength();
             return;
@@ -1930,116 +1061,57 @@ public class ParallelBezierSplines : MonoBehaviour
         }
     }
 
-    public void RecalculateLengthLeft(int lane, int index)
+    public void RecalculateLaneLength(int lane, int index, bool rightLane)
     {
         int segment = index / 3;
         if (segment == segmentLengths.Length)
         {
-            if (loop)
-            {
-                segment = 0;
-            }
-            else
-            {
-                segment -= 1;
-            }
+            segment -= 1;
         }
         float dist = 0f;
-        Vector3 prev = GetSegmentedPointLeft(lane, segment, 0f);
-        for (int i = 1; i <= 1000; i++)
+        float[] lengthArray = rightSegmentLengths1;
+        if (rightLane)
         {
-            Vector3 next = GetSegmentedPointLeft(lane, segment, i / 1000f);
-            dist += Vector3.Distance(prev, next);
-            prev = next;
-        }
-        switch (lane)
-        {
-            case 0:
-                leftSegmentLengths1[segment] = dist;
-                break;
-            case 1:
-                leftSegmentLengths2[segment] = dist;
-                break;
-            case 2:
-                leftSegmentLengths3[segment] = dist;
-                break;
-        }
-        if (loop == false && segment == 0)
-        {
-            UpdateSplineLengthLeft(lane);
-            return;
+            switch(lane)
+            {
+                case 0:
+                    lengthArray = rightSegmentLengths1;
+                    break;
+                case 1:
+                    lengthArray = rightSegmentLengths2;
+                    break;
+                case 2:
+                    lengthArray = rightSegmentLengths3;
+                    break;
+            }
         }
         else
         {
-            if (segment == 0)
-            {
-                segment = segmentLengths.Length - 1;
-            }
-            else
-            {
-                segment -= 1;
-            }
-            dist = 0f;
-            prev = GetSegmentedPointLeft(lane, segment, 0f);
-            for (int i = 1; i <= 1000; i++)
-            {
-                Vector3 next = GetSegmentedPointLeft(lane, segment, i / 1000f);
-                dist += Vector3.Distance(prev, next);
-                prev = next;
-            }
             switch (lane)
             {
                 case 0:
-                    leftSegmentLengths1[segment] = dist;
+                    lengthArray = leftSegmentLengths1;
                     break;
                 case 1:
-                    leftSegmentLengths2[segment] = dist;
+                    lengthArray = leftSegmentLengths2;
                     break;
                 case 2:
-                    leftSegmentLengths3[segment] = dist;
+                    lengthArray = leftSegmentLengths3;
                     break;
             }
-            UpdateSplineLengthLeft(lane);
         }
-    }
+        Vector3 prev = GetSegmentedPointLane(lane, segment, 0f, rightLane);
+        for (int i = 1; i <= 1000; i++)
+        {
+            Vector3 next = GetSegmentedPointLane(lane, segment, i / 1000f, rightLane);
+            dist += Vector3.Distance(prev, next);
+            prev = next;
+        }
+        lengthArray[segment] = dist;
 
-    public void RecalculateLengthRight(int lane, int index)
-    {
-        int segment = index / 3;
-        if (segment == segmentLengths.Length)
+        if (segment == 0)
         {
-            if (loop)
-            {
-                segment = 0;
-            }
-            else
-            {
-                segment -= 1;
-            }
-        }
-        float dist = 0f;
-        Vector3 prev = GetSegmentedPointRight(lane, segment, 0f);
-        for (int i = 1; i <= 1000; i++)
-        {
-            Vector3 next = GetSegmentedPointRight(lane, segment, i / 1000f);
-            dist += Vector3.Distance(prev, next);
-            prev = next;
-        }
-        switch (lane)
-        {
-            case 0:
-                rightSegmentLengths1[segment] = dist;
-                break;
-            case 1:
-                rightSegmentLengths2[segment] = dist;
-                break;
-            case 2:
-                rightSegmentLengths3[segment] = dist;
-                break;
-        }
-        if (loop == false && segment == 0)
-        {
-            UpdateSplineLengthRight(lane);
+            UpdateLaneLength(lane, rightLane);
             return;
         }
         else
@@ -2053,26 +1125,15 @@ public class ParallelBezierSplines : MonoBehaviour
                 segment -= 1;
             }
             dist = 0f;
-            prev = GetSegmentedPointRight(lane, segment, 0f);
+            prev = GetSegmentedPointLane(lane, segment, 0f, rightLane);
             for (int i = 1; i <= 1000; i++)
             {
-                Vector3 next = GetSegmentedPointRight(lane, segment, i / 1000f);
+                Vector3 next = GetSegmentedPointLane(lane, segment, i / 1000f, rightLane);
                 dist += Vector3.Distance(prev, next);
                 prev = next;
             }
-            switch (lane)
-            {
-                case 0:
-                    rightSegmentLengths1[segment] = dist;
-                    break;
-                case 1:
-                    rightSegmentLengths2[segment] = dist;
-                    break;
-                case 2:
-                    rightSegmentLengths2[segment] = dist;
-                    break;
-            }
-            UpdateSplineLengthRight(lane);
+            lengthArray[segment] = dist;
+            UpdateLaneLength(lane, rightLane);
         }
     }
 
@@ -2086,61 +1147,62 @@ public class ParallelBezierSplines : MonoBehaviour
         splineLength = length;
     }
 
-    private void UpdateSplineLengthLeft(int lane)
+    private void UpdateLaneLength(int lane, bool rightLane)
     {
-        float length = 0;
-        switch(lane)
+        float length = 0f;
+        if (rightLane)
         {
-            case 0:
-                for (int i = 0; i < leftSegmentLengths1.Length; i++)
-                {
-                    length += leftSegmentLengths1[i];
-                }
-                leftSplineLengths[lane] = length;
-                break;
-            case 1:
-                for (int i = 0; i < leftSegmentLengths2.Length; i++)
-                {
-                    length += leftSegmentLengths2[i];
-                }
-                leftSplineLengths[lane] = length;
-                break;
-            case 2:
-                for (int i = 0; i < leftSegmentLengths3.Length; i++)
-                {
-                    length += leftSegmentLengths3[i];
-                }
-                leftSplineLengths[lane] = length;
-                break;
+            switch (lane)
+            {
+                case 0:
+                    for (int i = 0; i < rightSegmentLengths1.Length; i++)
+                    {
+                        length += rightSegmentLengths1[i];
+                    }
+                    rightSplineLengths[lane] = length;
+                    break;
+                case 1:
+                    for (int i = 0; i < rightSegmentLengths2.Length; i++)
+                    {
+                        length += rightSegmentLengths2[i];
+                    }
+                    rightSplineLengths[lane] = length;
+                    break;
+                case 2:
+                    for (int i = 0; i < rightSegmentLengths3.Length; i++)
+                    {
+                        length += rightSegmentLengths3[i];
+                    }
+                    rightSplineLengths[lane] = length;
+                    break;
+            }
         }
-    }
-
-    private void UpdateSplineLengthRight(int lane)
-    {
-        float length = 0;
-        switch (lane)
+        else
         {
-            case 0:
-                for (int i = 0; i < rightSegmentLengths1.Length; i++)
-                {
-                    length += rightSegmentLengths1[i];
-                }
-                rightSplineLengths[lane] = length;
-                break;
-            case 1:
-                for (int i = 0; i < rightSegmentLengths2.Length; i++)
-                {
-                    length += rightSegmentLengths2[i];
-                }
-                rightSplineLengths[lane] = length;
-                break;
-            case 2:
-                for (int i = 0; i < rightSegmentLengths3.Length; i++)
-                {
-                    length += rightSegmentLengths3[i];
-                }
-                rightSplineLengths[lane] = length;
-                break;
+            switch (lane)
+            {
+                case 0:
+                    for (int i = 0; i < leftSegmentLengths1.Length; i++)
+                    {
+                        length += leftSegmentLengths1[i];
+                    }
+                    leftSplineLengths[lane] = length;
+                    break;
+                case 1:
+                    for (int i = 0; i < leftSegmentLengths2.Length; i++)
+                    {
+                        length += leftSegmentLengths2[i];
+                    }
+                    leftSplineLengths[lane] = length;
+                    break;
+                case 2:
+                    for (int i = 0; i < leftSegmentLengths3.Length; i++)
+                    {
+                        length += leftSegmentLengths3[i];
+                    }
+                    leftSplineLengths[lane] = length;
+                    break;
+            }
         }
     }
 
@@ -2347,37 +1409,43 @@ public class ParallelBezierSplines : MonoBehaviour
             leftModes3[i] = leftModes3[i - 1];
         }
         leftModes3[0] = leftModes3[1];
-        if (loop)
+    }
+
+    public BezierControlPointMode GetLaneMode(int lane, int index, bool rightLane)
+    {
+        BezierControlPointMode mode = BezierControlPointMode.Aligned;
+        int modeIndex = (index + 1) / 3;
+        if (rightLane)
         {
-            points[points.Length - 1] = points[0];
-            modes[modes.Length - 1] = modes[0];
-            EnforceMode(0);
-            RecalculateLength(ControlPointCount - 1);
-
-            rightLanePoints1[ControlPointCount - 1] = rightLanePoints1[0];
-            EnforceModeRight(0, 0);
-            RecalculateLengthRight(0, ControlPointCount - 1);
-
-            rightLanePoints2[ControlPointCount - 1] = rightLanePoints2[0];
-            EnforceModeRight(1, 0);
-            RecalculateLengthRight(1, ControlPointCount - 1);
-
-            rightLanePoints3[ControlPointCount - 1] = rightLanePoints3[0];
-            EnforceModeRight(2, 0);
-            RecalculateLengthRight(2, ControlPointCount - 1);
-
-            leftLanePoints1[0] = leftLanePoints1[leftLanePoints1.Length - 1];
-            EnforceModeLeft(0, leftLanePoints1.Length - 1);
-            RecalculateLengthLeft(0, 0);
-
-            leftLanePoints2[0] = leftLanePoints2[leftLanePoints2.Length - 1];
-            EnforceModeLeft(1, leftLanePoints2.Length - 1);
-            RecalculateLengthLeft(1, 0);
-
-            leftLanePoints3[0] = leftLanePoints3[leftLanePoints3.Length - 1];
-            EnforceModeLeft(2, leftLanePoints3.Length - 1);
-            RecalculateLengthLeft(2, 0);
+            switch(index)
+            {
+                case 0:
+                    mode = rightModes1[modeIndex];
+                    break;
+                case 1:
+                    mode = rightModes2[modeIndex];
+                    break;
+                case 2:
+                    mode = rightModes3[modeIndex];
+                    break;
+            }
         }
+        else
+        {
+            switch (index)
+            {
+                case 0:
+                    mode = leftModes1[modeIndex];
+                    break;
+                case 1:
+                    mode = leftModes2[modeIndex];
+                    break;
+                case 2:
+                    mode = leftModes3[modeIndex];
+                    break;
+            }
+        }
+        return mode;
     }
 
     public BezierControlPointMode GetControlPointMode(int index)
@@ -2385,165 +1453,52 @@ public class ParallelBezierSplines : MonoBehaviour
         return modes[(index + 1) / 3];
     }
 
-    public BezierControlPointMode GetControlPointModeRight(int lane, int index)
-    {
-        BezierControlPointMode b = BezierControlPointMode.Aligned;
-        switch (lane)
-        {
-            case 0:
-                b = rightModes1[(index + 1) / 3];
-                break;
-            case 1:
-                b = rightModes2[(index + 1) / 3];
-                break;
-            case 2:
-                b = rightModes3[(index + 1) / 3];
-                break;
-        }
-        return b;
-    }
-
-    public BezierControlPointMode GetControlPointModeLeft(int lane, int index)
-    {
-        BezierControlPointMode b = BezierControlPointMode.Aligned;
-        switch (lane)
-        {
-            case 0:
-                b = leftModes1[(index + 1) / 3];
-                break;
-            case 1:
-                b = leftModes2[(index + 1) / 3];
-                break;
-            case 2:
-                b = leftModes3[(index + 1) / 3];
-                break;
-        }
-        return b;
-    }
-
     public void SetControlPointMode(int index, BezierControlPointMode mode)
     {
         int modeIndex = (index + 1) / 3;
         modes[modeIndex] = mode;
-        if (loop)
-        {
-            if (modeIndex == 0)
-            {
-                modes[modes.Length - 1] = mode;
-            }
-            else if (modeIndex == modes.Length - 1)
-            {
-                modes[0] = mode;
-            }
-        }
         EnforceMode(index);
     }
 
-    public void SetControlPointModeRight(int lane, int index, BezierControlPointMode mode)
+    public void SetLaneMode(int lane, int index, BezierControlPointMode mode, bool rightLane)
     {
         int modeIndex = (index + 1) / 3;
-        switch (lane)
+        if (rightLane)
         {
-            case 0:
-                rightModes1[modeIndex] = mode;
-                if (loop)
-                {
-                    if (modeIndex == 0)
-                    {
-                        rightModes1[rightModes1.Length - 1] = mode;
-                    }
-                    else if (modeIndex == rightModes1.Length - 1)
-                    {
-                        rightModes1[0] = mode;
-                    }
-                }
-                break;
-            case 1:
-                rightModes2[modeIndex] = mode;
-                if (loop)
-                {
-                    if (modeIndex == 0)
-                    {
-                        rightModes2[rightModes2.Length - 1] = mode;
-                    }
-                    else if (modeIndex == rightModes2.Length - 1)
-                    {
-                        rightModes2[0] = mode;
-                    }
-                }
-                break;
-            case 2:
-                rightModes3[modeIndex] = mode;
-                if (loop)
-                {
-                    if (modeIndex == 0)
-                    {
-                        rightModes3[rightModes3.Length - 1] = mode;
-                    }
-                    else if (modeIndex == rightModes3.Length - 1)
-                    {
-                        rightModes3[0] = mode;
-                    }
-                }
-                break;
+            switch (lane)
+            {
+                case 0:
+                    rightModes1[modeIndex] = mode;
+                    break;
+                case 1:
+                    rightModes2[modeIndex] = mode;
+                    break;
+                case 2:
+                    rightModes3[modeIndex] = mode;
+                    break;
+            }
+            EnforceModeRight(lane, index);
         }
-        EnforceModeRight(lane, index);
-    }
-
-    public void SetControlPointModeLeft(int lane, int index, BezierControlPointMode mode)
-    {
-        int modeIndex = (index + 1) / 3;
-        switch (lane)
+        else
         {
-            case 0:
-                leftModes1[modeIndex] = mode;
-                if (loop)
-                {
-                    if (modeIndex == 0)
-                    {
-                        leftModes1[leftModes1.Length - 1] = mode;
-                    }
-                    else if (modeIndex == leftModes1.Length - 1)
-                    {
-                        leftModes1[0] = mode;
-                    }
-                }
-                break;
-            case 1:
-                leftModes2[modeIndex] = mode;
-                if (loop)
-                {
-                    if (modeIndex == 0)
-                    {
-                        leftModes2[leftModes2.Length - 1] = mode;
-                    }
-                    else if (modeIndex == leftModes2.Length - 1)
-                    {
-                        leftModes2[0] = mode;
-                    }
-                }
-                break;
-            case 2:
-                leftModes3[modeIndex] = mode;
-                if (loop)
-                {
-                    if (modeIndex == 0)
-                    {
-                        leftModes1[leftModes3.Length - 1] = mode;
-                    }
-                    else if (modeIndex == leftModes3.Length - 1)
-                    {
-                        leftModes3[0] = mode;
-                    }
-                }
-                break;
+            switch (lane)
+            {
+                case 0:
+                    leftModes1[modeIndex] = mode;
+                    break;
+                case 1:
+                    leftModes2[modeIndex] = mode;
+                    break;
+                case 2:
+                    leftModes3[modeIndex] = mode;
+                    break;
+            }
+            EnforceModeLeft(lane, index);
         }
-        EnforceModeLeft(lane, index);
     }
 
     public void Reset()
     {
-        loop = false;
         initialized = false;
         lanesSet = false;
         nodesSet = false;
@@ -2636,7 +1591,6 @@ public class ParallelBezierSplines : MonoBehaviour
         { BezierControlPointMode.Aligned, BezierControlPointMode.Aligned };
         rightModes3 = new BezierControlPointMode[]
         { BezierControlPointMode.Aligned, BezierControlPointMode.Aligned };
-
     }
 }
 
