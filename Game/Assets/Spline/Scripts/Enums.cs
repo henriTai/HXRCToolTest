@@ -75,3 +75,10 @@ public enum IconColor
     Red,
     Purple
 }
+
+public enum NodeInOut
+{
+    NotUsed,
+    InNode,
+    OutNode
+}

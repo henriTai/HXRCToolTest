@@ -257,6 +257,7 @@ public static class ObjectTagger
         }
 
         Nodes n = g.GetComponent<Nodes>();
+        n.CheckNullNodes();
         bool busLane = n.BusLane;
         bool connected = true;
         bool connectNode = n.ConnectNode;

@@ -7344,6 +7344,117 @@ Transform:
   m_Father: {fileID: 1172602152}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &341040703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 341040705}
+  - component: {fileID: 341040704}
+  m_Layer: 0
+  m_Name: intersection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &341040704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341040703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e0ddabbaa56d2843a745a82ab47cfed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  centerPoint: {x: 82.2, y: 0, z: -22.599998}
+  frameWidth: 29
+  frameHeight: 22
+  framed: 1
+  allNodesSet: 1
+  roadNetwork: {fileID: 0}
+  traffic: 2
+  speedLimit: 1
+  nodesInBox:
+  - node: {fileID: 23761353}
+    inOut: 1
+  - node: {fileID: 98309438}
+    inOut: 1
+  - node: {fileID: 101155615}
+    inOut: 1
+  - node: {fileID: 152413829}
+    inOut: 0
+  - node: {fileID: 153751695}
+    inOut: 0
+  - node: {fileID: 562959550}
+    inOut: 1
+  - node: {fileID: 581762747}
+    inOut: 2
+  - node: {fileID: 582916848}
+    inOut: 0
+  - node: {fileID: 588679335}
+    inOut: 1
+  - node: {fileID: 602911198}
+    inOut: 1
+  - node: {fileID: 979601650}
+    inOut: 2
+  - node: {fileID: 1027115022}
+    inOut: 0
+  - node: {fileID: 1101027558}
+    inOut: 2
+  - node: {fileID: 1737476357}
+    inOut: 2
+  - node: {fileID: 1909382132}
+    inOut: 0
+  - node: {fileID: 2040090050}
+    inOut: 0
+  - node: {fileID: 2059209526}
+    inOut: 2
+  - node: {fileID: 2097650399}
+    inOut: 2
+  nodesInBoxSet: 0
+  infoIndex: 13
+  helperLines:
+  - startPoint: {x: 94.2, y: 0, z: -26.099998}
+    direction: {x: 0, y: 0, z: 1}
+    lenght: 9
+    nodePoints:
+    - 0.1
+    - 0.275
+    - 0.425
+    - 0.575
+    - 0.725
+    - 0.9
+    inOut: 010000000100000001000000020000000200000002000000
+  - startPoint: {x: 71.2, y: 0, z: -28.099998}
+    direction: {x: 0, y: 0, z: 1}
+    lenght: 11
+    nodePoints:
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    inOut: 01000000010000000200000002000000
+--- !u!4 &341040705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341040703}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 82.2, y: 0, z: -35.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &345725584
 GameObject:
   m_ObjectHideFlags: 0

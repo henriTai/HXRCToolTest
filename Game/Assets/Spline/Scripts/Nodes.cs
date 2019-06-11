@@ -172,6 +172,87 @@ public class Nodes : MonoBehaviour
         }
     }
 
+    // This is for editor use. User may have manually removed some nodes that are linked to
+    // this node. InNodes and OutNodes arrays must be checked to remove nulls
+    public void CheckNullNodes()
+    {
+        Debug.Log("checking node " + gameObject.name);
+        bool inNodesChecked = false;
+        bool outNodesChecked = false;
+        while(true)
+        {
+            bool isNulls = false;
+            int index = 0;
+            if (!inNodesChecked)
+            {
+                for (int i = 0; i < inNodes.Length; i++)
+                {
+                    if (inNodes[i] == null)
+                    {
+                        index = i;
+                        isNulls = true;
+                    }
+                }
+            }
+            if (isNulls == false)
+            {
+                inNodesChecked = true;
+            }
+            else
+            {
+                // move values in array and resize
+                for (int i = index; i < inNodes.Length - 1; i++)
+                {
+                    if (inNodes[i + 1] == null)
+                    {
+                        inNodes[i] = null;
+                    }
+                    else
+                    {
+                        inNodes[i] = inNodes[i + 1];
+                    }
+                }
+                Array.Resize(ref inNodes, inNodes.Length - 1);
+            }
+            isNulls = false;
+            if (!outNodesChecked)
+            {
+                for (int i = 0; i < outNodes.Length; i++)
+                {
+                    if (outNodes[i] == null)
+                    {
+                        index = i;
+                        isNulls = true;
+                    }
+                }
+            }
+            if (isNulls == false)
+            {
+                outNodesChecked = true;
+            }
+            else
+            {
+                // move values in array and resize
+                for (int i = index; i < outNodes.Length - 1; i++)
+                {
+                    if (outNodes[i + 1] == null)
+                    {
+                        outNodes[i] = null;
+                    }
+                    else
+                    {
+                        outNodes[i] = outNodes[i + 1];
+                    }
+                }
+                Array.Resize(ref outNodes, outNodes.Length - 1);
+            }
+            if (inNodesChecked && outNodesChecked)
+            {
+                break;
+            }
+        }
+    }
+
     public int InNodesLength
     {
         get
