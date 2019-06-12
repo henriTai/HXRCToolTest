@@ -27,6 +27,13 @@ public class Intersection : MonoBehaviour
     private int infoIndex = -1;
     [SerializeField]
     public List<HelperLine> helperLines;
+    [SerializeField]
+    public List<ExistingLane> existingLanes;
+    public int existingLaneIndex = 0;
+    public bool existingLanesChecked = false;
+
+    public int inIndex = 0;
+    public int outIndex = 0;
 
     public Vector3 CenterPoint
     {
@@ -326,6 +333,13 @@ public class Intersection : MonoBehaviour
         }
     }
 
+    public void RemoveHelperLines()
+    {
+        helperLines = new List<HelperLine>();
+        inIndex = 0;
+        outIndex = 0;
+    }
+
     public int GetInOutPositions(out List<Vector3> ins, out List<Vector3> outs)
     {
         ins = new List<Vector3>();
@@ -364,6 +378,45 @@ public class Intersection : MonoBehaviour
         return ins.Count + outs.Count;
     }
 
+    public ExistingLane GetCurrentExistingLane()
+    {
+        return existingLanes[existingLaneIndex];
+    }
+
+    public void MoveExistingLaneIndex(int val)
+    {
+        int v = existingLaneIndex + val;
+        if (v < 0)
+        {
+            existingLaneIndex = existingLanes.Count - 1;
+        }
+        else if (v > existingLanes.Count - 1)
+        {
+            existingLaneIndex = 0;
+        }
+        else
+        {
+            existingLaneIndex = v;
+        }
+    }
+
+    public void SetCurrentExistingLane(ExistingLane ex)
+    {
+        existingLanes[existingLaneIndex] = ex;
+    }
+
+    public int GetUnconfirmedExistingLaneCount()
+    {
+        int v = 0;
+        for (int i=0; i < existingLanes.Count; i++)
+        {
+            if (!existingLanes[i].confirmed)
+            {
+                v++;
+            }
+        }
+        return v;
+    }
 
     public void Reset()
     {
@@ -377,18 +430,35 @@ public class Intersection : MonoBehaviour
 }
 
 [Serializable]
-public struct NodeInfo
+public class NodeInfo
 {
     public Nodes node;
     public NodeInOut inOut;
 }
 
 [Serializable]
-public struct HelperLine
+public class HelperLine
 {
     public Vector3 startPoint;
     public Vector3 direction;
     public float lenght;
     public List<float> nodePoints;
     public List<NodeInOut> inOut;
+}
+
+[Serializable]
+public class ExistingLane
+{
+    public List<Nodes> nodes;
+    public int inNodeIndex;
+    public int outNodeIndex;
+    public DriverYield laneYield;
+    public IntersectionDirection turnDirection;
+    public bool confirmed;
+}
+
+[Serializable]
+public class CreatedSplines
+{
+
 }

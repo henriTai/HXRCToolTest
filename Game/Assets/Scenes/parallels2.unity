@@ -173,6 +173,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1928850420}
 --- !u!1 &4269640
@@ -214,6 +215,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 98309438}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 280827882}
 --- !u!4 &4269642
@@ -269,6 +271,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 375184960}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1138863682}
 --- !u!4 &6703416
@@ -578,6 +581,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &22191788
@@ -619,6 +623,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 676004089}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &22191790
@@ -673,6 +678,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1027115022}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 456809474}
 --- !u!4 &23761354
@@ -728,6 +734,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1035465225}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1138863682}
 --- !u!4 &33649625
@@ -797,6 +804,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 575467090}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 559982371}
 --- !u!1 &42303414
@@ -852,6 +860,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1670836951}
 --- !u!1 &49313813
@@ -975,6 +984,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 464828827}
 --- !u!1 &54127467
@@ -1098,6 +1108,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1342021643}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 73241597}
 --- !u!1 &64152060
@@ -1139,6 +1150,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1521739203}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1795969065}
 --- !u!4 &64152062
@@ -1244,6 +1256,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1217435355}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 73241597}
 --- !u!1 &73241596
@@ -1367,6 +1380,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 874116331}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1927760234}
 --- !u!1 &74401760
@@ -1408,6 +1422,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2104231062}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1566080489}
 --- !u!4 &74401762
@@ -1463,6 +1478,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &74847749
@@ -1532,6 +1548,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1580507140}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1286153309}
 --- !u!1 &79760936
@@ -1573,6 +1590,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 49313815}
 --- !u!4 &79760938
@@ -1709,6 +1727,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 833844368}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1237514721}
 --- !u!4 &82358307
@@ -1764,6 +1783,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1091794583}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1163219381}
 --- !u!4 &82602495
@@ -1819,6 +1839,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 964174152}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!4 &89896037
@@ -1874,6 +1895,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &91898818
@@ -1929,6 +1951,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 49313815}
 --- !u!4 &92621554
@@ -1984,6 +2007,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1032133856}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &95568838
@@ -2053,6 +2077,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2130927090}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1810505164}
 --- !u!1 &97156454
@@ -2094,6 +2119,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 902694859}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 406276823}
 --- !u!4 &97156456
@@ -2149,6 +2175,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1814250052}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &98126388
@@ -2204,6 +2231,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1107181893}
 --- !u!4 &98309439
@@ -2273,6 +2301,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &100979305
@@ -2314,6 +2343,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &100979307
@@ -2368,6 +2398,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 582916848}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1795969065}
 --- !u!4 &101155616
@@ -2437,6 +2468,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1227373148}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!1 &101703336
@@ -2478,6 +2510,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1360705762}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1795969065}
 --- !u!4 &101703338
@@ -2533,6 +2566,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 933185853}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1795969065}
 --- !u!4 &102740769
@@ -2588,6 +2622,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1718303726}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1631595648}
 --- !u!4 &104533373
@@ -2657,6 +2692,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 740646355}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 138062007}
 --- !u!1 &108716808
@@ -2712,6 +2748,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 306289895}
 --- !u!1 &109367211
@@ -2753,6 +2790,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 459418197}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &109367213
@@ -2808,6 +2846,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 299580918}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1138863682}
 --- !u!4 &109978309
@@ -2863,6 +2902,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 881003790}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 123535016}
 --- !u!4 &110877991
@@ -2918,6 +2958,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1925479449}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &111180709
@@ -2973,6 +3014,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1558861777}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 138062007}
 --- !u!4 &117021154
@@ -3043,6 +3085,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 1
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1177899376}
 --- !u!1 &119719210
@@ -3084,6 +3127,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1724413859}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1138863682}
 --- !u!4 &119719212
@@ -3216,6 +3260,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 49313815}
 --- !u!1 &130583107
@@ -3452,6 +3497,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 597950522}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1690646662}
 --- !u!4 &139736185
@@ -3507,6 +3553,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 723600552}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1138863682}
 --- !u!4 &140772021
@@ -3562,6 +3609,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 523305759}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &142815582
@@ -3617,6 +3665,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1628574634}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 559982371}
 --- !u!4 &143538623
@@ -3672,6 +3721,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1858958432}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &146431084
@@ -3967,6 +4017,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1431021066}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1566080489}
 --- !u!4 &149966724
@@ -4022,6 +4073,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 979601650}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1795969065}
 --- !u!4 &152413830
@@ -4077,6 +4129,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2097650399}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 280827882}
 --- !u!4 &153751696
@@ -4132,6 +4185,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1256612289}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1163219381}
 --- !u!4 &164964032
@@ -4201,6 +4255,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 320976151}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1927760234}
 --- !u!1 &168458126
@@ -4256,6 +4311,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2080849184}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 910609038}
 --- !u!1 &170501542
@@ -4297,6 +4353,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 264825325}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1795969065}
 --- !u!4 &170501544
@@ -4352,6 +4409,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1475054039}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1795969065}
 --- !u!4 &177724104
@@ -4407,6 +4465,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1725537597}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1190274915}
 --- !u!4 &180490118
@@ -4462,6 +4521,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1920608045}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &181380697
@@ -4517,6 +4577,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1151724745}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1566080489}
 --- !u!4 &183221032
@@ -4572,6 +4633,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1961122227}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!4 &186415353
@@ -4627,6 +4689,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &188222924
@@ -4696,6 +4759,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &191310642
@@ -4737,6 +4801,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 724909780}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1138863682}
 --- !u!4 &191310644
@@ -4806,6 +4871,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1044966807}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1810505164}
 --- !u!1 &195814037
@@ -4847,6 +4913,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1992250464}
 --- !u!4 &195814039
@@ -4916,6 +4983,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 783779473}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1286153309}
 --- !u!1 &198336603
@@ -4957,6 +5025,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 217371178}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &198336605
@@ -5012,6 +5081,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1245005539}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 138062007}
 --- !u!4 &201417454
@@ -5067,6 +5137,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &201858192
@@ -5122,6 +5193,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1864303218}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1163219381}
 --- !u!4 &202768741
@@ -5192,6 +5264,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 875114715}
   isConnectNode: 1
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!1 &204158439
@@ -5233,6 +5306,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1825953740}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1163219381}
 --- !u!4 &204158441
@@ -5303,6 +5377,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 1
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!1 &204653894
@@ -5358,6 +5433,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 97098503}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 559982371}
 --- !u!1 &217371177
@@ -5399,6 +5475,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 91898817}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &217371179
@@ -5454,6 +5531,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1686637108}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!4 &218904775
@@ -5523,6 +5601,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1141340332}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 138062007}
 --- !u!1 &220938793
@@ -5578,6 +5657,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &222444865
@@ -5619,6 +5699,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1352838030}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1795969065}
 --- !u!4 &222444867
@@ -5751,6 +5832,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1827477665}
 --- !u!1 &232908882
@@ -5806,6 +5888,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1023153087}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1690646662}
 --- !u!1 &234878202
@@ -5847,6 +5930,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 335418626}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 493129954}
 --- !u!4 &234878204
@@ -5916,6 +6000,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2106081361}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 411082782}
 --- !u!1 &242807662
@@ -5957,6 +6042,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 491763523}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 280827882}
 --- !u!4 &242807664
@@ -6012,6 +6098,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &243739559
@@ -6081,6 +6168,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1693524793}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 138062007}
 --- !u!1 &248880983
@@ -6122,6 +6210,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 633302889}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 280827882}
 --- !u!4 &248880985
@@ -6191,6 +6280,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 464828827}
 --- !u!1 &261890160
@@ -6246,6 +6336,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1903387198}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1631595648}
 --- !u!1 &264825324
@@ -6287,6 +6378,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1908487650}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 456809474}
 --- !u!4 &264825326
@@ -6342,6 +6434,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1172602153}
 --- !u!4 &269913264
@@ -6397,6 +6490,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 325326637}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1163219381}
 --- !u!4 &271999233
@@ -6619,6 +6713,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1827477665}
 --- !u!1 &298211580
@@ -6674,6 +6769,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 464828827}
 --- !u!1 &299580917
@@ -6715,6 +6811,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1599782403}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 438077562}
 --- !u!4 &299580919
@@ -6784,6 +6881,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 49313815}
 --- !u!1 &306289894
@@ -6888,6 +6986,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 306289895}
 --- !u!4 &315424319
@@ -6957,6 +7056,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 590315460}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 279490511}
 --- !u!1 &318548992
@@ -6998,6 +7098,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1944319020}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &318548994
@@ -7067,6 +7168,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 951277246}
 --- !u!1 &320976150
@@ -7108,6 +7210,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2013635905}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1631595648}
 --- !u!4 &320976152
@@ -7163,6 +7266,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1992250464}
 --- !u!4 &325326638
@@ -7218,6 +7322,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1107181893}
 --- !u!4 &327812563
@@ -7273,6 +7378,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 951277246}
 --- !u!4 &335418627
@@ -7328,6 +7434,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1172602153}
 --- !u!4 &339638619
@@ -7419,28 +7526,89 @@ MonoBehaviour:
   - node: {fileID: 2097650399}
     inOut: 2
   nodesInBoxSet: 0
-  infoIndex: 13
+  infoIndex: 10
   helperLines:
-  - startPoint: {x: 94.2, y: 0, z: -26.099998}
+  - startPoint: {x: 93.2, y: 0, z: -28.099998}
     direction: {x: 0, y: 0, z: 1}
-    lenght: 9
+    lenght: 11
     nodePoints:
-    - 0.1
+    - 0.125
     - 0.275
     - 0.425
     - 0.575
     - 0.725
-    - 0.9
-    inOut: 010000000100000001000000020000000200000002000000
-  - startPoint: {x: 71.2, y: 0, z: -28.099998}
+    - 0.875
+    inOut: 020000000200000002000000010000000100000001000000
+  - startPoint: {x: 70.2, y: 0, z: -28.099998}
     direction: {x: 0, y: 0, z: 1}
     lenght: 11
     nodePoints:
-    - 0.2
-    - 0.4
-    - 0.6
-    - 0.8
-    inOut: 01000000010000000200000002000000
+    - 0.125
+    - 0.275
+    - 0.425
+    - 0.575
+    - 0.725
+    - 0.875
+    inOut: 010000000100000001000000020000000200000002000000
+  existingLanes:
+  - nodes:
+    - {fileID: 23761353}
+    - {fileID: 582916848}
+    - {fileID: 979601650}
+    inNodeIndex: 0
+    outNodeIndex: 1
+    laneYield: 1
+    turnDirection: 0
+    confirmed: 1
+  - nodes:
+    - {fileID: 98309438}
+    - {fileID: 1909382132}
+    - {fileID: 2097650399}
+    inNodeIndex: 1
+    outNodeIndex: 5
+    laneYield: 1
+    turnDirection: 0
+    confirmed: 1
+  - nodes:
+    - {fileID: 101155615}
+    - {fileID: 152413829}
+    - {fileID: 1737476357}
+    inNodeIndex: 2
+    outNodeIndex: 3
+    laneYield: 1
+    turnDirection: 0
+    confirmed: 1
+  - nodes:
+    - {fileID: 562959550}
+    - {fileID: 2040090050}
+    - {fileID: 581762747}
+    inNodeIndex: 3
+    outNodeIndex: 0
+    laneYield: 1
+    turnDirection: 0
+    confirmed: 1
+  - nodes:
+    - {fileID: 588679335}
+    - {fileID: 153751695}
+    - {fileID: 1101027558}
+    inNodeIndex: 4
+    outNodeIndex: 2
+    laneYield: 1
+    turnDirection: 0
+    confirmed: 1
+  - nodes:
+    - {fileID: 602911198}
+    - {fileID: 1027115022}
+    - {fileID: 2059209526}
+    inNodeIndex: 5
+    outNodeIndex: 4
+    laneYield: 1
+    turnDirection: 0
+    confirmed: 1
+  existingLaneIndex: 5
+  existingLanesChecked: 1
+  inIndex: 10
+  outIndex: 4
 --- !u!4 &341040705
 Transform:
   m_ObjectHideFlags: 0
@@ -7494,6 +7662,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1107181893}
 --- !u!4 &345725586
@@ -7563,6 +7732,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1172602153}
 --- !u!1 &349193524
@@ -7604,6 +7774,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 109367212}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &349193526
@@ -7753,6 +7924,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1172602153}
 --- !u!4 &360218371
@@ -7822,6 +7994,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 951277246}
 --- !u!1 &361934774
@@ -7863,6 +8036,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 676072590}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &361934776
@@ -7932,6 +8106,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2006223351}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 279490511}
 --- !u!1 &375184959
@@ -7973,6 +8148,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 339638618}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 438077562}
 --- !u!4 &375184961
@@ -8042,6 +8218,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 54127468}
 --- !u!1 &389636490
@@ -8083,6 +8260,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2067036564}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &389636492
@@ -8138,6 +8316,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1172602153}
 --- !u!4 &392885671
@@ -8193,6 +8372,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1098702278}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1795969065}
 --- !u!4 &398172339
@@ -8262,6 +8442,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 678231850}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1631595648}
 --- !u!1 &406276822
@@ -8366,6 +8547,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1928850420}
 --- !u!4 &410391472
@@ -8489,6 +8671,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 243739558}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &416657847
@@ -8558,6 +8741,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 136324906}
 --- !u!1 &424730252
@@ -8599,6 +8783,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1659712188}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &424730254
@@ -8668,6 +8853,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1869293950}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 493129954}
 --- !u!1 &431614917
@@ -8709,6 +8895,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2134297825}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1237514721}
 --- !u!4 &431614919
@@ -8845,6 +9032,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1996915798}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1237514721}
 --- !u!4 &438617086
@@ -8900,6 +9088,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1086152549}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 493129954}
 --- !u!4 &438876378
@@ -8969,6 +9158,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1392249782}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1690646662}
 --- !u!1 &443122706
@@ -9024,6 +9214,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 947863729}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 130583108}
 --- !u!1 &453473509
@@ -9079,6 +9270,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1114990626}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 411082782}
 --- !u!1 &455703858
@@ -9134,6 +9326,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 136324906}
 --- !u!1 &456809473
@@ -9270,6 +9463,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 934567894}
 --- !u!1 &459418196
@@ -9311,6 +9505,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &459418198
@@ -9366,6 +9561,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1172602153}
 --- !u!4 &462388602
@@ -9493,6 +9689,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 604617380}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 456809474}
 --- !u!4 &466073908
@@ -9562,6 +9759,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &472364330
@@ -9603,6 +9801,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1774072093}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1237514721}
 --- !u!4 &472364332
@@ -9658,6 +9857,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1195130321}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &475163186
@@ -9713,6 +9913,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 186415352}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &475991010
@@ -9782,6 +9983,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1119827228}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 559982371}
 --- !u!1 &483997816
@@ -9823,6 +10025,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1992250464}
 --- !u!4 &483997818
@@ -9878,6 +10081,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1256117080}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1163219381}
 --- !u!4 &484413880
@@ -9947,6 +10151,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 934567894}
 --- !u!1 &487752525
@@ -10002,6 +10207,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 951277246}
 --- !u!1 &491763522
@@ -10043,6 +10249,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1107181893}
 --- !u!4 &491763524
@@ -10202,6 +10409,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1177899376}
 --- !u!4 &503712054
@@ -10257,6 +10465,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 202768740}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1237514721}
 --- !u!4 &505389986
@@ -10313,6 +10522,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 1
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!4 &505731122
@@ -10368,6 +10578,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1992250464}
 --- !u!4 &512296357
@@ -10437,6 +10648,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1670836951}
 --- !u!1 &523305758
@@ -10478,6 +10690,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 908590064}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &523305760
@@ -10547,6 +10760,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1456621294}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1286153309}
 --- !u!1 &528885352
@@ -10602,6 +10816,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1634497873}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 910609038}
 --- !u!1 &531029130
@@ -10643,6 +10858,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1378139949}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1163219381}
 --- !u!4 &531029132
@@ -10712,6 +10928,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 934567894}
 --- !u!1 &559982370
@@ -10825,6 +11042,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 153751695}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1566080489}
 --- !u!4 &562959551
@@ -10894,6 +11112,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 298211582}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1810505164}
 --- !u!1 &577848811
@@ -11310,6 +11529,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1566080489}
 --- !u!4 &581762748
@@ -11365,6 +11585,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2059209526}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 456809474}
 --- !u!4 &582916849
@@ -11420,6 +11641,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1337877487}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1138863682}
 --- !u!4 &587402914
@@ -11475,6 +11697,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1909382132}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 280827882}
 --- !u!4 &588679336
@@ -11580,6 +11803,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1267526183}
 --- !u!1 &597950520
@@ -11635,6 +11859,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1970911432}
 --- !u!1 &602911197
@@ -11675,6 +11900,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 81438924}
 --- !u!4 &602911199
@@ -11730,6 +11956,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 81438924}
 --- !u!4 &604617381
@@ -11785,6 +12012,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1107181893}
 --- !u!4 &607654733
@@ -11840,6 +12068,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &607786646
@@ -11989,6 +12218,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 164964031}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1237514721}
 --- !u!4 &614217477
@@ -12044,6 +12274,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1546136886}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1810505164}
 --- !u!4 &617608084
@@ -12099,6 +12330,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1107181893}
 --- !u!4 &633302890
@@ -12154,6 +12386,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1816310038}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1138863682}
 --- !u!4 &636282419
@@ -12209,6 +12442,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 4269641}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1566080489}
 --- !u!4 &640336418
@@ -12278,6 +12512,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1992250464}
 --- !u!1 &646417940
@@ -12333,6 +12568,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 464828827}
 --- !u!1 &647894281
@@ -12388,6 +12624,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 304140110}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 493129954}
 --- !u!1 &662128253
@@ -12429,6 +12666,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &662128255
@@ -12484,6 +12722,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 438876377}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 73241597}
 --- !u!4 &669485371
@@ -12539,6 +12778,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1889287761}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!4 &676004090
@@ -12594,6 +12834,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &676072591
@@ -12649,6 +12890,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1827477665}
 --- !u!4 &678231851
@@ -12718,6 +12960,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 737384411}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 493129954}
 --- !u!1 &685676058
@@ -12759,6 +13002,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 49313815}
 --- !u!4 &685676060
@@ -12828,6 +13072,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 964008354}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1810505164}
 --- !u!1 &698925826
@@ -12883,6 +13128,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 136324906}
 --- !u!1 &709457505
@@ -12924,6 +13170,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &709457507
@@ -12993,6 +13240,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1970911432}
 --- !u!1 &720650048
@@ -13128,6 +13376,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 923822166}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 456809474}
 --- !u!4 &723099713
@@ -13197,6 +13446,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 950915836}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 130583108}
 --- !u!1 &724909779
@@ -13238,6 +13488,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 269913263}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 438077562}
 --- !u!4 &724909781
@@ -13307,6 +13558,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 443122708}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 138062007}
 --- !u!1 &728316907
@@ -13348,6 +13600,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1884947896}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1286153309}
 --- !u!4 &728316909
@@ -13403,6 +13656,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1023902634}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &732810599
@@ -13458,6 +13712,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 49313815}
 --- !u!4 &737384412
@@ -13512,6 +13767,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1795969065}
 --- !u!4 &739217935
@@ -13581,6 +13837,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 117557293}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 130583108}
 --- !u!1 &742320263
@@ -13622,6 +13879,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1992250464}
 --- !u!4 &742320265
@@ -13677,6 +13935,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1938004719}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1190274915}
 --- !u!4 &746110767
@@ -13732,6 +13991,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1107181893}
 --- !u!4 &752656714
@@ -13787,6 +14047,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2123197377}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &761500911
@@ -13856,6 +14117,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &769316517
@@ -13911,6 +14173,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1177899376}
 --- !u!1 &772482084
@@ -13967,6 +14230,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 1
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 306289895}
 --- !u!1 &773260925
@@ -14022,6 +14286,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1673653182}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1690646662}
 --- !u!1 &783185568
@@ -14063,6 +14328,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 912782874}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &783185570
@@ -14132,6 +14398,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 487752527}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 123535016}
 --- !u!1 &785353568
@@ -14187,6 +14454,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 647894283}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 73241597}
 --- !u!1 &785416708
@@ -14228,6 +14496,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &785416710
@@ -14297,6 +14566,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 104533372}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1927760234}
 --- !u!1 &786749827
@@ -14338,6 +14608,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &786749829
@@ -14393,6 +14664,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 588679335}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1566080489}
 --- !u!4 &791735743
@@ -14448,6 +14720,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1571001137}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1795969065}
 --- !u!4 &793442208
@@ -14503,6 +14776,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 410391471}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 279490511}
 --- !u!4 &794820469
@@ -14558,6 +14832,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2094324106}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1138863682}
 --- !u!4 &808410685
@@ -14613,6 +14888,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1745279925}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1138863682}
 --- !u!4 &825313830
@@ -14682,6 +14958,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &833844367
@@ -14723,6 +15000,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1717798417}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1163219381}
 --- !u!4 &833844369
@@ -14778,6 +15056,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1152258622}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 406276823}
 --- !u!4 &834125910
@@ -14833,6 +15112,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2095656203}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1190274915}
 --- !u!4 &836674704
@@ -14888,6 +15168,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 218904774}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &837517143
@@ -14943,6 +15224,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1371717541}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1927760234}
 --- !u!4 &838613750
@@ -15012,6 +15294,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 426912316}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 73241597}
 --- !u!1 &842142025
@@ -15067,6 +15350,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &842867936
@@ -15108,6 +15392,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 100979306}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &842867938
@@ -15177,6 +15462,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1595776999}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 910609038}
 --- !u!1 &852349599
@@ -15232,6 +15518,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 306289895}
 --- !u!1 &852775517
@@ -15287,6 +15574,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 464828827}
 --- !u!1 &854489065
@@ -15342,6 +15630,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &855326055
@@ -15383,6 +15672,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 225651985}
 --- !u!4 &855326057
@@ -15452,6 +15742,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1538314940}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1631595648}
 --- !u!1 &875114714
@@ -15493,6 +15784,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1054037755}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 438077562}
 --- !u!4 &875114716
@@ -15548,6 +15840,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1393162505}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 438077562}
 --- !u!4 &875606193
@@ -15603,6 +15896,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1947294399}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1566080489}
 --- !u!4 &879339295
@@ -15672,6 +15966,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 92621553}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 493129954}
 --- !u!1 &881003789
@@ -15713,6 +16008,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 951277246}
 --- !u!4 &881003791
@@ -15768,6 +16064,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1822043135}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &884843473
@@ -15823,6 +16120,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2033599846}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &886171974
@@ -15878,6 +16176,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1172602153}
 --- !u!4 &886961351
@@ -15947,6 +16246,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1177899376}
 --- !u!1 &889137458
@@ -15988,6 +16288,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1166078617}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &889137460
@@ -16079,6 +16380,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 81438924}
 --- !u!4 &892708273
@@ -16228,6 +16530,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 100039473}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!4 &899615668
@@ -16282,6 +16585,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1107181893}
 --- !u!4 &900581973
@@ -16351,6 +16655,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1874299122}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1631595648}
 --- !u!1 &902079830
@@ -16392,6 +16697,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 384909923}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 910609038}
 --- !u!4 &902079832
@@ -16461,6 +16767,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 464828827}
 --- !u!1 &902694858
@@ -16502,6 +16809,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 225651985}
 --- !u!4 &902694860
@@ -16557,6 +16865,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1337391105}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 456809474}
 --- !u!4 &906276700
@@ -16612,6 +16921,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 892708272}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 456809474}
 --- !u!4 &906841409
@@ -16667,6 +16977,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &908590065
@@ -16736,6 +17047,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 54127468}
 --- !u!1 &910609037
@@ -16859,6 +17171,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1491392987}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1690646662}
 --- !u!1 &912782873
@@ -16900,6 +17213,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &912782875
@@ -16955,6 +17269,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2097433919}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 411082782}
 --- !u!4 &916937246
@@ -17010,6 +17325,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 81438924}
 --- !u!4 &923822167
@@ -17079,6 +17395,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 255500132}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1810505164}
 --- !u!1 &933185852
@@ -17120,6 +17437,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2034494893}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 456809474}
 --- !u!4 &933185854
@@ -17255,6 +17573,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 685676059}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 493129954}
 --- !u!1 &938714554
@@ -17310,6 +17629,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 937742671}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 73241597}
 --- !u!1 &943912503
@@ -17351,6 +17671,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 136324906}
 --- !u!4 &943912505
@@ -17406,6 +17727,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 934567894}
 --- !u!4 &947863730
@@ -17475,6 +17797,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 934567894}
 --- !u!1 &951277245
@@ -17579,6 +17902,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 834125909}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1190274915}
 --- !u!4 &952904162
@@ -17634,6 +17958,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1351662528}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 279490511}
 --- !u!4 &957225936
@@ -17703,6 +18028,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1928850420}
 --- !u!1 &964008352
@@ -17758,6 +18084,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 464828827}
 --- !u!1 &964174150
@@ -17813,6 +18140,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &967194904
@@ -17854,6 +18182,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1992250464}
 --- !u!4 &967194906
@@ -17909,6 +18238,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1547186959}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 456809474}
 --- !u!4 &979601651
@@ -17964,6 +18294,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 842867937}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &984211021
@@ -18239,6 +18570,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &1004837845
@@ -18280,6 +18612,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 81438924}
 --- !u!4 &1004837847
@@ -18335,6 +18668,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1725720194}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 438077562}
 --- !u!4 &1009291306
@@ -18390,6 +18724,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 220938795}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!4 &1019873475
@@ -18445,6 +18780,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 505731121}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1163219381}
 --- !u!4 &1020892537
@@ -18500,6 +18836,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 190077322}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!4 &1021222234
@@ -18569,6 +18906,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1649957376}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 279490511}
 --- !u!1 &1023902632
@@ -18624,6 +18962,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2074748362}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 279490511}
 --- !u!1 &1025332176
@@ -18665,6 +19004,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 306289895}
 --- !u!4 &1025332178
@@ -18720,6 +19060,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 81438924}
 --- !u!4 &1027115023
@@ -18789,6 +19130,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 902079831}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 411082782}
 --- !u!1 &1032133855
@@ -18830,6 +19172,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 188222923}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &1032133857
@@ -18885,6 +19228,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1267588373}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 438077562}
 --- !u!4 &1035465226
@@ -18954,6 +19298,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 464828827}
 --- !u!1 &1046063022
@@ -18995,6 +19340,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1020892536}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1237514721}
 --- !u!4 &1046063024
@@ -19050,6 +19396,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1172602153}
 --- !u!4 &1054037756
@@ -19119,6 +19466,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1970911432}
 --- !u!1 &1072095334
@@ -19173,6 +19521,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 81438924}
 --- !u!1 &1075212741
@@ -19373,6 +19722,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 49313815}
 --- !u!1 &1090037671
@@ -19414,6 +19764,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 424730253}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &1090037673
@@ -19469,6 +19820,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 531029131}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1237514721}
 --- !u!4 &1090707993
@@ -19524,6 +19876,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1992250464}
 --- !u!4 &1091794584
@@ -19579,6 +19932,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1761850001}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 456809474}
 --- !u!4 &1098702279
@@ -19633,6 +19987,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 280827882}
 --- !u!4 &1101027559
@@ -19702,6 +20057,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1827477665}
 --- !u!1 &1103662041
@@ -19757,6 +20113,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1774072093}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1286153309}
 --- !u!1 &1103964613
@@ -19798,6 +20155,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1551118869}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1927760234}
 --- !u!4 &1103964615
@@ -19934,6 +20292,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1441493667}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1190274915}
 --- !u!4 &1109472326
@@ -20039,6 +20398,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1928850420}
 --- !u!1 &1114990624
@@ -20094,6 +20454,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 908808520}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 910609038}
 --- !u!1 &1119827226
@@ -20149,6 +20510,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 52131829}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1810505164}
 --- !u!1 &1121948301
@@ -20190,6 +20552,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2124339614}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &1121948303
@@ -20245,6 +20608,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &1124041156
@@ -20300,6 +20664,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 483997817}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1163219381}
 --- !u!4 &1124434877
@@ -20369,6 +20734,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1519840694}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 910609038}
 --- !u!1 &1137052370
@@ -20424,6 +20790,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 854489067}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!1 &1137651490
@@ -20465,6 +20832,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1941250263}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &1137651492
@@ -20601,6 +20969,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1866701859}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1566080489}
 --- !u!4 &1139338836
@@ -20656,6 +21025,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1107181893}
 --- !u!4 &1139891588
@@ -20711,6 +21081,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1150243060}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1237514721}
 --- !u!4 &1139952811
@@ -20780,6 +21151,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1817952302}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 130583108}
 --- !u!1 &1142489551
@@ -20821,6 +21193,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1107181893}
 --- !u!4 &1142489553
@@ -20890,6 +21263,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &1150243059
@@ -20931,6 +21305,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2022201876}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1163219381}
 --- !u!4 &1150243061
@@ -20986,6 +21361,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 345725585}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 280827882}
 --- !u!4 &1151724746
@@ -21055,6 +21431,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 54127468}
 --- !u!1 &1159084335
@@ -21110,6 +21487,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1928850420}
 --- !u!1 &1163219380
@@ -21232,6 +21610,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1147465259}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!4 &1166078618
@@ -21287,6 +21666,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1489670721}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &1172013103
@@ -21423,6 +21803,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1970911432}
 --- !u!4 &1175738054
@@ -21541,6 +21922,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1543861240}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1190274915}
 --- !u!4 &1181864978
@@ -21709,6 +22091,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 117557293}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 910609038}
 --- !u!1 &1195130320
@@ -21750,6 +22133,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 74847748}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &1195130322
@@ -21819,6 +22203,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 306289895}
 --- !u!1 &1202419486
@@ -21860,6 +22245,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 242807663}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1566080489}
 --- !u!4 &1202419488
@@ -21915,6 +22301,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1915837396}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &1203062539
@@ -21984,6 +22371,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 316950110}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1690646662}
 --- !u!1 &1210866317
@@ -22025,6 +22413,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1019873474}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &1210866319
@@ -22094,6 +22483,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1869293950}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 493129954}
 --- !u!1 &1219569038
@@ -22135,6 +22525,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1670836951}
 --- !u!4 &1219569040
@@ -22190,6 +22581,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1267526183}
 --- !u!4 &1227373149
@@ -22245,6 +22637,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1587855730}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 456809474}
 --- !u!4 &1231926070
@@ -22381,6 +22774,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 81438924}
 --- !u!4 &1237848570
@@ -22436,6 +22830,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1969196840}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &1241374400
@@ -22490,6 +22885,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1723361258}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 280827882}
 --- !u!4 &1243864691
@@ -22545,6 +22941,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 533870825}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 130583108}
 --- !u!4 &1245005540
@@ -22636,6 +23033,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 642519114}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1163219381}
 --- !u!4 &1248287907
@@ -22705,6 +23103,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 168458128}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 411082782}
 --- !u!1 &1252055307
@@ -22746,6 +23145,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 81438924}
 --- !u!4 &1252055309
@@ -22815,6 +23215,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 617608083}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 559982371}
 --- !u!1 &1255997809
@@ -22856,6 +23257,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 345988566}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 438077562}
 --- !u!4 &1255997811
@@ -22911,6 +23313,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1992250464}
 --- !u!4 &1256117081
@@ -22966,6 +23369,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1992250464}
 --- !u!4 &1256612290
@@ -23093,6 +23497,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1172602153}
 --- !u!4 &1267588374
@@ -23242,6 +23647,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1459868822}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1566080489}
 --- !u!4 &1276762816
@@ -23297,6 +23703,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 484413879}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1237514721}
 --- !u!4 &1285223836
@@ -23429,6 +23836,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 194298001}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 559982371}
 --- !u!1 &1305286705
@@ -23484,6 +23892,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 934567894}
 --- !u!1 &1308319576
@@ -23525,6 +23934,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1537122278}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1138863682}
 --- !u!4 &1308319578
@@ -23594,6 +24004,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1267526183}
 --- !u!1 &1330052587
@@ -23635,6 +24046,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 411082782}
 --- !u!4 &1330052589
@@ -23690,6 +24102,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 81438924}
 --- !u!4 &1337391106
@@ -23745,6 +24158,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 392885670}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 438077562}
 --- !u!4 &1337877488
@@ -23800,6 +24214,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1107181893}
 --- !u!4 &1339375316
@@ -23869,6 +24284,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1558861777}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 411082782}
 --- !u!1 &1342021641
@@ -23924,6 +24340,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 360583370}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 123535016}
 --- !u!1 &1346101837
@@ -24185,6 +24602,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1267526183}
 --- !u!1 &1352638516
@@ -24240,6 +24658,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 464828827}
 --- !u!1 &1352838029
@@ -24281,6 +24700,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1004837846}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 456809474}
 --- !u!4 &1352838031
@@ -24350,6 +24770,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 271999232}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1927760234}
 --- !u!1 &1360705761
@@ -24390,6 +24811,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 456809474}
 --- !u!4 &1360705763
@@ -24459,6 +24881,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 486534071}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 130583108}
 --- !u!1 &1365476978
@@ -24500,6 +24923,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1009291305}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1138863682}
 --- !u!4 &1365476980
@@ -24569,6 +24993,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1382400227}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1286153309}
 --- !u!1 &1371717539
@@ -24624,6 +25049,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 967194905}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1631595648}
 --- !u!1 &1374236571
@@ -24679,6 +25105,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1928850420}
 --- !u!1 &1378139948
@@ -24720,6 +25147,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1992250464}
 --- !u!4 &1378139950
@@ -24775,6 +25203,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 327812562}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 280827882}
 --- !u!4 &1381878609
@@ -24844,6 +25273,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1850871952}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 123535016}
 --- !u!1 &1392249780
@@ -24899,6 +25329,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1325138873}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 279490511}
 --- !u!1 &1393162504
@@ -24940,6 +25371,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1172602153}
 --- !u!4 &1393162506
@@ -24995,6 +25427,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &1399528111
@@ -25050,6 +25483,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 464828827}
 --- !u!4 &1400443111
@@ -25106,6 +25540,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 1
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1928850420}
 --- !u!4 &1408385404
@@ -25161,6 +25596,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 875606192}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1138863682}
 --- !u!4 &1413647861
@@ -25216,6 +25652,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 723099712}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1795969065}
 --- !u!4 &1415258561
@@ -25285,6 +25722,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 934567894}
 --- !u!1 &1422192796
@@ -25326,6 +25764,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 110877990}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1286153309}
 --- !u!4 &1422192798
@@ -25587,6 +26026,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1716668777}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &1429986476
@@ -25642,6 +26082,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1957774451}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 280827882}
 --- !u!4 &1431021067
@@ -25697,6 +26138,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 607654732}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 280827882}
 --- !u!4 &1434986155
@@ -25752,6 +26194,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 225651985}
 --- !u!4 &1435362846
@@ -25821,6 +26264,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1659597530}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 279490511}
 --- !u!1 &1441493666
@@ -25862,6 +26306,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1789379391}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 406276823}
 --- !u!4 &1441493668
@@ -25917,6 +26362,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &1453796971
@@ -25972,6 +26418,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1940541058}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!4 &1455871864
@@ -26041,6 +26488,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 320530170}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 123535016}
 --- !u!1 &1459868821
@@ -26082,6 +26530,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1142489552}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 280827882}
 --- !u!4 &1459868823
@@ -26137,6 +26586,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1992250464}
 --- !u!4 &1466167894
@@ -26192,6 +26642,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1252055308}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 456809474}
 --- !u!4 &1475054040
@@ -26261,6 +26712,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 794820468}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1690646662}
 --- !u!1 &1476135258
@@ -26302,6 +26754,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 225651985}
 --- !u!4 &1476135260
@@ -26371,6 +26824,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 399413321}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1927760234}
 --- !u!1 &1485696242
@@ -26412,6 +26866,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 886961350}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 438077562}
 --- !u!4 &1485696244
@@ -26467,6 +26922,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1970911432}
 --- !u!4 &1485839305
@@ -26522,6 +26978,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1495365273}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!4 &1489670722
@@ -26591,6 +27048,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1593075362}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 279490511}
 --- !u!1 &1495365271
@@ -26646,6 +27104,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &1496118875
@@ -26687,6 +27146,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 484413879}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1237514721}
 --- !u!4 &1496118877
@@ -26756,6 +27216,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 234878203}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 73241597}
 --- !u!1 &1497349378
@@ -26797,6 +27258,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 225651985}
 --- !u!4 &1497349380
@@ -26852,6 +27314,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 225651985}
 --- !u!4 &1503561797
@@ -26907,6 +27370,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1124041155}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &1508910439
@@ -26962,6 +27426,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 204330171}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &1513926942
@@ -27031,6 +27496,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 261890162}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1927760234}
 --- !u!1 &1514209228
@@ -27086,6 +27552,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1194322903}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 411082782}
 --- !u!1 &1519840693
@@ -27127,6 +27594,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 54127468}
 --- !u!4 &1519840695
@@ -27182,6 +27650,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1072095336}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 456809474}
 --- !u!4 &1521739204
@@ -27251,6 +27720,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 852775519}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1810505164}
 --- !u!1 &1537122277
@@ -27292,6 +27762,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1538119105}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 438077562}
 --- !u!4 &1537122279
@@ -27347,6 +27818,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1172602153}
 --- !u!4 &1538119106
@@ -27416,6 +27888,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1827477665}
 --- !u!1 &1539854472
@@ -27471,6 +27944,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1177899376}
 --- !u!1 &1542200131
@@ -27512,6 +27986,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 724909780}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1138863682}
 --- !u!4 &1542200133
@@ -27567,6 +28042,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1435362845}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 406276823}
 --- !u!4 &1543861241
@@ -27622,6 +28098,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2088373307}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &1544127445
@@ -27677,6 +28154,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 464828827}
 --- !u!4 &1546136887
@@ -27732,6 +28210,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 81438924}
 --- !u!4 &1547186960
@@ -27801,6 +28280,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 902164508}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1670836951}
 --- !u!1 &1551118867
@@ -27856,6 +28336,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 297121687}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1631595648}
 --- !u!1 &1553958728
@@ -27897,6 +28378,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 466073907}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1795969065}
 --- !u!4 &1553958730
@@ -27967,6 +28449,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 1
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1670836951}
 --- !u!1 &1560616043
@@ -28022,6 +28505,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1928850420}
 --- !u!1 &1562175326
@@ -28063,6 +28547,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1248287906}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1237514721}
 --- !u!4 &1562175328
@@ -28199,6 +28684,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1002511712}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!4 &1567143762
@@ -28254,6 +28740,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1577791761}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 456809474}
 --- !u!4 &1571001138
@@ -28309,6 +28796,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 81438924}
 --- !u!4 &1577791762
@@ -28364,6 +28852,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1378139949}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1163219381}
 --- !u!4 &1578365788
@@ -28433,6 +28922,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2001137197}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 123535016}
 --- !u!1 &1583412757
@@ -28474,6 +28964,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 934567894}
 --- !u!4 &1583412759
@@ -28529,6 +29020,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 899615667}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &1587475932
@@ -28584,6 +29076,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 81438924}
 --- !u!4 &1587855731
@@ -28653,6 +29146,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1267526183}
 --- !u!1 &1595776997
@@ -28708,6 +29202,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 54127468}
 --- !u!1 &1598698028
@@ -28749,6 +29244,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1513926941}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &1598698030
@@ -28804,6 +29300,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1508910438}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 559982371}
 --- !u!4 &1599276408
@@ -28859,6 +29356,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1172602153}
 --- !u!4 &1599782404
@@ -28914,6 +29412,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1107181893}
 --- !u!4 &1601169973
@@ -28969,6 +29468,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2091266760}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &1617122571
@@ -29038,6 +29538,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1536601243}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 559982371}
 --- !u!1 &1622090758
@@ -29093,6 +29594,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1872476140}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 279490511}
 --- !u!1 &1628574633
@@ -29134,6 +29636,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 646417942}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1810505164}
 --- !u!4 &1628574635
@@ -29189,6 +29692,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 101398451}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &1629875794
@@ -29310,6 +29814,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 54127468}
 --- !u!4 &1634497874
@@ -29366,6 +29871,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 438876377}
   isConnectNode: 1
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 136324906}
 --- !u!4 &1640377425
@@ -29435,6 +29941,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 79760937}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 493129954}
 --- !u!1 &1643879591
@@ -29476,6 +29983,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1381878608}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1566080489}
 --- !u!4 &1643879593
@@ -29545,6 +30053,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 54127468}
 --- !u!1 &1649957374
@@ -29600,6 +30109,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1267526183}
 --- !u!1 &1657144424
@@ -29641,6 +30151,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1567143761}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &1657144426
@@ -29710,6 +30221,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1267526183}
 --- !u!1 &1659712186
@@ -29765,6 +30277,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!1 &1661913168
@@ -29806,6 +30319,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &1661913170
@@ -29861,6 +30375,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 416657846}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &1662470588
@@ -29993,6 +30508,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2051565218}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 279490511}
 --- !u!1 &1674210479
@@ -30034,6 +30550,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 248880984}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1566080489}
 --- !u!4 &1674210481
@@ -30089,6 +30606,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1172602153}
 --- !u!4 &1679519470
@@ -30143,6 +30661,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1732714248}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1566080489}
 --- !u!4 &1682346807
@@ -30198,6 +30717,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1172602153}
 --- !u!4 &1684620001
@@ -30267,6 +30787,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &1688101821
@@ -30322,6 +30843,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &1690646661
@@ -30435,6 +30957,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1437288503}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1690646662}
 --- !u!4 &1692242998
@@ -30504,6 +31027,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1305286707}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 130583108}
 --- !u!1 &1699230706
@@ -30559,6 +31083,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2071517871}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 279490511}
 --- !u!1 &1703519359
@@ -30614,6 +31139,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 49313815}
 --- !u!1 &1708940637
@@ -30669,6 +31195,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 464828827}
 --- !u!1 &1712836864
@@ -30710,6 +31237,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 49313815}
 --- !u!4 &1712836866
@@ -30765,6 +31293,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 662128254}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &1716668778
@@ -30820,6 +31349,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1992250464}
 --- !u!4 &1717798418
@@ -30889,6 +31419,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1827477665}
 --- !u!1 &1723016098
@@ -30944,6 +31475,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1708940639}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1810505164}
 --- !u!1 &1723361257
@@ -30985,6 +31517,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1107181893}
 --- !u!4 &1723361259
@@ -31040,6 +31573,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1749955759}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 438077562}
 --- !u!4 &1724413860
@@ -31095,6 +31629,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1107181893}
 --- !u!4 &1724954669
@@ -31164,6 +31699,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2100744953}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 910609038}
 --- !u!1 &1725720193
@@ -31205,6 +31741,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1172602153}
 --- !u!4 &1725720195
@@ -31274,6 +31811,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 880368915}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 73241597}
 --- !u!1 &1726930434
@@ -31315,6 +31853,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 783185569}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &1726930436
@@ -31385,6 +31924,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1137052372}
   isConnectNode: 1
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!1 &1732714247
@@ -31426,6 +31966,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 752656713}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 280827882}
 --- !u!4 &1732714249
@@ -31481,6 +32022,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1820310642}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1795969065}
 --- !u!4 &1734341633
@@ -31550,6 +32092,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1879990308}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 559982371}
 --- !u!1 &1735661055
@@ -31674,6 +32217,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 906841408}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1795969065}
 --- !u!4 &1737476358
@@ -31743,6 +32287,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 306289895}
 --- !u!1 &1745279924
@@ -31784,6 +32329,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1679519469}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 438077562}
 --- !u!4 &1745279926
@@ -31854,6 +32400,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 130165130}
   isConnectNode: 1
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1970911432}
 --- !u!1 &1749089417
@@ -31895,6 +32442,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1942247206}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!4 &1749089419
@@ -31950,6 +32498,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1172602153}
 --- !u!4 &1749955760
@@ -32019,6 +32568,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1699230708}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1690646662}
 --- !u!1 &1756776167
@@ -32060,6 +32610,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1485696243}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1138863682}
 --- !u!4 &1756776169
@@ -32115,6 +32666,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 81438924}
 --- !u!4 &1761850002
@@ -32170,6 +32722,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 906276699}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1795969065}
 --- !u!4 &1762758257
@@ -32225,6 +32778,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1583412758}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 130583108}
 --- !u!4 &1763542064
@@ -32295,6 +32849,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 762991174}
   isConnectNode: 1
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!1 &1777149538
@@ -32350,6 +32905,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 54127468}
 --- !u!1 &1779728842
@@ -32391,6 +32947,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2089447377}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &1779728844
@@ -32460,6 +33017,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1131769166}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 411082782}
 --- !u!1 &1780625282
@@ -32501,6 +33059,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2066544471}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1237514721}
 --- !u!4 &1780625284
@@ -32570,6 +33129,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1791722263}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 559982371}
 --- !u!1 &1789379390
@@ -32611,6 +33171,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 225651985}
 --- !u!4 &1789379392
@@ -32666,6 +33227,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1455871863}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &1790303326
@@ -32735,6 +33297,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1400443110}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1810505164}
 --- !u!1 &1795969064
@@ -32871,6 +33434,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1177899376}
 --- !u!1 &1800769219
@@ -32912,6 +33476,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1503561796}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 406276823}
 --- !u!4 &1800769221
@@ -33039,6 +33604,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2087038979}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &1814039725
@@ -33094,6 +33660,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 709457506}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &1814250053
@@ -33163,6 +33730,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 683618720}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 73241597}
 --- !u!1 &1816310037
@@ -33204,6 +33772,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1419896631}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 438077562}
 --- !u!4 &1816310039
@@ -33273,6 +33842,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 934567894}
 --- !u!1 &1820310641
@@ -33314,6 +33884,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1237848569}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 456809474}
 --- !u!4 &1820310643
@@ -33384,6 +33955,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 462388601}
   isConnectNode: 1
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!1 &1823254719
@@ -33439,6 +34011,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 686120774}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 559982371}
 --- !u!1 &1823692449
@@ -33494,6 +34067,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 957225935}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1690646662}
 --- !u!1 &1825953738
@@ -33549,6 +34123,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1992250464}
 --- !u!1 &1827477664
@@ -33656,6 +34231,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1749089418}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &1832747866
@@ -33711,6 +34287,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 89896036}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &1849605479
@@ -33780,6 +34357,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 951277246}
 --- !u!1 &1857319880
@@ -33835,6 +34413,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 933166786}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 306289895}
 --- !u!1 &1858958431
@@ -33876,6 +34455,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1688101823}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!4 &1858958433
@@ -33931,6 +34511,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1992250464}
 --- !u!4 &1864303219
@@ -34000,6 +34581,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 136324906}
 --- !u!1 &1866701858
@@ -34041,6 +34623,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1601169972}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 280827882}
 --- !u!4 &1866701860
@@ -34110,6 +34693,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 528885354}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 411082782}
 --- !u!1 &1869293948
@@ -34165,6 +34749,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 49313815}
 --- !u!1 &1872476138
@@ -34220,6 +34805,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1267526183}
 --- !u!1 &1874299120
@@ -34275,6 +34861,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1827477665}
 --- !u!1 &1876753282
@@ -34330,6 +34917,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1622090760}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1690646662}
 --- !u!1 &1879990306
@@ -34385,6 +34973,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1352638518}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1810505164}
 --- !u!1 &1884947895
@@ -34426,6 +35015,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 505731121}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 123535016}
 --- !u!4 &1884947897
@@ -34495,6 +35085,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 900849469}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1927760234}
 --- !u!1 &1886838894
@@ -34790,6 +35381,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &1891929355
@@ -34831,6 +35423,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1177899376}
 --- !u!4 &1891929357
@@ -34900,6 +35493,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1360790624}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 138062007}
 --- !u!1 &1900177491
@@ -34941,6 +35535,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 361934775}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &1900177493
@@ -35010,6 +35605,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1827477665}
 --- !u!1 &1905569554
@@ -35051,6 +35647,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1963983469}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &1905569556
@@ -35120,6 +35717,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1970911432}
 --- !u!1 &1908487649
@@ -35161,6 +35759,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 81438924}
 --- !u!4 &1908487651
@@ -35216,6 +35815,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1107181893}
 --- !u!4 &1909382133
@@ -35271,6 +35871,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 607786645}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &1915837397
@@ -35326,6 +35927,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 826136031}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!4 &1920608046
@@ -35381,6 +35983,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1963566768}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!4 &1925479450
@@ -35579,6 +36182,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 130165130}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 493129954}
 --- !u!1 &1929607032
@@ -35620,6 +36224,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1670836951}
 --- !u!4 &1929607034
@@ -35675,6 +36280,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1476135259}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 406276823}
 --- !u!4 &1938004720
@@ -35744,6 +36350,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &1941250262
@@ -35785,6 +36392,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2086714912}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!4 &1941250264
@@ -35854,6 +36462,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &1944319019
@@ -35895,6 +36504,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2127268248}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!4 &1944319021
@@ -35950,6 +36560,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1339375315}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 280827882}
 --- !u!4 &1947294400
@@ -36019,6 +36630,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 457045877}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 130583108}
 --- !u!1 &1955288613
@@ -36074,6 +36686,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1723016100}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 559982371}
 --- !u!1 &1957774450
@@ -36115,6 +36728,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1107181893}
 --- !u!4 &1957774452
@@ -36170,6 +36784,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1124434876}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1237514721}
 --- !u!4 &1961111855
@@ -36239,6 +36854,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &1963566766
@@ -36294,6 +36910,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &1963983468
@@ -36335,6 +36952,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1661913169}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &1963983470
@@ -36390,6 +37008,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 842142027}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!4 &1969196841
@@ -36522,6 +37141,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 136324906}
 --- !u!1 &1992250462
@@ -36644,6 +37264,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1466167893}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1163219381}
 --- !u!4 &1996915799
@@ -36713,6 +37334,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 951277246}
 --- !u!1 &2006223349
@@ -36768,6 +37390,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1267526183}
 --- !u!1 &2007984317
@@ -36823,6 +37446,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1670836951}
 --- !u!1 &2010824765
@@ -36864,6 +37488,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1800769220}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1190274915}
 --- !u!4 &2010824767
@@ -37193,6 +37818,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1827477665}
 --- !u!4 &2013635906
@@ -37248,6 +37874,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1255997810}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1138863682}
 --- !u!4 &2019763104
@@ -37303,6 +37930,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1992250464}
 --- !u!4 &2022201877
@@ -37372,6 +38000,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1670836951}
 --- !u!1 &2026606530
@@ -37427,6 +38056,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1970911432}
 --- !u!1 &2026882661
@@ -37482,6 +38112,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 136324906}
 --- !u!1 &2033599845
@@ -37523,6 +38154,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 201858191}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &2033599847
@@ -37578,6 +38210,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 81438924}
 --- !u!4 &2034494894
@@ -37647,6 +38280,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1953304955}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 138062007}
 --- !u!1 &2039696257
@@ -37702,6 +38336,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 372630897}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1690646662}
 --- !u!1 &2040090049
@@ -37743,6 +38378,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1101027558}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1566080489}
 --- !u!4 &2040090051
@@ -37798,6 +38434,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1749955759}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 438077562}
 --- !u!4 &2047511224
@@ -37867,6 +38504,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1267526183}
 --- !u!1 &2052862992
@@ -38000,6 +38638,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 81438924}
 --- !u!4 &2059209527
@@ -38055,6 +38694,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1139891587}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 280827882}
 --- !u!4 &2064469318
@@ -38110,6 +38750,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 742320264}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1163219381}
 --- !u!4 &2066544472
@@ -38165,6 +38806,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1453796970}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &2067036565
@@ -38234,6 +38876,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1267526183}
 --- !u!1 &2073713849
@@ -38275,6 +38918,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 82602494}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1237514721}
 --- !u!4 &2073713851
@@ -38344,6 +38988,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1267526183}
 --- !u!1 &2080849182
@@ -38399,6 +39044,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 54127468}
 --- !u!1 &2081769993
@@ -38440,6 +39086,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 204158440}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1237514721}
 --- !u!4 &2081769995
@@ -38509,6 +39156,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1177899376}
 --- !u!1 &2084562522
@@ -38655,6 +39303,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &2087038978
@@ -38696,6 +39345,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 786749828}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &2087038980
@@ -38751,6 +39401,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 785416709}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &2088373308
@@ -38806,6 +39457,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 469689027}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!4 &2089447378
@@ -38861,6 +39513,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &2091266761
@@ -38916,6 +39569,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1684620000}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 438077562}
 --- !u!4 &2094324107
@@ -38971,6 +39625,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1497349379}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 406276823}
 --- !u!4 &2095656204
@@ -39040,6 +39695,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 910609038}
 --- !u!1 &2097650397
@@ -39094,6 +39750,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1107181893}
 --- !u!1 &2100744951
@@ -39149,6 +39806,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 54127468}
 --- !u!1 &2103705022
@@ -39190,6 +39848,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1021222233}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 609929707}
 --- !u!4 &2103705024
@@ -39245,6 +39904,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1724954668}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 280827882}
 --- !u!4 &2104231063
@@ -39300,6 +39960,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1649703622}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 910609038}
 --- !u!4 &2106081362
@@ -39369,6 +40030,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 230734491}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1631595648}
 --- !u!1 &2112872498
@@ -39410,6 +40072,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1617122570}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1275935885}
 --- !u!4 &2112872500
@@ -39465,6 +40128,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1399528110}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 349317815}
 --- !u!4 &2123197378
@@ -39520,6 +40184,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 18509934}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 897306326}
 --- !u!4 &2124339615
@@ -39575,6 +40240,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1231926069}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1795969065}
 --- !u!4 &2124517901
@@ -39644,6 +40310,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 720650049}
 --- !u!1 &2128310150
@@ -39685,6 +40352,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 234878203}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 73241597}
 --- !u!4 &2128310152
@@ -39740,6 +40408,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1434986154}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1566080489}
 --- !u!4 &2128501132
@@ -39795,6 +40464,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 0}
   isConnectNode: 0
   isBusLane: 1
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1075212743}
 --- !u!4 &2130927091
@@ -39850,6 +40520,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 195814038}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1163219381}
 --- !u!4 &2134297826
@@ -39905,6 +40576,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 2064469317}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 1566080489}
 --- !u!4 &2141577412
@@ -39974,6 +40646,7 @@ MonoBehaviour:
   laneChangeRight: {fileID: 1763542063}
   isConnectNode: 0
   isBusLane: 0
+  isInIntersection: 0
   turnDirection: 0
   parentLane: {fileID: 138062007}
 --- !u!1 &2146481568

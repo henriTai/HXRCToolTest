@@ -23,6 +23,8 @@ public class Nodes : MonoBehaviour
     [SerializeField]
     bool isBusLane;
     [SerializeField]
+    bool isInIntersection;
+    [SerializeField]
     IntersectionDirection turnDirection;
     [SerializeField]
     Lane parentLane;
