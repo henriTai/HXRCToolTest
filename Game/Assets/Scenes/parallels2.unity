@@ -7607,7 +7607,31 @@ MonoBehaviour:
     confirmed: 1
   existingLaneIndex: 5
   existingLanesChecked: 1
-  inIndex: 10
+  createdSplines:
+  - points:
+    - {x: 89.9, y: 0, z: -29.9}
+    - {x: 89.96846, y: 0, z: -27.054863}
+    - {x: 90.26824, y: 0, z: -26.796942}
+    - {x: 93.2, y: 0, z: -26.724998}
+    modes: 0100000001000000
+    startNode: {fileID: 602911198}
+    endNode: {fileID: 0}
+    endPointSet: 1
+  - points:
+    - {x: 84.9, y: 0, z: -29.9}
+    - {x: 84.9, y: 0, z: -26.233334}
+    - {x: 84.698425, y: 0, z: -23.976645}
+    - {x: 82.80247, y: 0, z: -21.278551}
+    - {x: 80.9863, y: 0, z: -18.694}
+    - {x: 75.29132, y: 0, z: -18.49846}
+    - {x: 70.2, y: 0, z: -18.474998}
+    modes: 010000000100000001000000
+    startNode: {fileID: 101155615}
+    endNode: {fileID: 0}
+    endPointSet: 1
+  splineIndex: 1
+  splinesSet: 1
+  inIndex: 2
   outIndex: 4
 --- !u!4 &341040705
 Transform:

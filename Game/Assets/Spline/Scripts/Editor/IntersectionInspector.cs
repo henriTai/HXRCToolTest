@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.SceneManagement;
+using System;
 
 [CustomEditor(typeof(Intersection))]
 public class IntersectionInspector : Editor
@@ -45,8 +47,15 @@ public class IntersectionInspector : Editor
     public List<Vector3> inPositions;
     public List<Vector3> outPositions;
     public int inOutCount;
-    //public int inIndex = 0;
-    //public int outIndex = 0;
+
+    Transform handleTransform;
+    Quaternion handleRotation;
+    private const float handleSize = 0.04f;
+    private const float pickSize = 0.06f;
+    private Vector2Int selectedIndex;
+
+
+
 
     //*************************** INSPECTOR START
 
@@ -54,6 +63,11 @@ public class IntersectionInspector : Editor
     {
         Undo.RecordObject(intersection, "changed");
         NameMenu();
+        if (intersection.splinesSet)
+        {
+            NodeSetupMenu();
+            return;
+        }
         if (intersection.allNodesSet)
         {
             if (intersection.existingLanesChecked)
@@ -612,14 +626,18 @@ public class IntersectionInspector : Editor
             SceneView.RepaintAll();
         }
         EditorGUILayout.EndHorizontal();
+        DrawEditorLine();
         EditorGUILayout.Separator();
         EditorGUILayout.LabelField("Add spline", EditorStyles.boldLabel);
         EditorGUILayout.Separator();
         EditorGUILayout.LabelField("In " + intersection.inIndex);
         if (GUILayout.Button("Add spline"))
         {
-
+            CreateBezier();
+            SceneView.RepaintAll();
         }
+        DrawEditorLine();
+        SplineEditMenu();
     }
 
     private void LinePlacementMenu()
@@ -821,6 +839,139 @@ public class IntersectionInspector : Editor
                 UpdatePointsToDraw();
                 SceneView.RepaintAll();
             }
+        }
+    }
+
+    private void SplineEditMenu()
+    {
+        EditorGUILayout.Separator();
+        EditorGUILayout.LabelField("Edit spline", EditorStyles.boldLabel);
+        EditorGUILayout.Separator();
+        EditorGUILayout.BeginHorizontal();
+        if (GUILayout.Button("Previous"))
+        {
+            intersection.MoveSplineIndex(-1);
+            SceneView.RepaintAll();
+        }
+        if (GUILayout.Button("Next"))
+        {
+            intersection.MoveSplineIndex(1);
+            SceneView.RepaintAll();
+        }
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.Separator();
+        if (intersection.splineIndex == -1)
+        {
+            EditorGUILayout.LabelField("No created splines");
+        }
+        else
+        {
+            EditorGUILayout.LabelField("Spline " + intersection.splineIndex);
+        }
+        EditorGUILayout.Separator();
+        if (GUILayout.Button("Add segment"))
+        {
+            intersection.AddSegmentToCurrentSpline();
+            SceneView.RepaintAll();
+        }
+        EditorGUILayout.Separator();
+        if (GUILayout.Button("Connect to selected outnode (" + intersection.outIndex + ")"))
+        {
+            intersection.ConnectSplineToOutNode();
+            SceneView.RepaintAll();
+        }
+        EditorGUILayout.Separator();
+        if (GUILayout.Button("Delete this spline"))
+        {
+            intersection.RemoveCurrentSpline();
+            SceneView.RepaintAll();
+        }
+        EditorGUILayout.Separator();
+        DrawEditorLine();
+        EditorGUILayout.Separator();
+        EditorGUILayout.LabelField("Finish splines", EditorStyles.boldLabel);
+        ItalicLabel("When all splines are set, press 'Done'");
+        if (GUILayout.Button("Done"))
+        {
+            intersection.splinesSet = true;
+        }
+    }
+
+    private void NodeSetupMenu()
+    {
+        //
+    }
+
+    private void CreateBezier()
+    {
+        
+        if (intersection.createdSplines == null)
+        {
+            intersection.createdSplines = new SplineData[0];
+        }
+        SplineData sd = new SplineData();
+        Vector3 pos = inPositions[intersection.inIndex];
+        Nodes n = intersection.GetInNodeOfCurrentIndex();
+        Vector3 dir;
+        if (n!= null)
+        {
+            sd.startNode = n;
+            dir = GetBezierStartDirection(pos, n);
+        }
+        else
+        {
+            dir = GetBezierStartDirection(pos);
+        }
+        float length = GetBezierStartLength();
+        Vector3 p0 = pos;
+        Vector3 p1 = pos + length / 3f * dir;
+        Vector3 p2 = pos + length * 2f / 3f * dir;
+        Vector3 p3 = pos + length * dir;
+        sd.points = new Vector3[] { p0, p1, p2, p3 };
+        sd.modes = new BezierControlPointMode[] { BezierControlPointMode.Aligned,
+            BezierControlPointMode.Aligned};
+        sd.endPointSet = false;
+        Array.Resize(ref intersection.createdSplines, intersection.createdSplines.Length + 1);
+        intersection.createdSplines[intersection.createdSplines.Length - 1] = sd;
+        intersection.splineIndex = intersection.createdSplines.Length - 1;
+
+    }
+
+    private float GetBezierStartLength()
+    {
+        if (intersection.FrameHeight < intersection.FrameWidth)
+        {
+            return 0.5f * intersection.FrameHeight;
+        }
+        else
+        {
+            return 0.5f * intersection.FrameWidth;
+        }
+    }
+
+    private Vector3 GetBezierStartDirection(Vector3 pos, Nodes n = null)
+    {
+        if (n != null)
+        {
+            if (n.OutNodes != null && n.OutNodes.Length > 0)
+            {
+                return (n.OutNodes[0].gameObject.transform.position
+                    - n.gameObject.transform.position).normalized;
+            }
+            else if (n.InNodes != null && n.InNodes.Length > 0)
+            {
+                return (n.gameObject.transform.position
+                    - n.InNodes[0].gameObject.transform.position).normalized;
+            }
+        }
+        Vector3 d = intersection.CenterPoint - pos;
+        if (Mathf.Abs(d.x) > Mathf.Abs(d.z))
+        {
+            return new Vector3(d.x, 0f, 0f).normalized;
+        }
+        else
+        {
+            return new Vector3(0f, 0f, d.z).normalized;
         }
     }
 
@@ -1176,6 +1327,9 @@ public class IntersectionInspector : Editor
 
     private void OnSceneGUI()
     {
+        handleTransform = intersection.transform;
+        handleRotation = Tools.pivotRotation == PivotRotation.Local ?
+            handleTransform.rotation : Quaternion.identity;
         Handles.color = Color.white;
         Handles.DrawLines(framingHorizontal);
         Handles.DrawLines(framingVertical);
@@ -1202,6 +1356,7 @@ public class IntersectionInspector : Editor
             }
             ShowNodeNumbers();
             ShowExistingLanes();
+            ShowBeziers();
         }
     }
 
@@ -1253,6 +1408,77 @@ public class IntersectionInspector : Editor
             for (int i = 0; i < existingLaneLinesToDraw.Count; i += 2)
             {
                 Handles.DrawLine(existingLaneLinesToDraw[i], existingLaneLinesToDraw[i + 1]);
+            }
+        }
+    }
+
+    private void ShowBeziers()
+    {
+        if (intersection.splineIndex == -1)
+        {
+            return;
+        }
+        for (int i = 0; i < intersection.createdSplines.Length; i++)
+        {
+            SplineData sd = intersection.createdSplines[i];
+            Vector3 p0 = sd.points[0];
+            for (int j = 1; j < sd.points.Length; j += 3)
+            {
+                Vector3 p1 = sd.points[j];
+                Vector3 p2 = sd.points[j + 1];
+                Vector3 p3 = sd.points[j + 2];
+                Color c = Color.gray;
+                if (i == intersection.splineIndex)
+                {
+                    c = Color.magenta;
+                    DrawControlPoint(i, j);
+                    DrawControlPoint(i, j + 1);
+                    if (!(j + 3 == sd.points.Length && sd.endPointSet))
+                    {
+                        DrawControlPoint(i, j + 2);
+                    }
+                    Handles.DrawLine(p0, p1);
+                    Handles.DrawLine(p2, p3);
+                }
+                Handles.color = Color.gray;
+                
+                Handles.DrawBezier(p0, p3, p1, p2, c, null, 2f);
+                p0 = p3;
+            }
+        }
+    }
+
+    private void DrawControlPoint(int splineIndex, int pointIndex)
+    {
+        if (intersection.splinesSet)
+        {
+            return;
+        }
+        SplineData sd = intersection.createdSplines[splineIndex];
+        Vector3 point = sd.points[pointIndex];
+        float size = HandleUtility.GetHandleSize(point);
+
+        Handles.color = Color.cyan;
+        if (Handles.Button(point, handleRotation, size * handleSize, size * pickSize, Handles.DotHandleCap))
+        {
+            selectedIndex = new Vector2Int (splineIndex, pointIndex);
+            Repaint(); // refresh inspector
+        }
+        if (selectedIndex.x == splineIndex && selectedIndex.y == pointIndex)
+        {
+            Event e = Event.current;
+            var controlID = GUIUtility.GetControlID(FocusType.Passive);
+            var eventType = e.GetTypeForControl(controlID);
+
+            EditorGUI.BeginChangeCheck();
+            
+            point = Handles.DoPositionHandle(point, handleRotation);
+            if (EditorGUI.EndChangeCheck())
+            {
+                Undo.RecordObject(intersection, "MovePoint");
+                EditorUtility.SetDirty(intersection);
+                EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+                intersection.SetSplinePoint(splineIndex, pointIndex, point);
             }
         }
     }
