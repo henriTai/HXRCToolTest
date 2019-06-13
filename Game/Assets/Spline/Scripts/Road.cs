@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Road : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool showLanes;
 
-    // Update is called once per frame
-    void Update()
+    private void Reset()
     {
-        
+        showLanes = true;
     }
 }

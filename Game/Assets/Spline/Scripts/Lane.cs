@@ -13,6 +13,8 @@ public class Lane : MonoBehaviour
     [SerializeField]
     private SpeedLimits speedLimit;
     public Nodes[] nodesOnLane;
+    public bool pointToPointLine;
+    public bool drawAllLanes;
 
     public TrafficSize Traffic
     {
@@ -57,6 +59,8 @@ public class Lane : MonoBehaviour
         LaneYield = DriverYield.Normal;
         SpeedLimit = SpeedLimits.KMH_40;
         nodesOnLane = null;
+        pointToPointLine = true;
+        drawAllLanes = true;
 
     }
 }

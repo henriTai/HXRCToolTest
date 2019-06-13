@@ -2362,7 +2362,7 @@ public class ParallelBezierSplinesInspector : Editor
         //Create parent object
         GameObject parentObject = new GameObject(parentName);
         parentObject.transform.position = parallel.transform.position;
-        //Insert 'Add component' here when there is a script to add
+        parentObject.AddComponent(typeof(Road));
         parentObject.transform.parent = roadNetwork.transform;
 
         // temporary list for node gameobjects for each lane

@@ -1380,6 +1380,7 @@ public class IntersectionInspector : Editor
         // Create parent gameobject
         GameObject parent = new GameObject(parentName);
         parent.transform.position = intersection.CenterPoint;
+        parent.AddComponent<Road>();
         // Existing lanes
         int laneObjectIndex = CreateLanesFromExistingLanes(parent);
         // Lanes from spline data
@@ -1459,7 +1460,6 @@ public class IntersectionInspector : Editor
 
             Nodes startNode = null;
             Nodes endNode = null;
-            HelperLine h = null;
 
             //these are needed for parenting
             bool startNodeGenerated = false;
