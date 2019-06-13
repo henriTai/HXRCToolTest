@@ -93,7 +93,7 @@ public class ParallelBezierSplinesInspector : Editor
                 WaypointEditMenu();
             }
         }
-        base.OnInspectorGUI();
+        //base.OnInspectorGUI();
     }
 
     private void InitializeArrays()

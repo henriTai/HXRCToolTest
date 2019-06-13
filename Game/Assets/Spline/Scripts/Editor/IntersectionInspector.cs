@@ -75,7 +75,7 @@ public class IntersectionInspector : Editor
         if (intersection.splinesSet)
         {
             NodeSetupMenu();
-            base.OnInspectorGUI();
+            //base.OnInspectorGUI();
             return;
         }
         if (intersection.allNodesSet)
@@ -100,7 +100,7 @@ public class IntersectionInspector : Editor
                 SetupMenu();
             }
         }
-        base.OnInspectorGUI();
+        //base.OnInspectorGUI();
     }
 
     private void NameMenu()

@@ -18832,7 +18832,7 @@ MonoBehaviour:
   wayPointsRight1: []
   wayPointsRight2: []
   wayPointsRight3: []
-  roadNetwork: {fileID: 0}
+  roadNetwork: {fileID: 1083927854}
   roadParent: {fileID: 0}
   leftParent1: {fileID: 0}
   leftParent2: {fileID: 0}
