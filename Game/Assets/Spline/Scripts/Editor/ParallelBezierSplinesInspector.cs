@@ -156,6 +156,7 @@ public class ParallelBezierSplinesInspector : Editor
                 else if (networks.Length == 1)
                 {
                     roadNetwork = networks[0].gameObject;
+                    parallel.roadNetwork = roadNetwork;
                     nameAutoChecked = false;
                 }
                 else
@@ -196,10 +197,10 @@ public class ParallelBezierSplinesInspector : Editor
             if (nameIsValid)
             {
                 ItalicLabel("Name is valid");
+                roadName = "";
             }
             else
             {
-                roadName = "";
                 WarningLabel("Invalid name. Name already exists.");
             }
             roadName = GUILayout.TextField(roadName);
@@ -1779,14 +1780,12 @@ public class ParallelBezierSplinesInspector : Editor
         for (int lane = 0; lane < parallel.RightLaneCount; lane++)
         {
             pos = parallel.GetSegmentedPointLane(lane, 0, 0f, true);
-            //pos = parallel.GetRightLaneStartPoint(i);
             Handles.RadiusHandle(Quaternion.identity, pos, handleSize);
         }
         for (int lane = 0; lane < parallel.LeftLaneCount; lane++)
         {
             // points on left lane are inversed for easier handling
             pos = parallel.GetSegmentedPointLane(lane, parallel.SegmentCount - 1, 1f, false);
-            //pos = parallel.GetLeftEndPoint(i);
             Handles.RadiusHandle(Quaternion.identity, pos, handleSize);
         }
         for (int seg = 0; seg < parallel.SegmentCount; seg++)

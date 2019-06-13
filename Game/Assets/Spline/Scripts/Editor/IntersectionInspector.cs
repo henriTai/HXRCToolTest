@@ -22,23 +22,28 @@ public class IntersectionInspector : Editor
     private float step = 1f;
 
     //positioning line;
-    Vector3 linePos;
-    Vector3[] linePoints;
-    float lineLength;
-    Vector3 lineDir;
-    bool showLine = false;
-    float lineYAngle = 0f;
-    float lineAngle = 5f;
-    int nodesOnLine = 0;
-    float[] nodePlaces;
-    float[] tempPlaces;
-    NodeInOut[] lineNodesInOut;
+    private Vector3 linePos;
+    private Vector3[] linePoints;
+    private float lineLength;
+    private Vector3 lineDir;
+    private bool showLine = false;
+    private float lineYAngle = 0f;
+    private float lineAngle = 5f;
+    private int nodesOnLine = 0;
+    private float[] nodePlaces;
+    private float[] tempPlaces;
+    private NodeInOut[] lineNodesInOut;
+    private DriverYield lineYield = DriverYield.Normal;
+    private TrafficSize lineTraffic = TrafficSize.Average;
+    private SpeedLimits lineSpeedLimit = SpeedLimits.KMH_30;
 
     private List<Vector3> pointsToDraw;
     private List<Color> pointsToDrawColors;
     private List<Vector3> existingLaneLinesToDraw;
     private DriverYield exYield;
     private IntersectionDirection exTurn;
+    private TrafficSize exTraffic;
+    private SpeedLimits exSpeedLimit;
     private bool exConfirmed;
 
     private bool addingNodes = false;
@@ -54,7 +59,11 @@ public class IntersectionInspector : Editor
     private const float pickSize = 0.06f;
     private Vector2Int selectedIndex;
 
-
+    private List<Vector3> currentSplineNodes;
+    private List<Vector3> otherSplineNodes;
+    private bool nodesFetched = false;
+    private bool allEndNodesConnected = true;
+    private bool allSegmentsHaveNodes = true;
 
 
     //*************************** INSPECTOR START
@@ -66,6 +75,7 @@ public class IntersectionInspector : Editor
         if (intersection.splinesSet)
         {
             NodeSetupMenu();
+            base.OnInspectorGUI();
             return;
         }
         if (intersection.allNodesSet)
@@ -127,6 +137,7 @@ public class IntersectionInspector : Editor
                 else if (networks.Length == 1)
                 {
                     roadNetwork = networks[0].gameObject;
+                    intersection.roadNetwork = roadNetwork;
                     nameAutoChecked = false;
                 }
                 else
@@ -155,6 +166,9 @@ public class IntersectionInspector : Editor
             EditorGUILayout.LabelField("Intersection name:", EditorStyles.boldLabel);
             EditorGUILayout.LabelField(intersection.gameObject.name);
             EditorGUILayout.EndHorizontal();
+            EditorGUILayout.Separator();
+            ItalicLabel("As a suggestion (for easier managing) intersection names should have a prefix, " +
+                "for example. 'int_'.");
             if (!nameAutoChecked)
             {
                 nameAutoChecked = true;
@@ -163,6 +177,10 @@ public class IntersectionInspector : Editor
                 {
                     intersectionName = intersection.gameObject.name;
                 }
+                else
+                {
+                    intersectionName = "";
+                }
             }
             if (nameIsValid)
             {
@@ -170,7 +188,6 @@ public class IntersectionInspector : Editor
             }
             else
             {
-                intersectionName = "";
                 WarningLabel("Invalid name. Name already exists.");
             }
             intersectionName = GUILayout.TextField(intersectionName);
@@ -195,12 +212,6 @@ public class IntersectionInspector : Editor
 
             EditorGUILayout.Separator();
         }
-        EditorGUILayout.LabelField("Traffic", EditorStyles.boldLabel);
-        intersection.Traffic = (TrafficSize)EditorGUILayout.EnumPopup("Traffic size", intersection.Traffic);
-        EditorGUILayout.Separator();
-        EditorGUILayout.LabelField("Overall speed limit", EditorStyles.boldLabel);
-        intersection.SpeedLimit = (SpeedLimits)EditorGUILayout.EnumPopup("Limit", intersection.SpeedLimit);
-        EditorGUILayout.Separator();
         DrawEditorLine();
     }
 
@@ -324,10 +335,8 @@ public class IntersectionInspector : Editor
         {
             EntryNodesSetupMenu();
         }
-        else
-        {
-            EntryUsingGuideLine();
-        }
+        EditorGUILayout.Separator();
+        EntryUsingGuideLine();
         EditorGUILayout.Separator();
         DrawEditorLine();
         if (!confirming)
@@ -532,6 +541,18 @@ public class IntersectionInspector : Editor
             ex.turnDirection = exTurn;
             intersection.SetCurrentExistingLane(ex);
         }
+        exSpeedLimit = (SpeedLimits)EditorGUILayout.EnumPopup("Speed limit", exSpeedLimit);
+        if (exSpeedLimit != ex.speedLimit)
+        {
+            ex.speedLimit = exSpeedLimit;
+            intersection.SetCurrentExistingLane(ex);
+        }
+        exTraffic = (TrafficSize)EditorGUILayout.EnumPopup("Traffic", exTraffic);
+        if (exTraffic != ex.traffic)
+        {
+            ex.traffic = exTraffic;
+            intersection.SetCurrentExistingLane(ex);
+        }
         if (!ex.confirmed)
         {
             if (GUILayout.Button("Confirm lane"))
@@ -642,6 +663,12 @@ public class IntersectionInspector : Editor
 
     private void LinePlacementMenu()
     {
+        EditorGUILayout.LabelField("Traffic settings", EditorStyles.boldLabel);
+        EditorGUILayout.Separator();
+        lineTraffic = (TrafficSize)EditorGUILayout.EnumPopup("Traffic", lineTraffic);
+        lineSpeedLimit = (SpeedLimits)EditorGUILayout.EnumPopup("Speed limit", lineSpeedLimit);
+        lineYield = (DriverYield)EditorGUILayout.EnumPopup("Lane yield", lineYield);
+        EditorGUILayout.Separator();
         EditorGUILayout.Separator();
         step = EditorGUILayout.FloatField("Step", step);
         EditorGUILayout.LabelField("Adjust position", EditorStyles.boldLabel);
@@ -866,7 +893,10 @@ public class IntersectionInspector : Editor
         }
         else
         {
-            EditorGUILayout.LabelField("Spline " + intersection.splineIndex);
+            ItalicLabel("Spline " + intersection.splineIndex);
+            intersection.createdSplines[intersection.splineIndex].turnDirection =
+                (IntersectionDirection)EditorGUILayout.EnumPopup("Turn direction",
+                intersection.createdSplines[intersection.splineIndex].turnDirection);
         }
         EditorGUILayout.Separator();
         if (GUILayout.Button("Add segment"))
@@ -893,13 +923,78 @@ public class IntersectionInspector : Editor
         ItalicLabel("When all splines are set, press 'Done'");
         if (GUILayout.Button("Done"))
         {
-            intersection.splinesSet = true;
+            allEndNodesConnected = intersection.AllSplineEndPointsConnected();
+            if (allEndNodesConnected)
+            {
+                intersection.SetSegmentArrays();
+                intersection.splinesSet = true;
+                SceneView.RepaintAll();
+            }
+            
+        }
+        if (!allEndNodesConnected)
+        {
+            WarningLabel("End points of all splines must be connected to an out-node before" +
+                "continuing");
         }
     }
 
     private void NodeSetupMenu()
     {
-        //
+        SplineData sd = intersection.createdSplines[intersection.splineIndex];
+        int index = intersection.splineIndex;
+        EditorGUILayout.LabelField("Set nodes on splines", EditorStyles.boldLabel);
+        EditorGUILayout.Separator();
+        EditorGUILayout.BeginHorizontal();
+        if (GUILayout.Button("Previous"))
+        {
+            intersection.MoveSplineIndex(-1);
+            nodesFetched = intersection.GetSegmentNodePositions(out currentSplineNodes, out otherSplineNodes);
+            SceneView.RepaintAll();
+        }
+        if (GUILayout.Button("Next"))
+        {
+            intersection.MoveSplineIndex(1);
+            nodesFetched = intersection.GetSegmentNodePositions(out currentSplineNodes, out otherSplineNodes);
+            SceneView.RepaintAll();
+        }
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.Separator();
+        ItalicLabel("Spline " + index);
+        EditorGUILayout.Separator();
+        for (int i = 0; i < sd.segmentNodes.Length; i++)
+        {
+            int pnts = sd.segmentNodes[i];
+            pnts = EditorGUILayout.IntField("Nodes", pnts);
+            if (pnts != sd.segmentNodes[i])
+            {
+                if (pnts > -1 && pnts < 30)
+                {
+                    sd.segmentNodes[i] = pnts;
+                    nodesFetched = intersection.GetSegmentNodePositions(
+                        out currentSplineNodes, out otherSplineNodes);
+                }
+            }
+        }
+        EditorGUILayout.Separator();
+        DrawEditorLine();
+        if (GUILayout.Button("Create Nodes"))
+        {
+            allSegmentsHaveNodes = intersection.NodesOnAllSegments();
+            nameAutoChecked = false;
+            if (allSegmentsHaveNodes && nameIsValid)
+            {
+                CreateIntersection();
+            }
+        }
+        if (!allSegmentsHaveNodes)
+        {
+            WarningLabel("Some spline segments don't have nodes set.");
+        }
+        if (!nameIsValid)
+        {
+            WarningLabel("Please check the name");
+        }
     }
 
     private void CreateBezier()
@@ -931,6 +1026,7 @@ public class IntersectionInspector : Editor
         sd.modes = new BezierControlPointMode[] { BezierControlPointMode.Aligned,
             BezierControlPointMode.Aligned};
         sd.endPointSet = false;
+        sd.turnDirection = IntersectionDirection.Straight;
         Array.Resize(ref intersection.createdSplines, intersection.createdSplines.Length + 1);
         intersection.createdSplines[intersection.createdSplines.Length - 1] = sd;
         intersection.splineIndex = intersection.createdSplines.Length - 1;
@@ -990,6 +1086,9 @@ public class IntersectionInspector : Editor
         }
         h.nodePoints = pnts;
         h.inOut = ios;
+        h.laneYield = lineYield;
+        h.traffic = lineTraffic;
+        h.speedLimit = lineSpeedLimit;
         intersection.helperLines.Add(h);
     }
 
@@ -1186,6 +1285,8 @@ public class IntersectionInspector : Editor
         exYield = ex.laneYield;
         exTurn = ex.turnDirection;
         exConfirmed = ex.confirmed;
+        exSpeedLimit = ex.speedLimit;
+        exTraffic = ex.traffic;
     }
 
     private void UpdatePointsToDraw()
@@ -1273,6 +1374,255 @@ public class IntersectionInspector : Editor
         tempPlaces[5] = nodePlaces[5];
     }
 
+    private void CreateIntersection()
+    {
+        string parentName = intersectionName;
+        // Create parent gameobject
+        GameObject parent = new GameObject(parentName);
+        parent.transform.position = intersection.CenterPoint;
+        // Existing lanes
+        int laneObjectIndex = CreateLanesFromExistingLanes(parent);
+        // Lanes from spline data
+        CreateLanesFromSplineData(laneObjectIndex, parent);
+
+
+        // finally parent intersection gameobject to roadnetwork
+        parent.transform.parent = intersection.roadNetwork.transform;
+        // Tagging
+    }
+    // modifies lanes and adds Lane-gameobjects (with list of nodes but no child objects) to parent
+    private int CreateLanesFromExistingLanes(GameObject parent)
+    {
+        int index = 0;
+        if (intersection.existingLanes == null)
+        {
+            return index;
+        }
+        for (int i = 0; i < intersection.existingLanes.Count; i++)
+        {
+            ExistingLane ex = intersection.existingLanes[i];
+            // Create parent object (Lane) and assign values
+            string laneName = parent.gameObject.name + "_" + i + "_" + "ex";
+            GameObject g = new GameObject(laneName);
+            g.transform.position = ex.nodes[0].transform.position;
+            g.AddComponent(typeof(Lane));
+            Lane lane = g.GetComponent<Lane>();
+            lane.Traffic = ex.traffic;
+            lane.LaneYield = ex.laneYield;
+            lane.SpeedLimit = ex.speedLimit;
+            // Iterate nodes
+            List<Nodes> nodes = new List<Nodes>();
+            for (int j = 0; j < ex.nodes.Count; j++)
+            {
+                Nodes n = ex.nodes[j];
+                n.ParallelLeft = null;
+                n.ParallelRight = null;
+                n.LaneChangeLeft = null;
+                n.LaneChangeRight = null;
+                n.IsInIntersection = true;
+                n.TurnDirection = ex.turnDirection;
+                nodes.Add(n);
+            }
+            // Add nodes to lane's node array
+            lane.nodesOnLane = new Nodes[nodes.Count];
+            for (int j = 0; j < nodes.Count; j++)
+            {
+                lane.nodesOnLane[j] = nodes[j];
+            }
+            // parent lane
+            lane.transform.parent = parent.transform;
+            ObjectTagger.SetLaneIcons(TagColorScheme.ByLaneNumber, i % 6, ref lane.nodesOnLane);
+            index++;
+        }
+        return index;
+    }
+
+    private void CreateLanesFromSplineData(int laneObjectIndex, GameObject parent)
+    {
+        if (intersection.createdSplines == null)
+        {
+            return;
+        }
+        List<Nodes> newInNodes = new List<Nodes>();
+        List<Nodes> newOutNodes = new List<Nodes>();
+        string parentName = parent.gameObject.name;
+        for (int splineInd = 0; splineInd < intersection.createdSplines.Length; splineInd++)
+        {
+            string laneName = parentName + "_" + laneObjectIndex;
+            SplineData sd = intersection.createdSplines[splineInd];
+
+            // Create lane object
+            GameObject laneObject = new GameObject(laneName);
+            laneObject.transform.position = sd.points[0];
+            laneObject.AddComponent(typeof(Lane));
+            Lane lane = laneObject.GetComponent<Lane>();
+
+            Nodes startNode = null;
+            Nodes endNode = null;
+            HelperLine h = null;
+
+            //these are needed for parenting
+            bool startNodeGenerated = false;
+            bool endNodeGenerated = false;
+            int startHelperIndex = 0;
+            int endHelperIndex = 0;
+
+            // assign start node, generate a new one if it doesn't exist
+            if (sd.startNode != null)
+            {
+                startNode = sd.startNode;
+                startNode.ParallelLeft = null;
+                startNode.ParallelRight = null;
+                startNode.LaneChangeLeft = null;
+                startNode.LaneChangeRight = null;
+                startNode.IsInIntersection = true;
+                startNode.TurnDirection = sd.turnDirection;
+            }
+            else
+            {
+                Vector3 pos = sd.points[0];
+                bool found = false;
+                for ( int i = 0; i < newInNodes.Count; i++)
+                {
+                    if (newInNodes[i].transform.position == pos)
+                    {
+                        startNode = newInNodes[i];
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found)
+                {
+                    string nodeName = laneName + "_" + 0;
+                    startNodeGenerated = true;
+                    startNode = GenerateNode(pos, sd.turnDirection, nodeName);
+                    newInNodes.Add(startNode);
+                    startHelperIndex = intersection.GetHelperLineIndex(pos);
+                }
+            }
+            // assign end node, generate a new one if it doesn't exist
+            if (sd.endNode != null)
+            {
+                endNode = sd.endNode;
+                endNode.ParallelLeft = null;
+                endNode.ParallelRight = null;
+                endNode.LaneChangeLeft = null;
+                endNode.LaneChangeRight = null;
+                endNode.IsInIntersection = true;
+                endNode.TurnDirection = sd.turnDirection;
+            }
+            else
+            {
+                Vector3 pos = sd.points[sd.points.Length - 1];
+                bool found = false;
+                for (int i = 0; i < newOutNodes.Count; i++)
+                {
+                    if (newOutNodes[i].transform.position == pos)
+                    {
+                        endNode = newOutNodes[i];
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found)
+                {
+                    string nodeName = laneName + "_" + (sd.points.Length - 1);
+                    endNodeGenerated = true;
+                    endNode = GenerateNode(pos, sd.turnDirection, nodeName);
+                    newOutNodes.Add(endNode);
+                    endHelperIndex = intersection.GetHelperLineIndex(pos);
+                }
+            }
+            // positions for the rest of the nodes
+            List<Vector3> inBetweenPositions = intersection.GetNodePositionInBetweenEndPoints(splineInd);
+            // Create nodes in between start and end nodes
+            List<Nodes> bNodes = new List<Nodes>();
+            for (int i = 0; i < inBetweenPositions.Count; i++)
+            {
+                string nodeName = laneName + "_" + (i + 1);
+                Nodes n = GenerateNode(inBetweenPositions[i], sd.turnDirection, nodeName);
+                bNodes.Add(n);
+            }
+            // Assign values to lane
+            if (startNodeGenerated)
+            {
+                lane.Traffic = intersection.helperLines[startHelperIndex].traffic;
+                lane.LaneYield = intersection.helperLines[startHelperIndex].laneYield;
+            }
+            else
+            {
+                lane.Traffic = startNode.Traffic;
+                lane.LaneYield = startNode.LaneYield;
+            }
+            if (endNodeGenerated)
+            {
+                lane.SpeedLimit = intersection.helperLines[endHelperIndex].speedLimit;
+            }
+            else
+            {
+                lane.SpeedLimit = endNode.SpeedLimit;
+            }
+            // Assign nodes to lane
+            lane.nodesOnLane = new Nodes[inBetweenPositions.Count + 2];
+            lane.nodesOnLane[0] = startNode;
+            for (int i = 0; i < bNodes.Count; i++)
+            {
+                lane.nodesOnLane[i + 1] = bNodes[i];
+            }
+            lane.nodesOnLane[lane.nodesOnLane.Length - 1] = endNode;
+            for (int i = 0; i < lane.nodesOnLane.Length; i++)
+            {
+                Nodes n = lane.nodesOnLane[i];
+                // for pre-existing start nodes no parenting
+                if (i == 0)
+                {
+                    if (startNodeGenerated)
+                    {
+                        n.ParentLane = lane;
+                        n.transform.parent = lane.transform;
+                    }
+                }
+                // for pre existing end nodes no parenting
+                else  if (i == lane.nodesOnLane.Length - 1)
+                {
+                    if (endNodeGenerated)
+                    {
+                        n.ParentLane = lane;
+                        n.transform.parent = lane.transform;
+                    }
+                }
+                else
+                {
+                    n.ParentLane = lane;
+                    n.transform.parent = lane.transform;
+                }
+                // connect in and out nodes
+                if (i > 0)
+                {
+                    n.AddInNode(lane.nodesOnLane[i - 1]);
+                }
+                if (i < lane.nodesOnLane.Length - 1)
+                {
+                    n.AddOutNode(lane.nodesOnLane[i + 1]);
+                }
+            }
+            laneObject.transform.parent = parent.transform;
+            ObjectTagger.SetLaneIcons(TagColorScheme.ByLaneNumber, laneObjectIndex % 6, ref lane.nodesOnLane);
+            laneObjectIndex++;
+        }
+    }
+
+    private Nodes GenerateNode (Vector3 position, IntersectionDirection turnDirection, string goName)
+    {
+        GameObject g = new GameObject(goName);
+        g.AddComponent(typeof(Nodes));
+        g.transform.position = position;
+        Nodes n = g.GetComponent<Nodes>();
+        n.IsInIntersection = true;
+        n.TurnDirection = turnDirection;
+        return n;
+    }
+
     private void EntryHelp()
     {
         EditorGUILayout.LabelField("Entry direction means here a road connecting to this" +
@@ -1312,6 +1662,7 @@ public class IntersectionInspector : Editor
     {
         GUIStyle gs = new GUIStyle(EditorStyles.label);
         gs.fontStyle = FontStyle.Italic;
+        gs.wordWrap = true;
         EditorGUILayout.LabelField(message, gs);
     }
 
@@ -1319,6 +1670,7 @@ public class IntersectionInspector : Editor
     {
         GUIStyle gs = new GUIStyle(EditorStyles.label);
         gs.normal.textColor = Color.red;
+        gs.wordWrap = true;
         EditorGUILayout.LabelField(message, gs);
     }
 
@@ -1357,6 +1709,7 @@ public class IntersectionInspector : Editor
             ShowNodeNumbers();
             ShowExistingLanes();
             ShowBeziers();
+            ShowSplineNodes();
         }
     }
 
@@ -1437,13 +1790,38 @@ public class IntersectionInspector : Editor
                     {
                         DrawControlPoint(i, j + 2);
                     }
-                    Handles.DrawLine(p0, p1);
-                    Handles.DrawLine(p2, p3);
+                    if (!intersection.splinesSet)
+                    {
+                        Handles.DrawLine(p0, p1);
+                        Handles.DrawLine(p2, p3);
+                    }
                 }
                 Handles.color = Color.gray;
                 
                 Handles.DrawBezier(p0, p3, p1, p2, c, null, 2f);
                 p0 = p3;
+            }
+        }
+    }
+
+
+    private void ShowSplineNodes()
+    {
+        if (nodesFetched)
+        {
+            if (currentSplineNodes != null)
+            {
+                for (int i = 0; i < currentSplineNodes.Count; i++)
+                {
+                    DrawSceneDisc(currentSplineNodes[i], Color.yellow, true);
+                }
+            }
+            if (otherSplineNodes != null)
+            {
+                for (int i = 0; i < otherSplineNodes.Count; i++)
+                {
+                    DrawSceneDisc(otherSplineNodes[i], Color.gray, false);
+                }
             }
         }
     }
@@ -1719,12 +2097,12 @@ public class IntersectionInspector : Editor
             intersection.existingLaneIndex = 0;
             SetCurrentExistingLaneValuesToInspector();
         }
-        /*
-        else if (intersection.allNodesSet)
+        if (intersection.splinesSet)
         {
-            inIndex = 0;
-            outIndex = 0;
-        }*/
+            nodesFetched = intersection.GetSegmentNodePositions(
+                out currentSplineNodes, out otherSplineNodes);
+        }
+
         SetCameraAngle();
     }
 

@@ -16,10 +16,6 @@ public class Intersection : MonoBehaviour
     public bool framed;
     public bool allNodesSet;
     public GameObject roadNetwork;
-    [SerializeField]
-    private TrafficSize traffic;
-    [SerializeField]
-    private SpeedLimits speedLimit;
     //for selecting /deselcting in and out nodes in set up
     public NodeInfo[] nodesInBox;
     public bool nodesInBoxSet = false;
@@ -74,30 +70,6 @@ public class Intersection : MonoBehaviour
         }
     }
 
-    public TrafficSize Traffic
-    {
-        get
-        {
-            return traffic;
-        }
-        set
-        {
-            traffic = value;
-        }
-    }
-
-    public SpeedLimits SpeedLimit
-    {
-        get
-        {
-            return speedLimit;
-        }
-        set
-        {
-            speedLimit = value;
-        }
-    }
-    
     // nodes-in-box [NodeInfo] related
     public int GetInfoIndex
     {
@@ -425,6 +397,34 @@ public class Intersection : MonoBehaviour
         }
         return ins.Count + outs.Count;
     }
+    
+    public int GetHelperLineIndex(Vector3 position)
+    {
+        int index = 0;
+        for (int i = 0; i < helperLines.Count; i++)
+        {
+            bool found = false;
+            HelperLine h = helperLines[i];
+            Vector3 p0 = h.startPoint;
+            Vector3 dir = h.direction;
+            float lenght = h.lenght;
+            for (int j = 0; j < h.nodePoints.Count; j++)
+            {
+                Vector3 pnt = p0 + h.nodePoints[j] * lenght * dir;
+                if (pnt == position)
+                {
+                    found = true;
+                    break;
+                }
+            }
+            if (found)
+            {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
     // Existing lane
     public ExistingLane GetCurrentExistingLane()
     {
@@ -549,6 +549,129 @@ public class Intersection : MonoBehaviour
         sd.endPointSet = true;
     }
 
+    public void SetSegmentArrays()
+    {
+        for (int i = 0; i < createdSplines.Length; i++)
+        {
+            SplineData sd = createdSplines[i];
+            int segs = (sd.points.Length - 1) / 3;
+            sd.segmentNodes = new int[segs];
+            for (int j = 0; j < segs; j++)
+            {
+                sd.segmentNodes[j] = 0;
+            }
+        }
+    }
+
+    public List<Vector3> GetNodePositionInBetweenEndPoints (int splineInd)
+    {
+        List<Vector3> pnts = new List<Vector3>();
+        SplineData sd = createdSplines[splineInd];
+        for (int seg = 0; seg < sd.segmentNodes.Length; seg++)
+        {
+            int nodesOnSeg = sd.segmentNodes[seg];
+            for (int pnt = 1; pnt <= nodesOnSeg; pnt++)
+            {
+                Vector3 pos = GetSegmentedPoint(splineInd, seg, (float)pnt / nodesOnSeg);
+                pnts.Add(pos);
+            }
+        }
+        // Remove the last one
+        pnts.RemoveAt(pnts.Count - 1);
+        return pnts;
+    }
+
+    public bool GetSegmentNodePositions(out List<Vector3> current, out List<Vector3> other)
+    {
+        current = new List<Vector3>();
+        other = new List<Vector3>();
+        for (int i = 0; i < createdSplines.Length; i++)
+        {
+            SplineData sd = createdSplines[i];
+            Vector3 pos = sd.points[0];
+            if (i == splineIndex)
+            {
+                current.Add(pos);
+            }
+            else
+            {
+                other.Add(pos);
+            }
+            for (int seg = 0; seg < sd.segmentNodes.Length; seg++)
+            {
+                int nodesOnSeg = sd.segmentNodes[seg];
+                for (int pnt = 1; pnt <= nodesOnSeg; pnt++)
+                {
+                    pos = GetSegmentedPoint(i, seg, (float)pnt / nodesOnSeg);
+                    if (i == splineIndex)
+                    {
+                        current.Add(pos);
+                    }
+                    else
+                    {
+                        other.Add(pos);
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    public bool AllSplineEndPointsConnected()
+    {
+        bool connected = true;
+        if (createdSplines == null)
+        {
+            return connected;
+        }
+        for (int i = 0; i < createdSplines.Length; i++)
+        {
+            SplineData sd = createdSplines[i];
+            if (!sd.endPointSet)
+            {
+                connected = false;
+                break;
+            }
+        }
+        return connected;
+    }
+
+    public bool NodesOnAllSegments()
+    {
+        bool isTrue = true;
+        if (createdSplines == null)
+        {
+            return isTrue;
+        }
+        for (int i = 0; i < createdSplines.Length; i++)
+        {
+            SplineData sd = createdSplines[i];
+            bool b = true;
+            for (int seg = 0; seg < sd.segmentNodes.Length; seg++)
+            {
+                if (sd.segmentNodes[seg]==0)
+                {
+                    b = false;
+                    break;
+                }
+            }
+            if (b == false)
+            {
+                isTrue = false;
+                break;
+            }
+        }
+        return isTrue;
+    }
+
+    private Vector3 GetSegmentedPoint(int splineInd, int segment, float fraction)
+    {
+        SplineData sd = createdSplines[splineInd];
+        int i = segment * 3;
+        return Bezier.GetPoint(
+            sd.points[i], sd.points[i + 1], sd.points[i + 2], sd.points[i + 3], fraction);
+    }
+
     private Vector3 GetSegmentedDirection(int segment, float fraq)
     {
 
@@ -631,14 +754,13 @@ public class Intersection : MonoBehaviour
         sp.points[enforcedIndex] = middle + enforcedTangent;
     }
 
+
     public void Reset()
     {
         CenterPoint = transform.position;
         FrameWidth = defaultFrameMeasure;
         FrameHeight = defaultFrameMeasure;
         framed = false;
-        traffic = TrafficSize.Average;
-        speedLimit = SpeedLimits.KMH_30;
     }
 }
 
@@ -657,6 +779,9 @@ public class HelperLine
     public float lenght;
     public List<float> nodePoints;
     public List<NodeInOut> inOut;
+    public TrafficSize traffic = TrafficSize.Average;
+    public SpeedLimits speedLimit = SpeedLimits.KMH_30;
+    public DriverYield laneYield;
 }
 
 [Serializable]
@@ -667,6 +792,8 @@ public class ExistingLane
     public int outNodeIndex;
     public DriverYield laneYield;
     public IntersectionDirection turnDirection;
+    public TrafficSize traffic = TrafficSize.Average;
+    public SpeedLimits speedLimit = SpeedLimits.KMH_30;
     public bool confirmed;
 }
 
@@ -678,4 +805,6 @@ public class SplineData
     public Nodes startNode;
     public Nodes endNode;
     public bool endPointSet;
+    public IntersectionDirection turnDirection;
+    public int[] segmentNodes;
 }

@@ -86,6 +86,18 @@ public class Nodes : MonoBehaviour
         }
     }
 
+    public bool IsInIntersection
+    {
+        get
+        {
+            return isInIntersection;
+        }
+        set
+        {
+            isInIntersection = value;
+        }
+    }
+
     public Nodes ParallelLeft
     {
         get
@@ -178,7 +190,6 @@ public class Nodes : MonoBehaviour
     // this node. InNodes and OutNodes arrays must be checked to remove nulls
     public void CheckNullNodes()
     {
-        Debug.Log("checking node " + gameObject.name);
         bool inNodesChecked = false;
         bool outNodesChecked = false;
         while(true)
@@ -445,6 +456,7 @@ public class Nodes : MonoBehaviour
         laneChangeRight = null;
         isConnectNode = false;
         isBusLane = false;
+        isInIntersection = false;
         turnDirection = IntersectionDirection.Straight;
     }
 }

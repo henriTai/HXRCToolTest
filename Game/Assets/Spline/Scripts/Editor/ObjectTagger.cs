@@ -231,6 +231,19 @@ public static class ObjectTagger
         }
     }
 
+    public static void SetLaneIcons(TagColorScheme scheme, int laneIndex, ref Nodes[] nodeList)
+    {
+        switch (scheme)
+        {
+            case TagColorScheme.ByLaneNumber:
+                foreach (Nodes n in nodeList)
+                {
+                    ByLaneNumber(laneIndex, n.gameObject);
+                }
+                break;
+        }
+    }
+
     public static void ByLaneNumber(int laneIndex, GameObject g)
     {
         IconColor c = IconColor.Gray;
@@ -302,4 +315,5 @@ public static class ObjectTagger
         }
 
     }
+
 }

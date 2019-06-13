@@ -7486,8 +7486,6 @@ MonoBehaviour:
   framed: 1
   allNodesSet: 1
   roadNetwork: {fileID: 0}
-  traffic: 2
-  speedLimit: 1
   nodesInBox:
   - node: {fileID: 23761353}
     inOut: 1
@@ -7526,30 +7524,32 @@ MonoBehaviour:
   - node: {fileID: 2097650399}
     inOut: 2
   nodesInBoxSet: 0
-  infoIndex: 10
+  infoIndex: 0
   helperLines:
   - startPoint: {x: 93.2, y: 0, z: -28.099998}
     direction: {x: 0, y: 0, z: 1}
     lenght: 11
     nodePoints:
-    - 0.125
-    - 0.275
-    - 0.425
-    - 0.575
-    - 0.725
-    - 0.875
-    inOut: 020000000200000002000000010000000100000001000000
-  - startPoint: {x: 70.2, y: 0, z: -28.099998}
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    inOut: 02000000020000000100000001000000
+    traffic: 2
+    speedLimit: 1
+    laneYield: 2
+  - startPoint: {x: 71.2, y: 0, z: -28.099998}
     direction: {x: 0, y: 0, z: 1}
     lenght: 11
     nodePoints:
-    - 0.125
-    - 0.275
-    - 0.425
-    - 0.575
-    - 0.725
-    - 0.875
-    inOut: 010000000100000001000000020000000200000002000000
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    inOut: 01000000010000000200000002000000
+    traffic: 2
+    speedLimit: 1
+    laneYield: 2
   existingLanes:
   - nodes:
     - {fileID: 23761353}
@@ -7559,6 +7559,8 @@ MonoBehaviour:
     outNodeIndex: 1
     laneYield: 1
     turnDirection: 0
+    traffic: 1
+    speedLimit: 2
     confirmed: 1
   - nodes:
     - {fileID: 98309438}
@@ -7568,6 +7570,8 @@ MonoBehaviour:
     outNodeIndex: 5
     laneYield: 1
     turnDirection: 0
+    traffic: 1
+    speedLimit: 2
     confirmed: 1
   - nodes:
     - {fileID: 101155615}
@@ -7577,6 +7581,8 @@ MonoBehaviour:
     outNodeIndex: 3
     laneYield: 1
     turnDirection: 0
+    traffic: 1
+    speedLimit: 2
     confirmed: 1
   - nodes:
     - {fileID: 562959550}
@@ -7586,6 +7592,8 @@ MonoBehaviour:
     outNodeIndex: 0
     laneYield: 1
     turnDirection: 0
+    traffic: 1
+    speedLimit: 2
     confirmed: 1
   - nodes:
     - {fileID: 588679335}
@@ -7595,6 +7603,8 @@ MonoBehaviour:
     outNodeIndex: 2
     laneYield: 1
     turnDirection: 0
+    traffic: 1
+    speedLimit: 2
     confirmed: 1
   - nodes:
     - {fileID: 602911198}
@@ -7604,34 +7614,40 @@ MonoBehaviour:
     outNodeIndex: 4
     laneYield: 1
     turnDirection: 0
+    traffic: 1
+    speedLimit: 2
     confirmed: 1
-  existingLaneIndex: 5
+  existingLaneIndex: 2
   existingLanesChecked: 1
   createdSplines:
   - points:
-    - {x: 89.9, y: 0, z: -29.9}
-    - {x: 89.96846, y: 0, z: -27.054863}
-    - {x: 90.26824, y: 0, z: -26.796942}
-    - {x: 93.2, y: 0, z: -26.724998}
-    modes: 0100000001000000
-    startNode: {fileID: 602911198}
-    endNode: {fileID: 0}
-    endPointSet: 1
-  - points:
     - {x: 84.9, y: 0, z: -29.9}
     - {x: 84.9, y: 0, z: -26.233334}
-    - {x: 84.698425, y: 0, z: -23.976645}
-    - {x: 82.80247, y: 0, z: -21.278551}
-    - {x: 80.9863, y: 0, z: -18.694}
-    - {x: 75.29132, y: 0, z: -18.49846}
-    - {x: 70.2, y: 0, z: -18.474998}
-    modes: 010000000100000001000000
+    - {x: 87.98004, y: 0, z: -25.190397}
+    - {x: 93.2, y: 0, z: -25.899998}
+    modes: 0100000001000000
     startNode: {fileID: 101155615}
     endNode: {fileID: 0}
     endPointSet: 1
-  splineIndex: 1
+    turnDirection: 2
+    segmentNodes: 05000000
+  - points:
+    - {x: 74.9, y: 0, z: -13.9}
+    - {x: 74.9, y: 0, z: -17.566666}
+    - {x: 76.038864, y: 0, z: -21.039402}
+    - {x: 77.751884, y: 0, z: -24.101473}
+    - {x: 78.82598, y: 0, z: -26.02145}
+    - {x: 84.45282, y: 0, z: -26.036726}
+    - {x: 89.9, y: 0, z: -13.900001}
+    modes: 010000000100000001000000
+    startNode: {fileID: 98309438}
+    endNode: {fileID: 2059209526}
+    endPointSet: 1
+    turnDirection: 0
+    segmentNodes: 0400000005000000
+  splineIndex: 0
   splinesSet: 1
-  inIndex: 2
+  inIndex: 1
   outIndex: 4
 --- !u!4 &341040705
 Transform:
